@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="793.0" style="-fx-background-color: D9D9D9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="40.0" layoutY="14.0" text="Dashboard">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="27.0" layoutY="52.0" prefHeight="139.0" prefWidth="175.0" style="-fx-background-radius: 15; -fx-background-color: EF476F;">
+         <children>
+            <Label layoutX="35.0" layoutY="36.0" text="122" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="108.0" text="2.00% (30 jours)" textFill="#fcfcfc" />
+            <Label layoutX="24.0" layoutY="11.0" text="Nombre des  salles" textFill="#fffdfd">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="397.0" layoutY="45.0" prefHeight="146.0" prefWidth="175.0" style="-fx-background-radius: 15; -fx-background-color: #1e2b9d;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Réservations Acceptées" textFill="#fffdfd">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="39.0" text="13" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="108.0" text="12.02% (30 jours)" textFill="#fcfcfc" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="576.0" layoutY="45.0" prefHeight="146.0" prefWidth="175.0" style="-fx-background-radius: 15; -fx-background-color: #06d6a0;">
+         <children>
+            <Label layoutX="18.0" layoutY="14.0" text="Réservations Annulées " textFill="#fffdfd">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="47.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="117.0" text="0 9.52% (30 jours)" textFill="#fcfcfc" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="211.0" layoutY="52.0" prefHeight="139.0" prefWidth="175.0" style="-fx-background-radius: 15; -fx-background-color: #118ab2;">
+         <children>
+            <Label layoutX="7.0" layoutY="5.0" text="Nombre des equipements" textFill="#fffdfd">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="35.0" text="4021" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="107.0" text="5.23% (30 jours)" textFill="#fcfcfc" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="21.0" layoutY="197.0" prefHeight="163.0" prefWidth="430.0" style="-fx-background-color: #fffdfd; -fx-background-radius: 15;">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="420.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/Capture.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="475.0" layoutY="196.0" prefHeight="170.0" prefWidth="277.0" style="-fx-background-color: #fffdfd; -fx-background-radius: 15;">
+         <children>
+            <ImageView fitHeight="163.0" fitWidth="200.0" layoutX="37.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/Capture1.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TableView layoutX="150.0" layoutY="376.0" prefHeight="146.0" prefWidth="442.0">
+        <columns>
+          <TableColumn prefWidth="75.0" style="-fx-background-color: #1e2b9d;" text="N° de salle " />
+            <TableColumn prefWidth="99.0" style="-fx-background-color: #1e2b9d;" text=" Nombre d’equipement" />
+            <TableColumn prefWidth="62.0" style="-fx-background-color: #1e2b9d;" text="Etage" />
+            <TableColumn prefWidth="90.0" style="-fx-background-color: #1e2b9d;" text="Capacité" />
+            <TableColumn prefWidth="118.0" style="-fx-background-color: #1e2b9d;" text="Description" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
