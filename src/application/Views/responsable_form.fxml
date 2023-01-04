@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.RowConstraints?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <TextField fx:id="txt_username" layoutX="226.0" layoutY="31.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom d'utilisateur" />
-        <Label layoutX="226.0" layoutY="14.0" text="Label" />
-        <TextField fx:id="txt_username1" layoutX="226.0" layoutY="85.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom d'utilisateur" />
-        <TextField fx:id="txt_username2" layoutX="226.0" layoutY="142.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom d'utilisateur" />
-        <TextField fx:id="txt_username3" layoutX="226.0" layoutY="201.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom d'utilisateur" />
-        <Label layoutX="226.0" layoutY="68.0" text="Label" />
-        <Label layoutX="226.0" layoutY="125.0" text="Label" />
-        <Label layoutX="227.0" layoutY="184.0" text="Label" />
-        <TextField fx:id="txt_username4" layoutX="414.0" layoutY="30.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom d'utilisateur" />
-        <Label layoutX="414.0" layoutY="13.0" text="Label" />
-        <TextField fx:id="txt_username11" layoutX="414.0" layoutY="84.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom d'utilisateur" />
-        <TextField fx:id="txt_username21" layoutX="414.0" layoutY="141.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom d'utilisateur" />
-        <Label layoutX="414.0" layoutY="67.0" text="Label" />
-        <Label layoutX="414.0" layoutY="124.0" text="Label" />
-        <Button layoutX="696.0" layoutY="199.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #06D6A0;" text="Enregistrer" textFill="WHITE">
+        <TextField fx:id="txt_username" layoutX="226.0" layoutY="31.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom " />
+        <Label layoutX="226.0" layoutY="14.0" text="Nom " />
+        <TextField fx:id="txt_username1" layoutX="226.0" layoutY="85.0" prefHeight="26.0" prefWidth="143.0" promptText="Adresse" />
+        <TextField fx:id="txt_username3" layoutX="226.0" layoutY="201.0" prefHeight="26.0" prefWidth="143.0" promptText="xxxxxxx@gmail.com" />
+        <Label layoutX="226.0" layoutY="68.0" text="Adresse" />
+        <Label layoutX="226.0" layoutY="125.0" text="Date de naissance " />
+        <Label layoutX="227.0" layoutY="184.0" text="Email" />
+        <TextField fx:id="txt_username4" layoutX="414.0" layoutY="30.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le prénom " />
+        <Label layoutX="414.0" layoutY="13.0" text="Prénom " />
+        <TextField fx:id="txt_username11" layoutX="414.0" layoutY="84.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer la profession" />
+        <TextField fx:id="txt_username21" layoutX="414.0" layoutY="141.0" prefHeight="26.0" prefWidth="143.0" promptText="06-xx-xx-xx-xx" />
+        <Label layoutX="414.0" layoutY="67.0" text="Profession" />
+        <Label layoutX="414.0" layoutY="124.0" text="Téléphone" />
+        <Button layoutX="696.0" layoutY="199.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #06D6A0; -fx-background-radius: 20;" text="Enregistrer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -34,7 +33,7 @@
                     </image>
                 </ImageView>
             </graphic></Button>
-        <Button layoutX="348.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #06D6A0;" text="Ajouter" textFill="WHITE">
+        <Button layoutX="348.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #06D6A0; -fx-background-radius: 20;" text="Ajouter" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -43,7 +42,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="460.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #118AB2;" text="Modifier" textFill="WHITE">
+        <Button layoutX="460.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #118AB2; -fx-background-radius: 20;" text="Modifier" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -52,7 +51,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="576.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #EF476F;" text="Supprimer" textFill="WHITE">
+        <Button layoutX="576.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #EF476F; -fx-background-radius: 20;" text="Supprimer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -61,7 +60,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="696.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #1E2B9D;" text="Imprimer" textFill="WHITE">
+        <Button layoutX="696.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #1E2B9D; -fx-background-radius: 20;" text="Imprimer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -70,17 +69,24 @@
                 </ImageView>
             </graphic>
         </Button>
-        <TextField fx:id="txt_username41" layoutX="535.0" layoutY="199.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom d'utilisateur" />
-        <GridPane layoutX="226.0" layoutY="273.0" prefHeight="170.0" prefWidth="567.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-        </GridPane>
+        <TextField fx:id="txt_username41" layoutX="474.0" layoutY="201.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
+      <TableView layoutX="225.0" layoutY="272.0" prefHeight="126.0" prefWidth="571.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Nom" />
+          <TableColumn prefWidth="75.0" text="Prénom " />
+            <TableColumn prefWidth="75.0" text="Adresse" />
+            <TableColumn prefWidth="75.0" text="Profession" />
+            <TableColumn prefWidth="75.0" text="Date de naissance " />
+            <TableColumn prefWidth="75.0" text="Téléphone" />
+            <TableColumn prefWidth="75.0" text="Email" />
+        </columns>
+      </TableView>
+      <DatePicker layoutX="226.0" layoutY="141.0" prefHeight="25.0" prefWidth="143.0" />
+      <Button layoutX="658.0" layoutY="202.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE" />
+      <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="668.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/recherche.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
