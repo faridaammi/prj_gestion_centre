@@ -1,5 +1,4 @@
 package application.Models;
 
-public class Responsable {
-
+public class Test {
 }
