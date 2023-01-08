@@ -34,11 +34,7 @@
       </AnchorPane>
       <ImageView fitHeight="380.0" fitWidth="370.0" layoutX="36.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
-<<<<<<< HEAD
-            <Image url="@../images/img_login.png" />
-=======
             <Image url="@../../images/img_login.png" />
->>>>>>> 51eac174321bef491608749d73d77291f5ab15a6
          </image></ImageView>
    </children>
 </AnchorPane>

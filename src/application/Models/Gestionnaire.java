@@ -1,2 +1,6 @@
-package application.Models;public class Gestionnaire {
+package application.Models;
+
+public class Gestionnaire {
+
+
 }
