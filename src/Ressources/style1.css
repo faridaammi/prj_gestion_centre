@@ -1,0 +1,63 @@
+.btn_ajouter{
+    -fx-background-color: #06D6A0;
+    -fx-background-radius: 20;}
+.btn_ajouter:hover{
+    -fx-background-color: #50E2BC;
+}
+.btn_modifier{
+    -fx-background-color: #118AB2;
+    -fx-background-radius: 20;
+}
+.btn_modifier:hover{
+    -fx-background-color:  #40a1c1;
+}
+.btn_supprimer{
+    -fx-background-color: #EF476F;
+    -fx-background-radius: 20;
+}
+.btn_supprimer:hover{
+    -fx-background-color: #f26b8b;
+}
+.btn_enregistrer{
+    -fx-background-color: #06D6A0;
+    -fx-background-radius: 20;
+}
+.btn_enregistrer:hover{
+    -fx-background-color: #50E2BC;
+}
+.btn_imprimer{
+    -fx-background-color: #1E2B9D;
+    -fx-background-radius: 20;
+}
+.btn_imprimer:hover{
+    -fx-background-color: #4a55b0;
+}
+#btn_importer_centre{
+    -fx-background-color: #EF476F;
+    -fx-background-radius: 20;
+}
+#btn_importer_centre:hover{
+    -fx-background-color: #f26b8b;
+}
+.btn_afficher_centre{
+    -fx-background-color: Transparent;
+    -fx-background-radius: 0 20 20 0;
+    -fx-border-radius: 0 20 20 0;
+    -fx-border-color: black;
+    -fx-text-fill: #1f2e9c;
+}
+.btn_afficher_centre:hover{
+    -fx-background-color: #118AB2;
+    -fx-text-fill: white;}
+.btn_afficher_respo{
+    -fx-background-color: Transparent;
+    -fx-border-radius: 20 0  0 20;
+    -fx-border-color: black;
+    -fx-text-fill: #1f2e9c;
+    -fx-background-radius: 20 0  0 20;
+}
+.btn_afficher_respo:hover{
+    -fx-background-color: #118AB2;
+    -fx-text-fill: white;
+}
+
