@@ -43,7 +43,17 @@
       <ComboBox layoutX="34.0" layoutY="68.0" prefHeight="25.0" prefWidth="181.0" promptText="Selectionner un email" style="-fx-background-color: FFFFFF;" />
       <ImageView fitHeight="58.0" fitWidth="32.0" layoutX="57.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../demo7/src/main/java/image/img.png" />
+            <Image url="@../../images/icon_envoyer.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="215.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/icon_joidre.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="555.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/icon_brouillon.png" />
          </image>
       </ImageView>
 

@@ -1,0 +1,31 @@
+.sreach-button{
+-fx-background-color:#FFFFFF;
+}
+.transparent{
+-fx-background-color:#FFFFFF;
+}
+.search-button{
+-fx-background-color:#828282;
+}
+.shadow{
+-fx-effect:dropShow(three-pass-box,rgba(0,0,0,0,1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.A-button{
+
+-fx-border-radius:50 0 0 50;
+-fx-border:1;
+-fx-border-color:black;
+
+}
+.B-button{
+
+-fx-border:1;
+-fx-border-color:black;
+}
+.C-button{
+-fx-border-radius:0 50 50 0;
+
+-fx-border:1;
+-fx-border-color:black;
+}

@@ -4,6 +4,10 @@ public class Fichier {
    private static int Id_Fichier;
          private String   Nom_Fichier;
 
+    public Fichier(String nom_Fichier) {
+        Nom_Fichier = nom_Fichier;
+    }
+
     public static int getId_Fichier() {
         return Id_Fichier;
     }
