@@ -33,14 +33,14 @@
       <Label layoutX="240.0" layoutY="192.0" text="Email" />
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="447.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/import.png" />
+            <Image url="@../../images/icon_import.png" />
          </image>
       </ImageView>
       <Button layoutX="702.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #06D6A0; -fx-background-radius: 20;" text="Enregistrer" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/enregistrer.png" />
+                  <Image url="@../../images/icon_enregistrer.png" />
                </image>
             </ImageView>
          </graphic>
@@ -57,7 +57,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/modifier.png" />
+                  <Image url="@../../images/icon_modifier.png" />
                </image>
             </ImageView>
          </graphic>
@@ -69,7 +69,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/imprimer.png" />
+                  <Image url="@../../images/icon_imprimer.png" />
                </image>
             </ImageView>
          </graphic>
@@ -81,7 +81,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/supprimer.png" />
+                  <Image url="@../../images/icon_supprimer.png" />
                </image>
             </ImageView>
          </graphic>
@@ -104,7 +104,7 @@
       <ComboBox layoutX="449.0" layoutY="39.0" prefHeight="25.0" prefWidth="159.0" />
       <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="368.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/ajouter.png" />
+            <Image url="@../../images/icon_ajouter.png" />
          </image>
       </ImageView>
    </children>

@@ -26,7 +26,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/enregistrer.png" />
+                  <Image url="@../../images/icon_enregistrer.png" />
                </image>
             </ImageView>
          </graphic>
@@ -38,7 +38,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/ajouter.png" />
+                  <Image url="@../../images/icon_ajouter.png" />
                </image>
             </ImageView>
          </graphic>
@@ -50,7 +50,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/modifier.png" />
+                  <Image url="@../../images/icon_modifier.png" />
                </image>
             </ImageView>
          </graphic>
@@ -62,7 +62,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/imprimer.png" />
+                  <Image url="@../../images/icon_imprimer.png" />
                </image>
             </ImageView>
          </graphic>
@@ -72,7 +72,7 @@
       </Button>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="492.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/import.png" />
+            <Image url="@../../images/icon_import.png" />
          </image>
       </ImageView>
       <Button layoutX="470.0" layoutY="266.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: Transparent; -fx-border-radius: 20 0  0 20; -fx-border-color: black; -fx-background-radius: 20 0  0 20;" text="Responsable" textFill="#1f2e9c">
@@ -88,7 +88,7 @@
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/recherche.png" />
+                  <Image url="@../../images/icon_recherche.png" />
                </image>
             </ImageView>
          </graphic>
@@ -97,7 +97,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/supprimer.png" />
+                  <Image url="@../../images/icon_supprimer.png" />
                </image>
             </ImageView>
          </graphic>
@@ -112,7 +112,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/enregistrer.png" />
+                  <Image url="@../../images/icon_enregistrer.png" />
                </image>
             </ImageView>
          </graphic>
