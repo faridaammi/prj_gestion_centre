@@ -30,7 +30,7 @@
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../images/enregistrer.png" />
+                        <Image url="@../../images/icon_enregistrer.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -41,7 +41,7 @@
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../images/ajouter.png" />
+                        <Image url="@../../images/icon_ajouter.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -53,7 +53,7 @@
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../images/modifier.png" />
+                        <Image url="@../../images/icon_modifier.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -65,7 +65,7 @@
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../images/supprimer.png" />
+                        <Image url="@../../images/icon_supprimer.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -77,7 +77,7 @@
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../images/imprimer.png" />
+                        <Image url="@../../images/icon_imprimer.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -102,7 +102,7 @@
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/recherche.png" />
+                  <Image url="@../../images/icon_recherche.png" />
                </image>
             </ImageView>
          </graphic></Button>
