@@ -7,4 +7,5 @@ module projet.getion.centre.grp3 {
 
     opens application;
     opens application.Models;
+    opens application.Controllers;
 }

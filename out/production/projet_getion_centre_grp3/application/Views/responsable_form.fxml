@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="417.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="417.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.ResponsableController">
     <children>
         <TextField fx:id="txt_username" layoutX="226.0" layoutY="31.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom " />
         <Label layoutX="226.0" layoutY="14.0" text="Nom " />
@@ -37,7 +37,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-        <Button layoutX="348.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #06D6A0; -fx-background-radius: 20;" text="Ajouter" textFill="WHITE">
+        <Button layoutX="348.0" layoutY="243.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #06D6A0; -fx-background-radius: 20;" text="Ajouter" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -86,7 +86,7 @@
          </font>
         </Button>
         <TextField fx:id="txt_username41" layoutX="474.0" layoutY="201.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
-      <TableView layoutX="225.0" layoutY="272.0" prefHeight="126.0" prefWidth="571.0">
+      <TableView id="tbl_r" layoutX="225.0" layoutY="272.0" prefHeight="126.0" prefWidth="571.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Nom" />
           <TableColumn prefWidth="75.0" text="Prénom " />

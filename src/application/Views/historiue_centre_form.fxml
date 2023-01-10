@@ -30,7 +30,7 @@
       <Button layoutX="344.0" layoutY="155.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="22.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE" />
       <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="348.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/recherche.png" />
+            <Image url="@../../images/icon_recherche.png" />
          </image>
       </ImageView>
    </children>
