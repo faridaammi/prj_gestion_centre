@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="32.0" layoutY="176.0" prefHeight="426.0" prefWidth="944.0">
+        <columns>
+          <TableColumn prefWidth="126.39995956420898" text="Code Réservation" />
+          <TableColumn prefWidth="89.5999755859375" text="Date début" />
+            <TableColumn prefWidth="85.59999084472656" text="Date Fin" />
+            <TableColumn prefWidth="72.7999267578125" text="Type" />
+            <TableColumn prefWidth="81.60003662109375" text="Etats" />
+            <TableColumn prefWidth="81.60003662109375" text="Centres" />
+            <TableColumn prefWidth="139.199951171875" text="Code Association" />
+            <TableColumn prefWidth="132.0" text="Association" />
+            <TableColumn prefWidth="134.4000244140625" text="Action" />
+        </columns>
+      </TableView>
+      <Button layoutX="175.0" layoutY="113.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="123.0" style="-fx-background-color: #06D6A0; -fx-background-radius: 20;" text="Accepter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icon_accepter_white.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="331.0" layoutY="113.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="123.0" style="-fx-background-color: #FF2727; -fx-background-radius: 20;" text="Réfuser" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icon_refuse_white.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="664.0" layoutY="112.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #1E2B9D; -fx-background-radius: 20;" text="Imprimer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icon_imprimer.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="834.0" layoutY="113.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #06D6A0; -fx-background-radius: 20;" text="Enregistrer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icon_enregistrer.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

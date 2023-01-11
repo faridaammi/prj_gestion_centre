@@ -1,9 +1,25 @@
 .Button:hover{
     -fx-background-color:#118ab2;
+    -fx-border:1;
+    -fx-border-color:#0d0d0d;
 }
 .Button2:hover{
     -fx-background-color:#118ab2;
+    -fx-border:1;
+    -fx-border-color:#0d0d0d;
 }
-.Button3:hover{
-    -fx-background-color:#118ab2;
+.A-button{
+
+    -fx-border-radius: 19 0 0 19;
+    -fx-border:1;
+    -fx-border-color:black;
 }
+.b-button{
+    -fx-border-radius: 0 19 19 0;
+
+    -fx-border:1;
+    -fx-border-color:#000000;
+}
+
+
+

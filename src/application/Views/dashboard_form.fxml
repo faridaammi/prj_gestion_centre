@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
@@ -31,7 +32,11 @@
                      </BorderPane.margin></Pane>
                </top>
                <center>
-                  <Pane fx:id="panePrincipe" prefHeight="589.0" prefWidth="832.0" BorderPane.alignment="CENTER" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <StackPane fx:id="stackPrincipe" layoutX="6.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
                </center>
             </BorderPane>
          </center>
@@ -49,7 +54,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Button fx:id="btn_dashboard" alignment="BASELINE_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#btnChangeTitle" prefHeight="34.0" prefWidth="176.0" stylesheets="@../values/styleFrd.css" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="btn_dashboard" alignment="BASELINE_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#dashboard" prefHeight="34.0" prefWidth="176.0" stylesheets="@../values/styleFrd.css" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
