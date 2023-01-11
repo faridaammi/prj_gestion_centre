@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="816.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.centre_gestionnaire_formController">
+<AnchorPane prefHeight="622.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.centre_gestionnaire_formController">
    <children>
       <TextField fx:id="txt_nom_centre" layoutX="60.0" layoutY="38.0" prefHeight="26.0" prefWidth="193.0" promptText="Entrer le nom de centre" />
       <Label layoutX="60.0" layoutY="21.0" text="Nom de Centre" />
@@ -22,7 +22,7 @@
       <Label layoutX="272.0" layoutY="72.0" text="Description de Centre" />
       <Label layoutX="60.0" layoutY="132.0" text="Responsable de centre" />
       <ComboBox fx:id="cb_responsable_centre" layoutX="60.0" layoutY="151.0" prefWidth="193.0" />
-      <Button id="btn_enregistrer_centre" layoutX="706.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_enregistrer" text="Enregistrer" textFill="WHITE">
+      <Button id="btn_enregistrer_centre" layoutX="881.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_enregistrer" text="Enregistrer" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -34,7 +34,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="btn_ajouter_centre" layoutX="358.0" layoutY="230.0" mnemonicParsing="false" onAction="#AjouterCentre" prefHeight="25.0" prefWidth="103.0" styleClass="btn_ajouter" text="Ajouter" textFill="WHITE">
+      <Button id="btn_ajouter_centre" layoutX="533.0" layoutY="230.0" mnemonicParsing="false" onAction="#AjouterCentre" prefHeight="25.0" prefWidth="103.0" styleClass="btn_ajouter" text="Ajouter" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -46,7 +46,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="btn_modifier_centre" layoutX="470.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
+      <Button id="btn_modifier_centre" layoutX="645.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -58,7 +58,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="btn_imprimer_centre" layoutX="706.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_imprimer" text="Imprimer" textFill="WHITE">
+      <Button id="btn_imprimer_centre" layoutX="881.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_imprimer" text="Imprimer" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -70,30 +70,22 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="492.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="197.0" fitWidth="159.0" layoutX="492.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/icon_import.png" />
          </image>
       </ImageView>
-      <Button fx:id="btn_afficher_respo" layoutX="470.0" layoutY="266.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_respo" text="Responsable">
+      <Button fx:id="btn_afficher_respo" layoutX="645.0" layoutY="266.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_respo" text="Responsable">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button id="btn_afficher_centre" layoutX="573.0" layoutY="266.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_centre" stylesheets="@../../Ressources/style1.css" text="Centre" textFill="WHITE">
+      <Button id="btn_afficher_centre" layoutX="748.0" layoutY="266.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_centre" stylesheets="@../../Ressources/style1.css" text="Centre" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <TextField fx:id="txt_recherche" layoutX="248.0" layoutY="266.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
-      <Button layoutX="432.0" layoutY="268.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" textFill="WHITE">
-         <graphic>
-            <ImageView fitHeight="14.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/icon_recherche.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button id="btn_supprimer_centre" layoutX="586.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
+      <TextField fx:id="txt_recherche" layoutX="418.0" layoutY="266.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
+      <Button layoutX="603.0" layoutY="269.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" textFill="WHITE" />
+      <Button id="btn_supprimer_centre" layoutX="761.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -105,7 +97,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="btn_importer_centre" layoutX="506.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Importer" textFill="WHITE">
+      <Button id="btn_importer_centre" layoutX="681.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Importer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -118,5 +110,10 @@
             </ImageView>
          </graphic>
       </Button>
+      <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="612.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/icon_recherche.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
