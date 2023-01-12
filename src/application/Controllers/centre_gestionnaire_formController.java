@@ -41,8 +41,9 @@ public class centre_gestionnaire_formController extends Component implements Ini
         String txt_nom=txt_nom_centre.getText();
         String txt_capacite=String.valueOf(txt_capacite_centre.getText());
         String txt_description=txt_description_centre.getText();
+        String txt_adresse=txt_adresse_centre.getText();
         String cb_responsable=cb_responsable_centre.getSelectionModel().getSelectedItem().toString();
-        if( txt_nom.isEmpty() || txt_capacite.isEmpty() || txt_description.isEmpty() )
+        if( txt_nom.isEmpty() || txt_capacite.isEmpty() || txt_description.isEmpty() || txt_adresse.isEmpty())
         {
             JOptionPane.showMessageDialog(this,
                     "Veuillez remplir tous les champs",
