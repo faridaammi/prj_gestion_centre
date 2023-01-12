@@ -13,11 +13,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.dashbord_controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1203.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.dashbord_controller">
    <children>
-      <BorderPane prefHeight="650.0" prefWidth="1026.0">
+      <BorderPane prefHeight="650.0" prefWidth="1203.0">
          <center>
-            <BorderPane prefHeight="622.0" prefWidth="940.0" style="-fx-background-color: #F0F0F0;" BorderPane.alignment="CENTER">
+            <BorderPane prefHeight="650.0" prefWidth="914.0" style="-fx-background-color: #F0F0F0;" BorderPane.alignment="CENTER">
                <top>
                   <Pane prefHeight="26.0" prefWidth="771.0" BorderPane.alignment="CENTER">
                      <children>
@@ -34,7 +34,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <StackPane fx:id="stackPrincipe" layoutX="6.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <StackPane fx:id="stackPrincipe" layoutX="6.0" prefHeight="150.0" prefWidth="1008.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </center>

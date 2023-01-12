@@ -55,7 +55,7 @@ public class login_formController implements Initializable {
 
                     Parent root = FXMLLoader.load(getClass().getResource("Views/dashboard_form.fxml"));
                     Stage window =(Stage) btn_connexion.getScene().getWindow();
-                    window.setScene(new Scene(root,1008,645));
+                    window.setScene(new Scene(root,1203,645));
                     window.centerOnScreen();
 
                 }

@@ -1,4 +1,4 @@
-package application;
+package application.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,7 +68,19 @@ public class dashbord_controller implements Initializable {
     @FXML
     public void switchToLogin(ActionEvent eventLogin) throws IOException {
         btn_deconnexion.getScene().getWindow().hide();
-        Parent rootLogin = FXMLLoader.load(getClass().getResource("Views/login_form.fxml"));
+
+//        Stage stgeLogn = new Stage();
+//        Parent root = FXMLLoader.load(getClass().getResource("Views/login_form.fxml"));
+//        Scene sceneLogn = new Scene(root);
+//        stgeLogn.setScene(sceneLogn);
+//        stgeLogn.show();
+//
+//        Parent root = FXMLLoader.load(getClass().getResource("/Views/login_form.fxml"));
+//        Stage window =(Stage) btn_deconnexion.getScene().getWindow();
+//        window.setScene(new Scene(root));
+//        window.centerOnScreen();
+
+        Parent rootLogin = FXMLLoader.load(getClass().getResource("/application/Views/login_form.fxml"));
         stageLogin = (Stage) ((Node)eventLogin.getSource()).getScene().getWindow();
         sceneLogin = new Scene(rootLogin);
         stageLogin.setScene(sceneLogin);
@@ -80,39 +92,57 @@ public class dashbord_controller implements Initializable {
         if(eventChange.getSource() == btn_dashboard)
         {
             txt_titre.setText("Dashboard");
-            Parent fxml = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Views/login_form.fxml")));
+            Parent fxml = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/application/Views/dashboard_form.fxml")));
             stackPrincipe.getChildren().removeAll();
             stackPrincipe.getChildren().setAll(fxml);
         }
         else if(eventChange.getSource() == btn_centres)
         {
             txt_titre.setText("Centres");
+            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/centre_gestionnaire_form.fxml"));
+            stackPrincipe.getChildren().removeAll();
+            stackPrincipe.getChildren().setAll(fxml);
         }
         else if(eventChange.getSource() == btn_associations)
         {
             txt_titre.setText("Associations");
+            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/centre_gestionnaire_form.fxml"));
+            stackPrincipe.getChildren().removeAll();
+            stackPrincipe.getChildren().setAll(fxml);
         }
         else if(eventChange.getSource() == btn_contact)
         {
             txt_titre.setText("Contacts");
+            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/Contact.fxml"));
+            stackPrincipe.getChildren().removeAll();
+            stackPrincipe.getChildren().setAll(fxml);
         }
         else if(eventChange.getSource() == btn_historique)
         {
             txt_titre.setText("Historiques");
+            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/Historique_Organisme.fxml"));
+            stackPrincipe.getChildren().removeAll();
+            stackPrincipe.getChildren().setAll(fxml);
         }
         else if(eventChange.getSource() == btn_reservations)
         {
             txt_titre.setText("Reservations");
+            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/reservation.fxml"));
+            stackPrincipe.getChildren().removeAll();
+            stackPrincipe.getChildren().setAll(fxml);
         }
         else if(eventChange.getSource() == btn_paramettres)
         {
             txt_titre.setText("Paramettres");
+            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/centre_gestionnaire_form.fxml"));
+            stackPrincipe.getChildren().removeAll();
+            stackPrincipe.getChildren().setAll(fxml);
         }
         else if(eventChange.getSource() == btn_deconnexion)
         {
             btn_deconnexion.getScene().getWindow().hide();
             Stage login = new Stage();
-            Parent rootLogin = FXMLLoader.load(getClass().getResource("/Views/Login_form.fxml"));
+            Parent rootLogin = FXMLLoader.load(getClass().getResource("/application/Views/Login_form.fxml"));
             Scene scene = new Scene(rootLogin);
             login.setScene(scene);
             login.show();
@@ -122,12 +152,12 @@ public class dashbord_controller implements Initializable {
 
     }
     public void dashboard(ActionEvent eventDashboard) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/Views/dashboard_principale_form.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/dashboard_principale_form.fxml"));
         stackPrincipe.getChildren().removeAll();
         stackPrincipe.getChildren().setAll(fxml);
     }
     public void association(ActionEvent eventDashboard) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/Views/Contact.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/Contact.fxml"));
         stackPrincipe.getChildren().removeAll();
         stackPrincipe.getChildren().setAll(fxml);
     }
