@@ -1,4 +1,4 @@
-package application.Controllers;
+package application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class dashbord_controller implements Initializable {
@@ -67,14 +68,7 @@ public class dashbord_controller implements Initializable {
     @FXML
     public void switchToLogin(ActionEvent eventLogin) throws IOException {
         btn_deconnexion.getScene().getWindow().hide();
-
-//        Stage stgeLogn = new Stage();
-//        Parent root = FXMLLoader.load(getClass().getResource("Views/login_form.fxml"));
-//        Scene sceneLogn = new Scene(root);
-//        stgeLogn.setScene(sceneLogn);
-//        stgeLogn.show();
-//
-        Parent rootLogin = FXMLLoader.load(getClass().getResource("../../login_form.fxml"));
+        Parent rootLogin = FXMLLoader.load(getClass().getResource("Views/login_form.fxml"));
         stageLogin = (Stage) ((Node)eventLogin.getSource()).getScene().getWindow();
         sceneLogin = new Scene(rootLogin);
         stageLogin.setScene(sceneLogin);
@@ -86,7 +80,7 @@ public class dashbord_controller implements Initializable {
         if(eventChange.getSource() == btn_dashboard)
         {
             txt_titre.setText("Dashboard");
-            Parent fxml = FXMLLoader.load(getClass().getResource("../Views/test.fxml"));
+            Parent fxml = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Views/login_form.fxml")));
             stackPrincipe.getChildren().removeAll();
             stackPrincipe.getChildren().setAll(fxml);
         }
