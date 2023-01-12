@@ -47,7 +47,7 @@ public class ResponsableController extends Component implements Initializable {
         String getTxt_tele=txt_tele_respo.getText();
         String getTxt_email=txt_email_respo.getText();
         String getDp_dateNaiss=dp_dateNaiss_respo.getValue().toString();
-        String gettxt_recherche=txt_recherche_respo.getText();
+        //String gettxt_recherche=txt_recherche_respo.getText();
         if(getTxt_nom.isEmpty() || getTxt_prenom.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_profession.isEmpty() || getDp_dateNaiss.isEmpty())
         {
             JOptionPane.showMessageDialog(this,
