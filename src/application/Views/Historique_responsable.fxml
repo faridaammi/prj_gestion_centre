@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="775.0" style="-fx-background-color: #d9d9d9;" styleClass="sreach-button" stylesheets="@../values/style3.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #d9d9d9;" styleClass="sreach-button" stylesheets="@../values/style3.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="7.0" prefHeight="31.0" prefWidth="153.0" text="Historiques" wrapText="true">
             <font>
@@ -24,11 +24,11 @@
                 <TableColumn prefWidth="131.0" text="Date de suppession" />
             </columns>
         </TableView>
-        <Button contentDisplay="RIGHT" layoutX="445.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #d9d9d9;" styleClass="C-button" stylesheets="@../values/style3.css" text="Organisme" textFill="#1105f8" />
-        <Button layoutX="320.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #118AB2;" styleClass="B-button" stylesheets="@../values/style3.css" text="Responsables" textFill="WHITE" />
-        <Button layoutX="195.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="125.0" style="-fx-boder-radius: 50 0 0 50; -fx-background-color: #d9d9d9;" styleClass="A-button" stylesheets="@../values/style3.css" text="Centres" textAlignment="CENTER" textFill="#1105f8" />
+        <Button id="id_historique_organisme" contentDisplay="RIGHT" layoutX="445.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #d9d9d9; -fx-border-radius: 0 50  50 0; -fx-background-radius: 0 50 50 0; -fx-border-color: black;" styleClass="C-button" stylesheets="@../values/style3.css" text="Organismes" textFill="#1105f8" />
+        <Button id="id_historique_responsable" layoutX="320.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #118AB2; -fx-border-color: black;" styleClass="B-button" stylesheets="@../values/style3.css" text="Responsables" textFill="WHITE" />
+        <Button id="id_historique_centre" layoutX="195.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="125.0" style="-fx-background-radius: 50 0 0 50; -fx-background-color: #d9d9d9; -fx-border-radius: 50 0 0 50; -fx-border-color: black;" styleClass="A-button" stylesheets="@../values/style3.css" text="Centres" textAlignment="CENTER" textFill="#1105f8" />
         <ComboBox layoutX="382.0" layoutY="155.0" prefHeight="25.0" prefWidth="126.0" promptText="recherché par" style="-fx-background-color: FFFFFF;" />
-        <TextField fx:id="txt_username41" layoutX="158.0" layoutY="155.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
+        <TextField id="id_historique_responsable_rech" fx:id="txt_username41" layoutX="158.0" layoutY="155.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
         <Button layoutX="344.0" layoutY="158.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE" />
         <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="351.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -37,4 +37,3 @@
         </ImageView>
     </children>
 </AnchorPane>
-
