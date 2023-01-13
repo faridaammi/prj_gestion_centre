@@ -4,11 +4,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -105,8 +110,8 @@ public class dashbord_controller implements Initializable {
         }
         else if(eventChange.getSource() == btn_associations)
         {
-            txt_titre.setText("Associations");
-            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/centre_gestionnaire_form.fxml"));
+            txt_titre.setText("Organismes");
+            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/organisme_form.fxml"));
             stackPrincipe.getChildren().removeAll();
             stackPrincipe.getChildren().setAll(fxml);
         }
