@@ -5,17 +5,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-    <Label layoutX="200.0" layoutY="14.0" text="Contact">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <Label layoutX="200.0" layoutY="14.0">
         <font>
             <Font name="Arial Bold" size="18.0" />
         </font>
     </Label>
-    <ComboBox layoutX="185.0" layoutY="66.0" prefHeight="21.0" prefWidth="181.0" promptText="Selection un email" style="-fx-background-color: FFFFFF;" />
-    <TextField fx:id="txt_username" layoutX="185.0" layoutY="120.0" prefHeight="26.0" prefWidth="181.0" promptText="Objet" />
+    <ComboBox layoutX="185.0" layoutY="66.0" prefHeight="25.0" prefWidth="231.0" promptText="Selection un email" style="-fx-background-color: FFFFFF;" />
+    <TextField fx:id="txt_username" layoutX="185.0" layoutY="120.0" prefHeight="26.0" prefWidth="231.0" promptText="Objet" />
     <Label layoutX="185.0" layoutY="43.0" prefHeight="17.0" prefWidth="110.0" text="Email destinataire" />
     <Label layoutX="185.0" layoutY="97.0" prefHeight="17.0" prefWidth="110.0" text="Objet" />
-    <TextField fx:id="txt_username1" layoutX="185.0" layoutY="178.0" prefHeight="26.0" prefWidth="181.0" promptText="Entrer votre email " />
+    <TextField fx:id="txt_username1" layoutX="185.0" layoutY="178.0" prefHeight="26.0" prefWidth="231.0" promptText="Entrer votre email " />
     <Label layoutX="185.0" layoutY="155.0" prefHeight="17.0" prefWidth="110.0" text="Votre email" />
     <TextArea layoutX="183.0" layoutY="215.0" prefHeight="245.0" prefWidth="487.0" />
     <Button layoutX="189.0" layoutY="426.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #1E2B9D; -fx-background-radius: 20;" text="Envoyer" textFill="WHITE">

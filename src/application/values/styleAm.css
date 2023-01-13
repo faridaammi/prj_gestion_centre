@@ -1,0 +1,9 @@
+.btn_historique_responsable{
+    -fx-border-color: black;
+    -fx-text-fill: #1f2e9c;
+}
+.btn_historique_responsable:hover{
+    -fx-background-color: #118AB2;
+    -fx-text-fill: white;}
+
+
