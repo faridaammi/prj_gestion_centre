@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane stylesheets="@../../Ressources/style1.css" prefHeight="622.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.organisme_formController">
+<AnchorPane prefHeight="622.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.organisme_formController">
    <children>
       <TextField fx:id="txt_nom_organisme" layoutX="59.0" layoutY="41.0" prefHeight="26.0" prefWidth="159.0" promptText="Entrer le nom d’organisme" />
       <Label layoutX="59.0" layoutY="24.0" text="Nom d’organisme" />
@@ -36,7 +36,7 @@
             <Image url="@../../images/icon_import.png" />
          </image>
       </ImageView>
-      <Button styleClass="btn_enregistrer" layoutX="888.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Enregistrer" textFill="WHITE">
+      <Button layoutX="888.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_enregistrer" text="Enregistrer" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -48,12 +48,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button styleClass="btn_ajouter" layoutX="540.0" layoutY="245.0" mnemonicParsing="false" onAction="#AjouterOrganisme" prefHeight="25.0" prefWidth="103.0" text="Ajouter" textFill="WHITE">
+      <Button layoutX="540.0" layoutY="245.0" mnemonicParsing="false" onAction="#AjouterOrganisme" prefHeight="25.0" prefWidth="103.0" styleClass="btn_ajouter" text="Ajouter" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button styleClass="btn_modifier" layoutX="652.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Modifier" textFill="WHITE">
+      <Button layoutX="652.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -65,7 +65,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button styleClass="btn_imprimer" layoutX="888.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Imprimer" textFill="WHITE">
+      <Button layoutX="888.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_imprimer" text="Imprimer" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -77,7 +77,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button styleClass="btn_supprimer" layoutX="768.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Supprimer" textFill="WHITE">
+      <Button layoutX="768.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -89,16 +89,16 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TableView layoutX="58.0" layoutY="283.0" prefHeight="319.0" prefWidth="939.0">
+      <TableView fx:id="tbl_organisme" layoutX="58.0" layoutY="283.0" prefHeight="319.0" prefWidth="939.0">
          <columns>
-            <TableColumn prefWidth="111.33334589004517" text="Nom d’organisme" />
-            <TableColumn prefWidth="132.6666717529297" text="Code" />
-            <TableColumn prefWidth="76.0" text="Type" />
-            <TableColumn prefWidth="113.99996948242188" text="Date de création" />
-            <TableColumn prefWidth="109.33328247070312" text="président(e)" />
-            <TableColumn prefWidth="143.3333740234375" text="Téléphone" />
-            <TableColumn prefWidth="162.0" text="Email" />
-            <TableColumn prefWidth="91.33331298828125" text="Statut" />
+            <TableColumn fx:id="cln_name" prefWidth="111.33334589004517" text="Nom d’organisme" />
+            <TableColumn fx:id="cln_code" prefWidth="132.6666717529297" text="Code" />
+            <TableColumn fx:id="cln_type" prefWidth="76.0" text="Type" />
+            <TableColumn fx:id="cln_datecreation" prefWidth="113.99996948242188" text="Date de création" />
+            <TableColumn fx:id="cln_president" prefWidth="109.33328247070312" text="président(e)" />
+            <TableColumn fx:id="cln_telephone" prefWidth="143.3333740234375" text="Téléphone" />
+            <TableColumn fx:id="cln_email" prefWidth="162.0" text="Email" />
+            <TableColumn fx:id="cln_statu" prefWidth="91.33331298828125" text="Statut" />
          </columns>
       </TableView>
       <ComboBox fx:id="txt_statut" layoutX="558.0" layoutY="39.0" prefHeight="25.0" prefWidth="159.0" />

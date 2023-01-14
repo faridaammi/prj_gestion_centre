@@ -1,30 +1,52 @@
 package application.Models;
 import java.awt.image.BufferedImage;
+import java.util.Date;
 
 public class Organisme {
     private int id_organisme;
-    private int code_organisme;
+    private String code_organisme;
     private String nom_organisme;
     private  String type_organisme;
     private String status_organisme;
+    private String date_decreation;
+    private String telephone;
+    private  String email;
     private String president_organisme;
     private BufferedImage  logo_organisme;
 
-    public Organisme(int id_organisme, int code_organisme, String nom_organisme, String type_organisme, String status_organisme, String president_organisme, BufferedImage logo_organisme) {
-        this.id_organisme = id_organisme;
-        this.code_organisme = code_organisme;
-        this.nom_organisme = nom_organisme;
-        this.type_organisme = type_organisme;
-        this.status_organisme = status_organisme;
-        this.president_organisme = president_organisme;
-        this.logo_organisme = logo_organisme;
+    public String getDate_decreation() {
+        return date_decreation;
     }
+
+    public void setDate_decreation(String date_decreation) {
+        this.date_decreation = date_decreation;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
+
 
     public int getId_organisme() {
         return id_organisme;
     }
 
-    public int getCode_organisme() {
+    public String getCode_organisme() {
         return code_organisme;
     }
 
@@ -52,7 +74,7 @@ public class Organisme {
         this.id_organisme = id_organisme;
     }
 
-    public void setCode_organisme(int code_organisme) {
+    public void setCode_organisme(String code_organisme) {
         this.code_organisme = code_organisme;
     }
 
@@ -76,6 +98,19 @@ public class Organisme {
         this.logo_organisme = logo_organisme;
     }
 
+    public Organisme(int id_organisme, String code_organisme, String nom_organisme, String type_organisme, String status_organisme, String date_decreation, String telephone, String email, String president_organisme) {
+        this.id_organisme = id_organisme;
+        this.code_organisme = code_organisme;
+        this.nom_organisme = nom_organisme;
+        this.type_organisme = type_organisme;
+        this.status_organisme = status_organisme;
+        this.date_decreation = date_decreation;
+        this.telephone = telephone;
+        this.email = email;
+        this.president_organisme = president_organisme;
+       // this.logo_organisme = logo_organisme;
+    }
+
     @Override
     public String toString() {
         return "Organisme{" +
@@ -84,6 +119,9 @@ public class Organisme {
                 ", nom_organisme='" + nom_organisme + '\'' +
                 ", type_organisme='" + type_organisme + '\'' +
                 ", status_organisme='" + status_organisme + '\'' +
+                ", date_decreation=" + date_decreation +
+                ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
                 ", president_organisme='" + president_organisme + '\'' +
                 ", logo_organisme=" + logo_organisme +
                 '}';
