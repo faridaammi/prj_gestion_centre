@@ -14,7 +14,7 @@
    <children>
       <TableView fx:id="table_reservation" layoutX="32.0" layoutY="176.0" prefHeight="426.0" prefWidth="944.0">
         <columns>
-          <TableColumn prefWidth="126.39995956420898" text="Code Réservation" />
+          <TableColumn fx:id="codereservation" prefWidth="126.39995956420898" text="Code Réservation" />
           <TableColumn prefWidth="89.5999755859375" text="Date début" />
             <TableColumn prefWidth="85.59999084472656" text="Date Fin" />
             <TableColumn prefWidth="72.7999267578125" text="Type" />
