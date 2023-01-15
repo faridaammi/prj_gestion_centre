@@ -60,4 +60,15 @@
     -fx-background-color: #118AB2;
     -fx-text-fill: white;
 }
+.afficher_salle{
+    -fx-background-color: Transparent;
+    -fx-border-radius: 0 0 0 0;
+    -fx-border-color: black;
+    -fx-text-fill: #1f2e9c;
+    -fx-background-radius: 0 0 0 0;
+}
+.afficher_salle:hover{
+    -fx-background-color: #118AB2;
+    -fx-text-fill: white;
+}
 
