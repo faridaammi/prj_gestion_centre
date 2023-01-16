@@ -1,19 +1,51 @@
 package application.Controllers;
 
+import application.Models.Organisme;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.*;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class organisme_formController extends Component implements Initializable {
+    @FXML
+    private TableView<Organisme> tbl_organisme;
 
+    @FXML
+    private TableColumn<Organisme, Integer> cln_code;
+
+    @FXML
+    private TableColumn<Organisme, String> cln_datecreation;
+
+    @FXML
+    private TableColumn<Organisme, String> cln_email;
+
+    @FXML
+    private TableColumn<Organisme, String> cln_name;
+
+    @FXML
+    private TableColumn<Organisme, String> cln_president;
+
+    @FXML
+    private TableColumn<Organisme, String> cln_statu;
+
+    @FXML
+    private TableColumn<Organisme, String> cln_telephone;
+
+    @FXML
+    private TableColumn<Organisme, String> cln_type;
     @FXML
     private DatePicker dp_date_creation;
 
@@ -68,9 +100,47 @@ public class organisme_formController extends Component implements Initializable
         }
 
     }
+    public ObservableList<Organisme> getorganismeList(){
+        ObservableList<Organisme> OrganismeList = FXCollections.observableArrayList();
+        Connection con = Connexion.getConnection();
+        Organisme organisme;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        try{
+            ResultSet resultSet = con.createStatement().executeQuery("SELECT * FROM organisme");
+            while (resultSet.next()){
+                organisme = new Organisme(resultSet.getInt(1),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),"12/01/1956","065116898989","elhaiba@gmail.com",resultSet.getString(5));
+                OrganismeList.add(organisme);
+            }
+
+
+
+        }catch (Exception ex){
+            System.out.println("ERROR :"+ex.getMessage());
+
+        }
+
+
+        return  OrganismeList;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        showorganismes();
+
+    }
+    public void showorganismes(){
+        ObservableList<Organisme> list =getorganismeList();
+
+        cln_code.setCellValueFactory(new PropertyValueFactory<Organisme,Integer>("code_organisme"));
+        cln_name.setCellValueFactory(new PropertyValueFactory<Organisme,String>("nom_organisme"));
+        cln_datecreation.setCellValueFactory(new PropertyValueFactory<Organisme,String>("date_decreation"));
+        cln_email.setCellValueFactory(new PropertyValueFactory<Organisme,String>("email"));
+        cln_type.setCellValueFactory(new PropertyValueFactory<Organisme,String>("type_organisme"));
+        cln_statu.setCellValueFactory(new PropertyValueFactory<Organisme,String>("status_organisme"));
+        cln_president.setCellValueFactory(new PropertyValueFactory<Organisme,String>("president_organisme"));
+        cln_telephone.setCellValueFactory(new PropertyValueFactory<Organisme,String>("telephone"));
+        tbl_organisme.setItems(list);
 
     }
 }
