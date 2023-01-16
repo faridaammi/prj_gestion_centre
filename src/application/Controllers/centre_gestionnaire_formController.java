@@ -2,7 +2,10 @@ package application.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -10,6 +13,7 @@ import javafx.scene.control.TextField;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,6 +22,8 @@ public class centre_gestionnaire_formController extends Component implements Ini
     @FXML
     private Button btn_afficher_respo;
 
+    @FXML
+    private Button btn_afficher_centre;
     @FXML
     private ComboBox<String> cb_responsable_centre;
 
@@ -36,6 +42,8 @@ public class centre_gestionnaire_formController extends Component implements Ini
     @FXML
     private TextField txt_recherche;
 
+    @FXML
+    private StackPane stackPrincipe;
     @FXML
     void AjouterCentre(ActionEvent event) {
         String txt_nom=txt_nom_centre.getText();
@@ -57,10 +65,27 @@ public class centre_gestionnaire_formController extends Component implements Ini
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    @FXML
+    void AfficherClicked(ActionEvent event) throws IOException {
+       if(event.getSource()==btn_afficher_centre){
+           btn_afficher_centre.setStyle("-fx-text-fill: white; -fx-background-color: #118AB2;");
+           btn_afficher_respo.setStyle("-fx-border-color: black; -fx-background-color: Transparent;-fx-text-fill: #1f2e9c;");
+           Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/centre_form.fxml"));
+           stackPrincipe.getChildren().removeAll();
+           stackPrincipe.getChildren().setAll(fxml);
+       }
+       else if (event.getSource()==btn_afficher_respo){
+           btn_afficher_respo.setStyle("-fx-text-fill: white; -fx-background-color: #118AB2;");
+           btn_afficher_centre.setStyle("-fx-border-color: black; -fx-background-color: Transparent;-fx-text-fill: #1f2e9c;");
+           Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/responsable_form.fxml"));
+           stackPrincipe.getChildren().removeAll();
+           stackPrincipe.getChildren().setAll(fxml);
+       }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String [] items={"xxxxxxx","yyyyy","aaaaa"};
-        cb_responsable_centre.getItems().addAll(items);
+        //cb_responsable_centre.getItems().addAll(items);
     }
 }

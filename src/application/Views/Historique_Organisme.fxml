@@ -5,28 +5,38 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="743.0" style="-fx-background-color: #d9d9d9;" styleClass="sreach-button" stylesheets="@../values/style3.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" styleClass="sreach-button" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="7.0" prefHeight="31.0" prefWidth="153.0" text="Historiques" wrapText="true">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="7.0" prefHeight="31.0" prefWidth="153.0" wrapText="true">
             <font>
                 <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
-        <TableView layoutX="188.0" layoutY="223.0" prefHeight="200.0" prefWidth="526.0">
+        <TableView layoutX="50.0" layoutY="223.0" prefHeight="356.0" prefWidth="933.0">
             <columns>
                 <TableColumn prefWidth="121.0" text="Code organisme" />
-                <TableColumn prefWidth="55.0" text="Nom" />
-                <TableColumn prefWidth="69.0" text="Type" />
-                <TableColumn prefWidth="55.0" text="Statut" />
-                <TableColumn prefWidth="95.0" text="Président(e)" />
-                <TableColumn prefWidth="129.0" text="Dates supprision" />
+                <TableColumn prefWidth="147.0" text="Nom" />
+                <TableColumn prefWidth="136.0" text="Type" />
+                <TableColumn prefWidth="128.0" text="Statut" />
+                <TableColumn prefWidth="121.0" text="Président(e)" />
+                <TableColumn prefWidth="182.0" text="Dates supprision" />
             </columns>
         </TableView>
-        <Button contentDisplay="RIGHT" layoutX="445.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #118AB2;" styleClass="C-button" stylesheets="@../values/style3.css" text="Organisme" textFill="WHITE" />
-        <Button layoutX="320.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #d9d9d9;" styleClass="B-button" stylesheets="@../values/style3.css" text="Responsables" textFill="#1105f8" />
-        <Button layoutX="195.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="125.0" style="-fx-boder-radius: 50 0 0 50; -fx-background-color: #d9d9d9;" styleClass="A-button" stylesheets="@../values/style3.css" text="Centres" textAlignment="CENTER" textFill="#1105f8" />
-        <ComboBox layoutX="382.0" layoutY="155.0" prefHeight="25.0" prefWidth="126.0" promptText="recherché par" style="-fx-background-color: FFFFFF;" />
-        <TextField fx:id="txt_username41" layoutX="182.0" layoutY="155.0" prefHeight="26.0" prefWidth="190.0" promptText="Rechercher" />
+        <Button fx:id="btn_historique_centre" layoutX="210.0" layoutY="79.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" styleClass="btn_afficher_respo" text="Centre">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Button>
+        <Button fx:id="btn_historique_responsable" layoutX="333.0" layoutY="80.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" style="-fx-background-radius: 0; -fx-background-color: #F0F0F0;" styleClass="btn_historique_responsable" stylesheets="@../values/styleAm.css" text="Responsable">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Button>
+        <Button id="btn_historique_organisme" layoutX="455.0" layoutY="79.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="112.0" styleClass="btn_afficher_centre" stylesheets="@../../Ressources/style1.css" text="Organisme" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Button>
+
+        <ComboBox layoutX="382.0" layoutY="155.0" prefHeight="25.0" prefWidth="178.0" promptText="recherché par" style="-fx-background-color: FFFFFF;" />
+        <TextField id="id_historique_organisme_rech" fx:id="txt_username41" layoutX="182.0" layoutY="155.0" prefHeight="26.0" prefWidth="190.0" promptText="Rechercher" />
         <Button layoutX="343.0" layoutY="158.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE" />
         <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="351.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
             <image>
