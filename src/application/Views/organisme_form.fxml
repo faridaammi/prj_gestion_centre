@@ -107,5 +107,11 @@
             <Image url="@../../images/icon_ajouter.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txt_recherche_respo" layoutX="301.0" layoutY="244.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
+      <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="497.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/icon_recherche.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
