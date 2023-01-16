@@ -8,9 +8,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="799.0" style="-fx-background-color: #1E2B9D;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.login_formController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="799.0" style="-fx-background-color: #1E2B9D;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.login_formController">
    <children>
       <AnchorPane layoutX="445.0" prefHeight="448.0" prefWidth="353.0" style="-fx-background-color: #ffff;">
          <children>
@@ -30,6 +31,20 @@
                </font>
             </Button>
             <CheckBox fx:id="check_remembre" layoutX="53.0" layoutY="297.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="127.0" text="Remembre moi" />
+            <Pane layoutX="-1.0" prefHeight="34.0" prefWidth="353.0">
+               <children>
+                  <ImageView fx:id="btn_close" fitHeight="22.0" fitWidth="22.0" layoutX="317.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icon_close_login.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btn_mini" fitHeight="9.0" fitWidth="16.0" layoutX="283.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icon_mini_login.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
       <ImageView fitHeight="380.0" fitWidth="370.0" layoutX="36.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
