@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
@@ -29,12 +30,28 @@ public class login_formController implements Initializable {
     @FXML
     private TextField txt_username;
 
+    @FXML
+    private Button btn_close,btn_mini;
+    Stage stg ;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+    @FXML
+    public void closeButton(javafx.event.ActionEvent eventclose)
+    {
+        stg = (Stage)((Button)eventclose.getSource()).getScene().getWindow();
+        stg.close();
+    }
 
+    @FXML
+    public void miniButton(javafx.event.ActionEvent eventMini)
+    {
+        stg = (Stage)((Button)eventMini.getSource()).getScene().getWindow();
+        stg.setIconified(true);
+    }
     @FXML
     public void btnLogin(javafx.event.ActionEvent event) throws IOException {
         Connection con = (Connection) Connexion.getConnection();
