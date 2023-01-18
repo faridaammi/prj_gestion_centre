@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <Pane prefHeight="66.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_equipement" layoutX="293.0" layoutY="17.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="162.0" style="-fx-background-radius: 0 19 19 0;" stylesheets="@projet/src/application/style2.css" text="equipement" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="b-button" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="btn_salle" layoutX="131.0" layoutY="17.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="162.0" style="-fx-background-radius: 19 0 0 19;" stylesheets="@projet/src/application/style2.css" text="Salle" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="Button2" />
+                        <String fx:value="A-button" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane fx:id="stackPrincipe" prefHeight="336.0" prefWidth="600.0" />
+                  <TextField fx:id="txt_recherche" layoutX="57.0" layoutY="166.0" prefHeight="26.0" prefWidth="172.0" />
+                  <ComboBox fx:id="txt_recherche_comvo" layoutX="266.0" layoutY="166.0" prefHeight="26.0" prefWidth="172.0" promptText="Recherche par" style="-fx-background-color: #ffffff; -fx-text-fill: #5533FF;" />
+                  <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="202.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@projet/src/images/icon_search.png" />
+                        <Image url="@projet/src/images/icon_recherche.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="57.0" layoutY="138.0" text="rechercher" />
+                  <TableView fx:id="tableview_historique_equip" layoutX="59.0" layoutY="229.0" prefHeight="318.0" prefWidth="924.0">
+                     <columns>
+                        <TableColumn fx:id="col_nom_equip" prefWidth="461.60002517700195" text="Nom d’equipement" />
+                        <TableColumn fx:id="col_numero_equip" prefWidth="459.9999877929688" text=" Numéro de série " />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
