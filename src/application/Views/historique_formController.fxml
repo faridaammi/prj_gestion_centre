@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.historique_formController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <Pane prefHeight="56.0" prefWidth="1008.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_equipement" layoutX="293.0" layoutY="17.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="34.0" prefWidth="162.0" style="-fx-background-radius: 0 19 19 0;" stylesheets="@../style2.css" text="equipement" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="Button" />
+                        <String fx:value="b-button" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="btn_salle" layoutX="131.0" layoutY="17.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="34.0" prefWidth="162.0" style="-fx-background-radius: 19 0 0 19;" stylesheets="@../style2.css" text="Salle" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="Button2" />
+                        <String fx:value="A-button" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </Pane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="521.0" prefWidth="1008.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane fx:id="stackPrincipe" layoutX="584.0"  prefHeight="521.0" prefWidth="1008.0"  />
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
