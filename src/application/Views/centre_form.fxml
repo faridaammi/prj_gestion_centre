@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="521.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.centre_gestionnaire_formController">
+<AnchorPane prefHeight="521.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" fx:controller="application.Controllers.centreController" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Button id="btn_enregistrer_centre" layoutX="881.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_enregistrer" text="Enregistrer" textFill="WHITE">
             <graphic>
@@ -95,17 +95,15 @@
             <Image url="@../../images/icon_import.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txt_nom_respo" layoutX="68.0" layoutY="44.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer le nom de centre" />
+      <TextField fx:id="txt_nom_centre" layoutX="68.0" layoutY="44.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer le nom de centre" />
       <Label layoutX="70.0" layoutY="27.0" text="Nom de Centre" />
-      <TextField fx:id="txt_adresse_respo" layoutX="68.0" layoutY="98.0" prefHeight="26.0" prefWidth="183.0" promptText="0" />
+      <TextField fx:id="txt_capacite_centre" layoutX="68.0" layoutY="98.0" prefHeight="26.0" prefWidth="183.0" promptText="0" />
       <Label layoutX="70.0" layoutY="81.0" text="Capacité du Centre" />
-      <TextField fx:id="txt_prenom_respo" layoutX="317.0" layoutY="43.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer l’adresse de centre" />
+      <TextField fx:id="txt_adresse_centre" layoutX="317.0" layoutY="43.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer l’adresse de centre" />
       <Label layoutX="317.0" layoutY="26.0" text="Adresse" />
-      <TextField fx:id="txt_profession_respo" layoutX="317.0" layoutY="97.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer la profession" />
-      <Label layoutX="317.0" layoutY="80.0" text="Description de Centre" />
       <Label layoutX="70.0" layoutY="137.0" text="Responsable de centre" />
-      <Label layoutX="319.0" layoutY="137.0" text="Description de Centre" />
-      <TextArea layoutX="317.0" layoutY="155.0" prefHeight="100.0" prefWidth="189.0" promptText="Entrez votre description du centre ici..." />
-      <ComboBox layoutX="69.0" layoutY="155.0" prefWidth="183.0" />
+      <Label layoutX="319.0" layoutY="80.0" text="Description de Centre" />
+      <TextArea fx:id="txt_description_centre" layoutX="317.0" layoutY="98.0" prefHeight="100.0" prefWidth="189.0" promptText="Entrez votre description du centre ici..." />
+      <ComboBox fx:id="cb_respo_centre" layoutX="69.0" layoutY="155.0" prefWidth="183.0" />
     </children>
 </AnchorPane>

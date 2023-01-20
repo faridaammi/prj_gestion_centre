@@ -44,29 +44,9 @@ public class centre_gestionnaire_formController extends Component implements Ini
 
     @FXML
     private StackPane stackPrincipe;
+
     @FXML
-    void AjouterCentre(ActionEvent event) {
-        String txt_nom=txt_nom_centre.getText();
-        String txt_capacite=String.valueOf(txt_capacite_centre.getText());
-        String txt_description=txt_description_centre.getText();
-        String txt_adresse=txt_adresse_centre.getText();
-        String cb_responsable=cb_responsable_centre.getSelectionModel().getSelectedItem().toString();
-        if( txt_nom.isEmpty() || txt_capacite.isEmpty() || txt_description.isEmpty() || txt_adresse.isEmpty())
-        {
-            JOptionPane.showMessageDialog(this,
-                    "Veuillez remplir tous les champs",
-                    "Attention",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            JOptionPane.showMessageDialog(this,
-                    "Success",
-                    "Information",
-                    JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
-    @FXML
-    void AfficherClicked(ActionEvent event) throws IOException {
+    void AfficherClick(ActionEvent event) throws IOException {
        if(event.getSource()==btn_afficher_centre){
            btn_afficher_centre.setStyle("-fx-text-fill: white; -fx-background-color: #118AB2;");
            btn_afficher_respo.setStyle("-fx-border-color: black; -fx-background-color: Transparent;-fx-text-fill: #1f2e9c;");
