@@ -28,8 +28,7 @@ public class Historique_C_R_O extends Component implements Initializable {
     private Button btn_historique_responsable;
     @FXML
     private Button btn_historique_organisme;
-    @FXML
-    private ComboBox<String> cb_responsable_centre;
+
     @FXML
     private TextField txt_recherche;
 
