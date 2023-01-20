@@ -5,13 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" styleClass="sreach-button" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="btn_historique_centre" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" styleClass="sreach-button" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.Historique_C_R_O">
     <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="7.0" prefHeight="31.0" prefWidth="153.0" wrapText="true">
-            <font>
-                <Font name="Arial Black" size="18.0" />
-            </font>
-        </Label>
         <TableView layoutX="50.0" layoutY="223.0" prefHeight="356.0" prefWidth="933.0">
             <columns>
                 <TableColumn prefWidth="121.0" text="Code organisme" />
@@ -22,18 +17,8 @@
                 <TableColumn prefWidth="182.0" text="Dates supprision" />
             </columns>
         </TableView>
-        <Button fx:id="btn_historique_centre" layoutX="210.0" layoutY="79.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" styleClass="btn_afficher_respo" text="Centre">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font></Button>
-        <Button fx:id="btn_historique_responsable" layoutX="333.0" layoutY="80.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" style="-fx-background-radius: 0; -fx-background-color: #F0F0F0;" styleClass="btn_historique_responsable" stylesheets="@../values/styleAm.css" text="Responsable">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font></Button>
-        <Button id="btn_historique_organisme" layoutX="455.0" layoutY="79.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="112.0" styleClass="btn_afficher_centre" stylesheets="@../../Ressources/style1.css" text="Organisme" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font></Button>
+
+
 
         <ComboBox layoutX="382.0" layoutY="155.0" prefHeight="25.0" prefWidth="178.0" promptText="recherché par" style="-fx-background-color: FFFFFF;" />
         <TextField id="id_historique_organisme_rech" fx:id="txt_username41" layoutX="182.0" layoutY="155.0" prefHeight="26.0" prefWidth="190.0" promptText="Rechercher" />
@@ -43,5 +28,6 @@
                 <Image url="@../../images/icon_recherche.png" />
             </image>
         </ImageView>
+
     </children>
 </AnchorPane>

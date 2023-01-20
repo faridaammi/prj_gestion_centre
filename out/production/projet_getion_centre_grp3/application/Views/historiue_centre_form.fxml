@@ -5,28 +5,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="743.0" style="-fx-background-color: #d9d9d9;" styleClass="sreach-button" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0; -fx-border-color: black;" styleClass="sreach-button" stylesheets="@../values/styleAm.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.Historique_C_R_O">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="7.0" prefHeight="31.0" prefWidth="153.0" text="Historiques" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="7.0" prefHeight="31.0" prefWidth="153.0" wrapText="true">
          <font>
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <TableView layoutX="175.0" layoutY="223.0" prefHeight="200.0" prefWidth="525.0">
+      <TableView layoutX="175.0" layoutY="223.0" prefHeight="327.0" prefWidth="820.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Nom centre" />
           <TableColumn prefWidth="75.0" text="Adesse" />
             <TableColumn prefWidth="75.0" text="Responsable" />
             <TableColumn prefWidth="75.0" text="Salles" />
             <TableColumn prefWidth="95.0" text="Equipements" />
-            <TableColumn prefWidth="129.0" text="Dates supprision" />
+            <TableColumn prefWidth="424.0" text="Dates supprision" />
         </columns>
       </TableView>
-      <Button contentDisplay="RIGHT" layoutX="445.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="126.0" styleClass="C-button" stylesheets="@../values/style.css" text="Organisme" textFill="#1105f8" />
-      <Button layoutX="320.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="125.0" styleClass="B-button" stylesheets="@../values/style.css" text="Responsables" textFill="#1105f8" />
-      <Button layoutX="195.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="125.0" style="-fx-boder-radius: 50 0 0 50; -fx-background-color: #118AB2;" styleClass="A-button" stylesheets="@../values/style.css" text="Centres" textAlignment="CENTER" textFill="WHITE" />
-      <ComboBox layoutX="382.0" layoutY="155.0" prefHeight="25.0" prefWidth="126.0" promptText="recherché par" style="-fx-background-color: FFFFFF;" />
-      <TextField fx:id="txt_username41" layoutX="156.0" layoutY="152.0" prefHeight="31.0" prefWidth="216.0" promptText="Rechercher" />
+
+
+      <ComboBox layoutX="382.0" layoutY="155.0" prefHeight="25.0" prefWidth="175.0" promptText="recherché par" style="-fx-background-color: FFFFFF;" />
+      <TextField id="id_historique_centre_rech" fx:id="txt_username41" layoutX="156.0" layoutY="152.0" prefHeight="31.0" prefWidth="216.0" promptText="Rechercher" />
       <Button layoutX="344.0" layoutY="155.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="22.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE" />
       <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="348.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
          <image>
