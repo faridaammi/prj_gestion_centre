@@ -9,15 +9,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import javax.swing.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import java.awt.*;
+
+import java.io.File;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -26,6 +25,9 @@ import java.util.ResourceBundle;
 public class organisme_formController extends Component implements Initializable {
     @FXML
     private TableView<Organisme> tbl_organisme;
+    @FXML
+    private ImageView img_organisme;
+
 
     @FXML
     private TableColumn<Organisme, Integer> cln_code;
@@ -78,6 +80,9 @@ public class organisme_formController extends Component implements Initializable
     private TextField txt_type_activite;
 
     ZoneId defaultZoneId = ZoneId.systemDefault();
+    Image image;
+    File selectedfile;
+   public static boolean img_updated = false;
 
 
     public void AjouterOrganisme(ActionEvent actionEvent) {
@@ -110,8 +115,13 @@ public class organisme_formController extends Component implements Initializable
             organisme.setType_organisme(getTxt_type_activite);
             organisme.setPresident_organisme(getTxt_nom_president);
             organisme.setStatus_organisme(getTxt_statut);
+            if (img_updated){
+                organisme.setLogo_organisme(selectedfile);
+            }
             organisme.add();
             showorganismes();
+
+
 
         }
 
@@ -146,5 +156,30 @@ public class organisme_formController extends Component implements Initializable
 
 
 
+    }
+
+    public void addimg(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+        fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
+        File file = fileChooser.showOpenDialog(null);
+
+        try {
+            if (file!=null){
+
+
+                image = new Image(file.getAbsoluteFile().toURI().toString(), img_organisme.getFitWidth(), img_organisme.getFitHeight(), true, true);
+                img_organisme.setImage(image);
+                img_organisme.setPreserveRatio(true);
+                img_updated= true;
+                selectedfile = new File(file.getAbsolutePath());
+
+
+            }
+
+        } catch (Exception ex) {
+            System.out.println("ERROR: "+ex.getMessage());
+        }
     }
 }

@@ -1,23 +1,24 @@
 package application.Models;
 import application.Controllers.Connexion;
+import application.Controllers.organisme_formController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 import java.awt.image.BufferedImage;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 
 public class Organisme {
-    private final String SQL_INSERT = "INSERT INTO organisme( `code_Organisme`, `nom_Organisme`, `Adresse`, `Telephone`, `Email`, `type_Organisme`, `status_Organisme`, `president_Organisme`, `logo_Organisme`, `Date_de_creation`, `id_utlisateur`, `idCategorie`) VALUES (?,?,?,?,?,?,?,?,null,?,null,null)";
+    private final String SQL_INSERT = "INSERT INTO organisme( `code_Organisme`, `nom_Organisme`, `Adresse`, `Telephone`, `Email`, `type_Organisme`, `status_Organisme`, `president_Organisme`, `logo_Organisme`, `Date_de_creation`, `id_utlisateur`, `idCategorie`) VALUES (?,?,?,?,?,?,?,?,?,?,null,null)";
    static ArrayList<Organisme> list ;
     private int id_organisme;
     private String code_organisme;
@@ -32,7 +33,7 @@ public class Organisme {
     private String president_organisme;
 
 
-    private BufferedImage  logo_organisme;
+    private File  logo_organisme;
 
     public Date getDate_decreation() {
         return date_decreation;
@@ -86,7 +87,7 @@ public class Organisme {
         return president_organisme;
     }
 
-    public BufferedImage getLogo_organisme() {
+    public File getLogo_organisme() {
         return logo_organisme;
     }
 
@@ -130,7 +131,7 @@ public class Organisme {
         this.president_organisme = president_organisme;
     }
 
-    public void setLogo_organisme(BufferedImage logo_organisme) {
+    public void setLogo_organisme(File logo_organisme) {
         this.logo_organisme = logo_organisme;
     }
     public  Organisme(){}
@@ -204,8 +205,14 @@ public class Organisme {
             cmd.setString(7,getStatus_organisme());
             cmd.setString(8,getPresident_organisme());
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-           //cmd.setBlob(9,null);
-            cmd.setDate(9,java.sql.Date.valueOf(sdf.format(getDate_decreation())));
+            if (organisme_formController.img_updated){
+
+                cmd.setBlob(9,new FileInputStream(getLogo_organisme()));
+            }
+            else {
+                cmd.setBlob(9, (Blob) null);
+            }
+            cmd.setDate(10,java.sql.Date.valueOf(sdf.format(getDate_decreation())));
             int rowaffected= cmd.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             if (rowaffected>0){
@@ -224,8 +231,9 @@ public class Organisme {
         catch (SQLException ex){
             System.out.println("ERROR :"+ex.getMessage());
 
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
-
 
 
     }
