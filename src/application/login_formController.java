@@ -54,8 +54,8 @@ public class login_formController implements Initializable {
     }
     @FXML
     public void btnLogin(javafx.event.ActionEvent event) throws IOException {
-        Connection con = (Connection) Connexion.getConnection();
         try {
+            Connection con = (Connection) Connexion.getConnection();
             if (con!=null){
                 PreparedStatement statement =con.prepareStatement("SELECT * FROM `utilisateur` WHERE email_utilisateur  =? and mot_de_passe= ?");
                 statement.setString(1, txt_username.getText().toString());

@@ -16,7 +16,11 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class organisme_formController extends Component implements Initializable {
@@ -73,6 +77,7 @@ public class organisme_formController extends Component implements Initializable
     @FXML
     private TextField txt_type_activite;
 
+    ZoneId defaultZoneId = ZoneId.systemDefault();
 
 
     public void AjouterOrganisme(ActionEvent actionEvent) {
@@ -82,55 +87,45 @@ public class organisme_formController extends Component implements Initializable
         String getTxt_email=txt_email_organisme.getText();
         String getTxt_tele=txt_tele_organisme.getText();
         String getTxt_nom_president=txt_nom_president.getText();
-        String getTxtdp_date_creation=dp_date_creation.getValue().toString();
-        String getTxt_statut=txt_statut.getSelectionModel().getSelectedItem();
         String getTxt_type_activite=txt_type_activite.getText();
-        if (getTxt_nom_orga.isEmpty() || getTxt_code_inscr.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_nom_president.isEmpty() || getTxtdp_date_creation.isEmpty() || getTxt_statut.isEmpty() || getTxt_type_activite.isEmpty())
+        if (getTxt_nom_orga.isEmpty() || getTxt_code_inscr.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_nom_president.isEmpty() || dp_date_creation.getValue()==null || txt_statut.getValue()==null || getTxt_type_activite.isEmpty())
         {
-            JOptionPane.showMessageDialog(this,
-                    "Veuillez remplir tous les champs",
-                    "Attention",
-                    JOptionPane.ERROR_MESSAGE);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Champs requis");
+            alert.setContentText(" Veuillez remplir tous les champs pour soumettre le formulaire.");
+            alert.show();
+
         }
         else{
-            JOptionPane.showMessageDialog(this,
-                    "Success",
-                    "Information",
-                    JOptionPane.INFORMATION_MESSAGE);
-        }
+            Date getTxtdp_date_creation=Date.from(dp_date_creation.getValue().atStartOfDay(defaultZoneId).toInstant());
+            String getTxt_statut=txt_statut.getSelectionModel().getSelectedItem();
 
-    }
-    public ObservableList<Organisme> getorganismeList(){
-        ObservableList<Organisme> OrganismeList = FXCollections.observableArrayList();
-        Connection con = Connexion.getConnection();
-        Organisme organisme;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now = LocalDateTime.now();
-        try{
-            ResultSet resultSet = con.createStatement().executeQuery("SELECT * FROM organisme");
-            while (resultSet.next()){
-                organisme = new Organisme(resultSet.getInt(1),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),"12/01/1956","065116898989","elhaiba@gmail.com",resultSet.getString(5));
-                OrganismeList.add(organisme);
-            }
-
-
-
-        }catch (Exception ex){
-            System.out.println("ERROR :"+ex.getMessage());
+            Organisme organisme = new Organisme();
+            organisme.setCode_organisme(getTxt_code_inscr);
+            organisme.setNom_organisme(getTxt_nom_orga);
+            organisme.setAdresse(getTxt_adresse);
+            organisme.setEmail(getTxt_email);
+            organisme.setDate_decreation(getTxtdp_date_creation);
+            organisme.setTelephone(getTxt_tele);
+            organisme.setType_organisme(getTxt_type_activite);
+            organisme.setPresident_organisme(getTxt_nom_president);
+            organisme.setStatus_organisme(getTxt_statut);
+            organisme.add();
+            showorganismes();
 
         }
 
-
-        return  OrganismeList;
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        showcomboitems();
         showorganismes();
 
     }
     public void showorganismes(){
-        ObservableList<Organisme> list =getorganismeList();
+        ObservableList<Organisme> list =Organisme.getorganismeList();
 
         cln_code.setCellValueFactory(new PropertyValueFactory<Organisme,Integer>("code_organisme"));
         cln_name.setCellValueFactory(new PropertyValueFactory<Organisme,String>("nom_organisme"));
@@ -141,6 +136,15 @@ public class organisme_formController extends Component implements Initializable
         cln_president.setCellValueFactory(new PropertyValueFactory<Organisme,String>("president_organisme"));
         cln_telephone.setCellValueFactory(new PropertyValueFactory<Organisme,String>("telephone"));
         tbl_organisme.setItems(list);
+
+    }
+    public void showcomboitems(){
+        ObservableList<String> items = FXCollections.observableArrayList(new ArrayList<String>(Arrays.asList("Association à but non lucratif","Organisation à but commercial",
+                "Organisation à but non commercial","Société à responsabilité limitée","Société anonyme","Organisation à but religieux",
+                "Fondation","Syndicat","Groupement d'intérêt économique")));
+        txt_statut.setItems(items);
+
+
 
     }
 }
