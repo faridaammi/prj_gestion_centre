@@ -120,6 +120,7 @@ public class organisme_formController extends Component implements Initializable
             }
             organisme.add();
             showorganismes();
+            cleartxtbox();
 
 
 
@@ -155,6 +156,18 @@ public class organisme_formController extends Component implements Initializable
         txt_statut.setItems(items);
 
 
+
+    }
+    public void cleartxtbox(){
+        txt_adresse_organisme.clear();
+        txt_email_organisme.clear();
+        txt_nom_organisme.clear();
+        txt_nom_president.clear();
+        txt_code_inscription.clear();
+        txt_type_activite.clear();
+        txt_tele_organisme.clear();
+        txt_statut.setValue(null);
+        dp_date_creation.setValue(null);
 
     }
 
