@@ -237,4 +237,14 @@ public class Organisme {
 
 
     }
+    public Organisme findoragnismebycode(String code_organisme){
+        Organisme orga= null;
+        for (Organisme organisme :list){
+            if (organisme.getCode_organisme().equals(code_organisme)){
+                orga= organisme;
+                break;
+            }
+        }
+        return orga;
+    }
 }
