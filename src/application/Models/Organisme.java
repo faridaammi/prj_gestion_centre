@@ -19,6 +19,7 @@ import java.util.Date;
 
 public class Organisme {
     private final String SQL_INSERT = "INSERT INTO organisme( `code_Organisme`, `nom_Organisme`, `Adresse`, `Telephone`, `Email`, `type_Organisme`, `status_Organisme`, `president_Organisme`, `logo_Organisme`, `Date_de_creation`, `id_utlisateur`, `idCategorie`) VALUES (?,?,?,?,?,?,?,?,?,?,null,null)";
+    private final String SQL_UPDATE = "UPDATE `organisme` SET `nom_Organisme`=?,`Adresse`=?,`Telephone`=?,`Email`=?,`type_Organisme`=?,`status_Organisme`=?,`president_Organisme`=?,`logo_Organisme`=?,`Date_de_creation`=? WHERE id_Organisme=?";
    static ArrayList<Organisme> list ;
     private int id_organisme;
     private String code_organisme;
@@ -237,14 +238,55 @@ public class Organisme {
 
 
     }
-    public Organisme findoragnismebycode(String code_organisme){
+    public static Organisme findoragnismebyid(int Id_organimse){
         Organisme orga= null;
         for (Organisme organisme :list){
-            if (organisme.getCode_organisme().equals(code_organisme)){
+            if (organisme.getId_organisme()==Id_organimse){
                 orga= organisme;
                 break;
             }
         }
         return orga;
+    }
+    public void update(){
+        try{
+            Connection con = Connexion.getConnection();
+            PreparedStatement cmd = con.prepareStatement(SQL_UPDATE);
+            cmd.setString(1,getNom_organisme());
+            cmd.setString(2,getAdresse());
+            cmd.setString(3,getTelephone());
+            cmd.setString(4,getEmail());
+            cmd.setString(5,getType_organisme());
+            cmd.setString(6,getStatus_organisme());
+            cmd.setString(7,getPresident_organisme());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            if (organisme_formController.img_updated){
+
+                cmd.setBlob(8,new FileInputStream(getLogo_organisme()));
+            }
+            else {
+                cmd.setBlob(8, (Blob) null);
+            }
+            cmd.setDate(9,java.sql.Date.valueOf(sdf.format(getDate_decreation())));
+            cmd.setInt(10,getId_organisme());
+            int rowaffected= cmd.executeUpdate();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            if (rowaffected>0){
+                alert.setAlertType(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Opération réussie");
+                alert.setContentText(" La ligne a été Modifier avec succès dans la base de données.");
+            }
+            else {
+                alert.setTitle(" Échec de l'insertion");
+                alert.setContentText(" Une erreur s'est produite lors de la modification de ligne dans la base de données. Veuillez vérifier les informations saisies et réessayer.");
+            }
+            alert.show();
+
+        } catch (SQLException ex){
+            System.out.println("ERROR :"+ex.getMessage());
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

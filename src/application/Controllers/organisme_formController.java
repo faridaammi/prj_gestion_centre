@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import java.awt.*;
 
@@ -82,6 +83,7 @@ public class organisme_formController extends Component implements Initializable
     ZoneId defaultZoneId = ZoneId.systemDefault();
     Image image;
     File selectedfile;
+    int id_organisme;
    public static boolean img_updated = false;
 
 
@@ -194,5 +196,69 @@ public class organisme_formController extends Component implements Initializable
         } catch (Exception ex) {
             System.out.println("ERROR: "+ex.getMessage());
         }
+    }
+
+    public void Modifierorganisme(ActionEvent actionEvent) {
+        String getTxt_nom_orga=txt_nom_organisme.getText();
+        String getTxt_code_inscr =txt_code_inscription.getText();
+        String getTxt_adresse=txt_adresse_organisme.getText();
+        String getTxt_email=txt_email_organisme.getText();
+        String getTxt_tele=txt_tele_organisme.getText();
+        String getTxt_nom_president=txt_nom_president.getText();
+        String getTxt_type_activite=txt_type_activite.getText();
+        if (getTxt_nom_orga.isEmpty() || getTxt_code_inscr.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_nom_president.isEmpty() || dp_date_creation.getValue()==null || txt_statut.getValue()==null || getTxt_type_activite.isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Champs requis");
+            alert.setContentText(" Veuillez remplir tous les champs pour soumettre le formulaire.");
+            alert.show();
+
+        }
+        else{
+            Date getTxtdp_date_creation=Date.from(dp_date_creation.getValue().atStartOfDay(defaultZoneId).toInstant());
+            String getTxt_statut=txt_statut.getSelectionModel().getSelectedItem();
+
+            Organisme organisme= Organisme.findoragnismebyid(id_organisme);
+            organisme.setCode_organisme(getTxt_code_inscr);
+            organisme.setNom_organisme(getTxt_nom_orga);
+            organisme.setAdresse(getTxt_adresse);
+            organisme.setEmail(getTxt_email);
+            organisme.setDate_decreation(getTxtdp_date_creation);
+            organisme.setTelephone(getTxt_tele);
+            organisme.setType_organisme(getTxt_type_activite);
+            organisme.setPresident_organisme(getTxt_nom_president);
+            organisme.setStatus_organisme(getTxt_statut);
+            if (img_updated){
+                organisme.setLogo_organisme(selectedfile);
+            }
+            organisme.update();
+            showorganismes();
+            cleartxtbox();
+
+
+
+        }
+
+
+
+
+
+    }
+
+    public void getselectedorganisme(MouseEvent mouseEvent) {
+         Organisme organisme= tbl_organisme.getSelectionModel().getSelectedItem();
+         id_organisme= organisme.getId_organisme();
+        txt_adresse_organisme.setText(organisme.getAdresse());
+        txt_email_organisme.setText(organisme.getEmail());
+        txt_nom_organisme.setText(organisme.getNom_organisme());
+        txt_nom_president.setText(organisme.getPresident_organisme());
+        txt_code_inscription.setText(organisme.getCode_organisme());
+        txt_type_activite.setText(organisme.getType_organisme());
+        txt_tele_organisme.setText(organisme.getTelephone());
+        txt_statut.setValue(organisme.getStatus_organisme());
+        dp_date_creation.setValue(new java.sql.Date(organisme.getDate_decreation().getTime()).toLocalDate());
+
+
+
     }
 }

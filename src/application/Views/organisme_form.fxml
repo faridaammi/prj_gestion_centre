@@ -54,7 +54,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="652.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
+      <Button layoutX="652.0" layoutY="245.0" mnemonicParsing="false" onAction="#Modifierorganisme" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -90,7 +90,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TableView fx:id="tbl_organisme" layoutX="58.0" layoutY="283.0" prefHeight="319.0" prefWidth="939.0">
+      <TableView fx:id="tbl_organisme" layoutX="58.0" layoutY="283.0" onMouseClicked="#getselectedorganisme" prefHeight="319.0" prefWidth="939.0">
          <columns>
             <TableColumn fx:id="cln_name" prefWidth="111.33334589004517" text="Nom d’organisme" />
             <TableColumn fx:id="cln_code" prefWidth="132.6666717529297" text="Code" />
