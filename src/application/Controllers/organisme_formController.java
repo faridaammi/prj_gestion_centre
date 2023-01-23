@@ -16,7 +16,10 @@ import javafx.stage.FileChooser;
 import java.awt.*;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -257,6 +260,27 @@ public class organisme_formController extends Component implements Initializable
         txt_tele_organisme.setText(organisme.getTelephone());
         txt_statut.setValue(organisme.getStatus_organisme());
         dp_date_creation.setValue(new java.sql.Date(organisme.getDate_decreation().getTime()).toLocalDate());
+        try {
+            Blob img_orga = organisme.getimgorganisme();
+            if (img_orga!=null){
+                InputStream inputStream = img_orga.getBinaryStream();
+                image = new Image(inputStream);
+                img_organisme.setImage(image);
+            }
+            else {
+                File file = new File("/application/images/icon_import.png");
+                image = new Image(file.toURI().toString());
+                img_organisme.setImage(image);
+            }
+
+
+
+
+
+        }catch (SQLException ex){
+            System.out.println("ERROR: "+ex.getMessage());
+        }
+
 
 
 

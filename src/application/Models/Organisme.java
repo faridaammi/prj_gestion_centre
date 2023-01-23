@@ -23,6 +23,7 @@ public class Organisme {
     private final String SQL_INSERT = "INSERT INTO organisme( `code_Organisme`, `nom_Organisme`, `Adresse`, `Telephone`, `Email`, `type_Organisme`, `status_Organisme`, `president_Organisme`, `logo_Organisme`, `Date_de_creation`, `id_utlisateur`, `idCategorie`) VALUES (?,?,?,?,?,?,?,?,?,?,null,null)";
     private final String SQL_UPDATE = "UPDATE `organisme` SET `nom_Organisme`=?,`Adresse`=?,`Telephone`=?,`Email`=?,`type_Organisme`=?,`status_Organisme`=?,`president_Organisme`=?,`logo_Organisme`=?,`Date_de_creation`=? WHERE id_Organisme=?";
     private final String SQL_DELET ="DELETE FROM `organisme` WHERE id_Organisme=?";
+    private final String SQL_GETIMGORGANISME ="SELECT logo_Organisme FROM `organisme` WHERE id_Organisme=?";
    static ArrayList<Organisme> list ;
     private int id_organisme;
     private String code_organisme;
@@ -251,6 +252,24 @@ public class Organisme {
         }
         return orga;
     }
+    public Blob getimgorganisme(){
+        Blob img_organisme =null;
+        try {
+            Connection con = Connexion.getConnection();
+            PreparedStatement cmd = con.prepareStatement(SQL_GETIMGORGANISME);
+            cmd.setInt(1,getId_organisme());
+            ResultSet result = cmd.executeQuery();
+
+            img_organisme = result.next()?result.getBlob(1):null;
+
+
+        }catch (SQLException ex){
+            System.out.println("ERROR :"+ex.getMessage());
+
+        }
+        return  img_organisme;
+    }
+
     public void update(){
         try{
             Connection con = Connexion.getConnection();
