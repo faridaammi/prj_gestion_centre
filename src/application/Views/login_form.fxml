@@ -34,7 +34,7 @@
             <CheckBox fx:id="check_remembre" layoutX="53.0" layoutY="297.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="127.0" text="Remembre moi" />
             <Pane layoutX="-1.0" prefHeight="34.0" prefWidth="353.0">
                <children>
-                  <Button fx:id="btn_mini" contentDisplay="GRAPHIC_ONLY" layoutX="313.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeButton" style="-fx-background-color: transparant;" text="Button">
+                  <Button fx:id="btn_close" contentDisplay="GRAPHIC_ONLY" layoutX="313.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeButton" style="-fx-background-color: transparant;" text="Button">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
