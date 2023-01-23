@@ -4,6 +4,8 @@ import application.Controllers.organisme_formController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -20,6 +22,7 @@ import java.util.Date;
 public class Organisme {
     private final String SQL_INSERT = "INSERT INTO organisme( `code_Organisme`, `nom_Organisme`, `Adresse`, `Telephone`, `Email`, `type_Organisme`, `status_Organisme`, `president_Organisme`, `logo_Organisme`, `Date_de_creation`, `id_utlisateur`, `idCategorie`) VALUES (?,?,?,?,?,?,?,?,?,?,null,null)";
     private final String SQL_UPDATE = "UPDATE `organisme` SET `nom_Organisme`=?,`Adresse`=?,`Telephone`=?,`Email`=?,`type_Organisme`=?,`status_Organisme`=?,`president_Organisme`=?,`logo_Organisme`=?,`Date_de_creation`=? WHERE id_Organisme=?";
+    private final String SQL_DELET ="DELETE FROM `organisme` WHERE id_Organisme=?";
    static ArrayList<Organisme> list ;
     private int id_organisme;
     private String code_organisme;
@@ -217,7 +220,7 @@ public class Organisme {
             int rowaffected= cmd.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             if (rowaffected>0){
-                alert.setAlertType(Alert.AlertType.CONFIRMATION);
+                alert.setAlertType(Alert.AlertType.INFORMATION);
                 alert.setTitle("Opération réussie");
                 alert.setContentText(" La ligne a été insérée avec succès dans la base de données.");
             }
@@ -272,12 +275,12 @@ public class Organisme {
             int rowaffected= cmd.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             if (rowaffected>0){
-                alert.setAlertType(Alert.AlertType.CONFIRMATION);
+                alert.setAlertType(Alert.AlertType.INFORMATION);
                 alert.setTitle("Opération réussie");
                 alert.setContentText(" La ligne a été Modifier avec succès dans la base de données.");
             }
             else {
-                alert.setTitle(" Échec de l'insertion");
+                alert.setTitle(" Échec de la modification");
                 alert.setContentText(" Une erreur s'est produite lors de la modification de ligne dans la base de données. Veuillez vérifier les informations saisies et réessayer.");
             }
             alert.show();
@@ -287,6 +290,51 @@ public class Organisme {
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public  void Delete(){
+        ButtonType yesButton = new ButtonType("Oui", ButtonBar.ButtonData.YES);
+        ButtonType noButton = new ButtonType("Non", ButtonBar.ButtonData.NO);
+        ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setContentText("Voulez-vous vraiment supprimer cette organisme ?");
+        alert.getButtonTypes().setAll(yesButton,noButton);
+        try{
+            Connection con = Connexion.getConnection();
+            PreparedStatement cmd = con.prepareStatement(SQL_DELET);
+            cmd.setInt(1,getId_organisme());
+            alert.showAndWait().ifPresent(buttonType -> {
+
+                if (buttonType.getButtonData()== ButtonBar.ButtonData.YES){
+                    int rowaffected = 0;
+                    try {
+                        rowaffected = cmd.executeUpdate();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    if (rowaffected>0){
+                        alert.getButtonTypes().setAll(okButton);
+                        alert.setAlertType(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Opération réussie");
+                        alert.setContentText(" La ligne a été Supprimer avec succès dans la base de données.");
+                    }
+                    else {
+                        alert.setTitle(" Échec de la suppression");
+                        alert.setContentText(" Une erreur s'est produite lors de la suppression  de ligne dans la base de données. Veuillez vérifier les informations saisies et réessayer.");
+                    }
+                    alert.show();
+
+
+                }
+            });
+
+
+
+
+        }catch (SQLException ex){
+            System.out.println("ERROR :"+ex.getMessage());
+
         }
     }
 }

@@ -261,4 +261,13 @@ public class organisme_formController extends Component implements Initializable
 
 
     }
+
+    public void supprimerorganisme(ActionEvent actionEvent) {
+        Organisme organisme= Organisme.findoragnismebyid(id_organisme);
+        organisme.Delete();
+        showorganismes();
+        cleartxtbox();
+
+
+    }
 }
