@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,29 +24,33 @@ public class Responsable extends Employe {
     public boolean AjouterResponsable() throws SQLException {
         Connection con = Connexion.getConnection();
         try {
-            //con.setAutoCommit(false);
+            con.setAutoCommit(false);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            PreparedStatement cmd_utilisateur = con.prepareStatement(SQL_INSERT_UTILISATEUR);
+            PreparedStatement cmd_utilisateur = con.prepareStatement(SQL_INSERT_UTILISATEUR,PreparedStatement.RETURN_GENERATED_KEYS);
             cmd_utilisateur.setString(1,super.getMotdepass_utilisateur());
             cmd_utilisateur.setString(2,super.getAdresse());
             cmd_utilisateur.setString(3,super.getEmail_utilisateur());
             cmd_utilisateur.setString(4,String.valueOf(super.getTele_utilisateur()));
             int rowaffected_user= cmd_utilisateur.executeUpdate();
-
-            PreparedStatement cmd_employe = con.prepareStatement(SQL_INSERT_EMPLOYEE);
+            ResultSet resultset = cmd_utilisateur.getGeneratedKeys();
+            resultset.next();
+            int id_user =  resultset.getInt(1);
+            PreparedStatement cmd_employe = con.prepareStatement(SQL_INSERT_EMPLOYEE,PreparedStatement.RETURN_GENERATED_KEYS);
             cmd_employe.setString(1,super.getNom_Employe());
             cmd_employe.setString(2,super.getPrenom_Employe());
             cmd_employe.setString(3,super.getProfession_Employe());
             cmd_employe.setDate(4,java.sql.Date.valueOf(sdf.format(super.getDateNaissance_Employe())));
-            cmd_employe.setString(5,String.valueOf(super.getId_utilisateur()));
+            cmd_employe.setInt(5,id_user);
             int rowaffected_employe= cmd_employe.executeUpdate();
-
+            ResultSet resultset1 = cmd_employe.getGeneratedKeys();
+             resultset1.next();
+            int id_employee =  resultset1.getInt(1);
             PreparedStatement cmd_responsable = con.prepareStatement(SQL_INSERT_RESPONSABLE);
-            cmd_responsable.setString(1,String.valueOf(super.getId_Employe()));
+            cmd_responsable.setInt(1,id_employee);
             int rowaffected_responsable= cmd_employe.executeUpdate();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             if (rowaffected_user>0 && rowaffected_employe>0 && rowaffected_responsable>0){
-                //con.commit();
+                con.commit();
                 alert.setAlertType(Alert.AlertType.INFORMATION);
                 alert.setTitle("Opération réussie");
                 alert.setContentText(" La ligne a été insérée avec succès dans la base de données.");
@@ -58,7 +63,7 @@ public class Responsable extends Employe {
             alert.show();
         }
         catch (SQLException ex){
-            //con.rollback();
+            con.rollback();
             System.out.println("ERROR :"+ex.getMessage());
 
         }
