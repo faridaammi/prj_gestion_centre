@@ -17,7 +17,7 @@
                 <TableColumn prefWidth="74.0" text="Nom" />
                 <TableColumn prefWidth="85.0" text="Prénom" />
                 <TableColumn prefWidth="85.0" text="Profession" />
-                <TableColumn prefWidth="128.0" text="Date  naissance" />
+                <TableColumn prefWidth="128.0" text="Date de naissance" />
                 <TableColumn prefWidth="140.0" text="N de teléphone" />
                 <TableColumn prefWidth="120.0" text="Date de création" />
                 <TableColumn prefWidth="140.0" text="Date de validation" />
