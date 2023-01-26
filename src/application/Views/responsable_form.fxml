@@ -36,7 +36,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
         </Button>
-        <Button layoutX="656.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
+        <Button layoutX="656.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" onAction="#Modifier_responsable" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -73,7 +73,7 @@
          </font>
         </Button>
         <TextField fx:id="txt_recherche_respo" layoutX="303.0" layoutY="200.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
-      <TableView fx:id="tbl_responsable" layoutX="57.0" layoutY="268.0" prefHeight="344.0" prefWidth="938.0">
+      <TableView fx:id="tbl_responsable" onMouseClicked="#getSelectedItem" layoutX="57.0" layoutY="268.0" prefHeight="344.0" prefWidth="938.0">
         <columns>
             <TableColumn fx:id="cln_id" prefWidth="84.66665649414062" text="Id responsable " />
             <TableColumn fx:id="cln_nom" prefWidth="62.0" text="Nom " />
@@ -100,7 +100,7 @@
       </ImageView>
       <TextField fx:id="txt_nom_respo" layoutX="58.0" layoutY="34.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom " />
       <Label layoutX="60.0" layoutY="17.0" text="Nom " />
-      <TextField fx:id="txt_adresse_respo" layoutX="58.0" layoutY="88.0" prefHeight="26.0" prefWidth="143.0" promptText="Adresse" />
+      <TextField fx:id="txt_adresse_respo" layoutX="58.0" layoutY="88.0"  prefHeight="26.0" prefWidth="143.0" promptText="Adresse" />
       <TextField fx:id="txt_email_respo" layoutX="59.0" layoutY="204.0" prefHeight="26.0" prefWidth="143.0" promptText="xxxxxxx@gmail.com" />
       <Label layoutX="60.0" layoutY="71.0" text="Adresse" />
       <Label layoutX="58.0" layoutY="128.0" text="Date de naissance " />

@@ -35,6 +35,8 @@ public class Responsable extends Employe {
     private final String SQL_INSERT_RESPONSABLE = "INSERT INTO `responsable`(`id_employe`) VALUES (?)";
 
 
+   // private final String SQL_UPDATE_UTILISATEUR="UPDATE `utilisateur` u JOIN `employe` e ON u.id_utlisateur=e.id_utlisateur JOIN `responsable` ON `idEmploye`=`id_employe` SET `mot_de_passe`=?,`adresse`=?,`email_utilisateur`=?,`tele_utilisateur`=? WHERE id_responsable=1";
+    private final String SQL_UPDATE="UPDATE `utilisateur` u JOIN `employe` e ON u.id_utlisateur=e.id_utlisateur JOIN `responsable` ON `idEmploye`=`id_employe` SET `mot_de_passe`=?,`adresse`=?,`email_utilisateur`=?,`tele_utilisateur`=?,`nomEmploye`=?,`prenomEmploye`=?,`professionEmploye`=?,`dateNaissanceEmploye`=? WHERE `id_responsable`=?";
     public boolean AjouterResponsable() throws SQLException {
         Connection con = Connexion.getConnection();
         try {
@@ -116,6 +118,46 @@ public class Responsable extends Employe {
             con.close();
         }
         return  FXCollections.observableArrayList(lResponsable);
+    }
+    public static Responsable findresponsablebyid(int Id_respo){
+        Responsable respo= null;
+        for (Responsable responsable :lResponsable){
+            if (responsable.getId_responsable()==Id_respo){
+                respo= responsable;
+                break;
+            }
+        }
+        return respo;
+    }
+    public void ModifierResponsable(){
+        try {
+            Connection con = Connexion.getConnection();
+            PreparedStatement cmd = con.prepareStatement(SQL_UPDATE);
+            cmd.setString(1,getMotdepass_utilisateur());
+            cmd.setString(2,getAdresse());
+            cmd.setString(3,getEmail_utilisateur());
+            cmd.setInt(4,getTele_utilisateur());
+            cmd.setString(5,getNom_Employe());
+            cmd.setString(6,getPrenom_Employe());
+            cmd.setString(7,getProfession_Employe());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            cmd.setDate(8,java.sql.Date.valueOf(sdf.format(getDateNaissance_Employe())));
+            cmd.setInt(9,getId_responsable());
+            int rowaffected= cmd.executeUpdate();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            if (rowaffected>0){
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+                alert.setTitle("Opération réussie");
+                alert.setContentText(" La ligne a été Modifier avec succès dans la base de données.");
+            }
+            else {
+                alert.setTitle(" Échec de la modification");
+                alert.setContentText(" Une erreur s'est produite lors de la modification de ligne dans la base de données. Veuillez vérifier les informations saisies et réessayer.");
+            }
+            alert.show();
+        }catch (SQLException ex){
+            System.out.println("ERROR :"+ex.getMessage());
+        }
     }
 
 }
