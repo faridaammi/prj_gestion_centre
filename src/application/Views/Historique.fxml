@@ -10,17 +10,17 @@
          <top>
             <Pane prefHeight="56.0" prefWidth="1008.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btn_historique_centre" layoutX="150.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_respo" text="Centre">
+                  <Button fx:id="btn_historique_centre" layoutX="140.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="27.0" prefWidth="113.0" styleClass="btn_afficher_respo" text="Centre">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button  fx:id="btn_historique_responsable" layoutX="252.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #F0F0F0;" styleClass="btn_historique_responsable" stylesheets="@../values/styleAm.css" text="Responsable">
+                  <Button fx:id="btn_historique_responsable" layoutX="252.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #F0F0F0;" styleClass="btn_historique_responsable" stylesheets="@../values/styleAm.css" text="Responsable">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_historique_organisme" layoutX="354.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_centre" stylesheets="@../../Ressources/style1.css" text="Organisme" textFill="WHITE">
+                  <Button fx:id="btn_historique_organisme" layoutX="354.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="27.0" prefWidth="111.0" styleClass="btn_afficher_centre" stylesheets="@../../Ressources/style1.css" text="Organisme" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
