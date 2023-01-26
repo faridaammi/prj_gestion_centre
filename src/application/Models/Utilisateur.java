@@ -120,11 +120,12 @@ public class Utilisateur {
         this.token = token;
     }
 
-    public Utilisateur( String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation) {
+    public Utilisateur( String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation,String motdepass_utilisateur) {
         this.adresse = adresse;
         this.email_utilisateur = email_utilisateur;
         this.tele_utilisateur = tele_utilisateur;
         this.date_de_creation = date_de_creation;
+        this.motdepass_utilisateur=motdepass_utilisateur;
 
     }
 

@@ -1,11 +1,16 @@
 package application.Controllers;
 
+import application.Models.Organisme;
 import application.Models.Responsable;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,9 +48,39 @@ public class ResponsableController extends Component implements Initializable {
 
     @FXML
     private TextField txt_tele_respo;
+    @FXML
+    private TableView<Responsable> tbl_responsable;
 
     @FXML
-    private TextField txt_username;
+    private TableColumn<Responsable, String> cln_adresse;
+
+    @FXML
+    private TableColumn<Responsable, Date> cln_datecreation;
+
+    @FXML
+    private TableColumn<Responsable, Date> cln_dns;
+
+    @FXML
+    private TableColumn<Responsable, String> cln_email;
+
+    @FXML
+    private TableColumn<Responsable, Integer> cln_id;
+
+    @FXML
+    private TableColumn<Responsable, String> cln_motdepasse;
+
+    @FXML
+    private TableColumn<Responsable, String> cln_nom;
+
+    @FXML
+    private TableColumn<Responsable, String> cln_prenom;
+
+    @FXML
+    private TableColumn<Responsable, String> cln_profession;
+
+    @FXML
+    private TableColumn<Responsable, Integer> cln_tele;
+
     ZoneId defaultZoneId = ZoneId.systemDefault();
 
     @FXML
@@ -58,11 +93,10 @@ public class ResponsableController extends Component implements Initializable {
         String getTxt_email=txt_email_respo.getText();
         Date getTxtDp_dateNaiss=Date.from(dp_dateNaiss_respo.getValue().atStartOfDay(defaultZoneId).toInstant());
         String getTxtMotdepasse=txt_password.getText();
-        String getTxt_username=txt_username.getText();
 
 
         //String gettxt_recherche=txt_recherche_respo.getText();
-        if(getTxt_nom.isEmpty() || getTxt_prenom.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_profession.isEmpty() ||getTxtMotdepasse.isEmpty()||getTxt_username.isEmpty())
+        if(getTxt_nom.isEmpty() || getTxt_prenom.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_profession.isEmpty() ||getTxtMotdepasse.isEmpty())
         {
             JOptionPane.showMessageDialog(this,
                     "Veuillez remplir tous les champs",
@@ -70,7 +104,6 @@ public class ResponsableController extends Component implements Initializable {
                     JOptionPane.ERROR_MESSAGE);
         }
         else{
-            //Date getTxtdp_date_creation=Date.from(dp_dateNaiss_respo.getValue().atStartOfDay(defaultZoneId).toInstant());
             Responsable responsable=new Responsable();
             responsable.setNom_Employe(getTxt_nom);
             responsable.setPrenom_Employe(getTxt_prenom);
@@ -80,7 +113,6 @@ public class ResponsableController extends Component implements Initializable {
             responsable.setEmail_utilisateur(getTxt_email);
             responsable.setTele_utilisateur(Integer.parseInt(getTxt_tele));
             responsable.setMotdepass_utilisateur(getTxtMotdepasse);
-            responsable.setNom_utilisateur(getTxt_username);
             boolean t=responsable.AjouterResponsable();
             if(t){
                 JOptionPane.showMessageDialog(this,
@@ -93,14 +125,34 @@ public class ResponsableController extends Component implements Initializable {
                         "Echec",
                         JOptionPane.ERROR_MESSAGE);
             }
-
-
+            AfficherResponsables();
 
         }
     }
 
+    public void AfficherResponsables() throws SQLException {
+        ObservableList<Responsable> list =Responsable.ListeResponsable();
+
+        cln_id.setCellValueFactory(new PropertyValueFactory<Responsable,Integer>("id_responsable"));
+        cln_nom.setCellValueFactory(new PropertyValueFactory<Responsable,String>("nom_Employe"));
+        cln_prenom.setCellValueFactory(new PropertyValueFactory<Responsable,String>("prenom_Employe"));
+        cln_profession.setCellValueFactory(new PropertyValueFactory<Responsable,String>("profession_Employe"));
+        cln_dns.setCellValueFactory(new PropertyValueFactory<Responsable,Date>("dateNaissance_Employe"));
+        cln_adresse.setCellValueFactory(new PropertyValueFactory<Responsable,String>("adresse"));
+        cln_email.setCellValueFactory(new PropertyValueFactory<Responsable,String>("email_utilisateur"));
+        cln_tele.setCellValueFactory(new PropertyValueFactory<Responsable,Integer>("tele_utilisateur"));
+        cln_datecreation.setCellValueFactory(new PropertyValueFactory<Responsable,Date>("date_de_creation"));
+        cln_motdepasse.setCellValueFactory(new PropertyValueFactory<Responsable,String>("motdepass_utilisateur"));
+
+        tbl_responsable.setItems(list);
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        try {
+            AfficherResponsables();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

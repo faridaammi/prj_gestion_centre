@@ -10,9 +10,8 @@ public class Employe extends Utilisateur{
     private Date dateNaissance_Employe;
 
     public Employe(){}
-    public Employe(String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation, int id_Employe, String nom_Employe, String prenom_Employe, String profession_Employe, Date dateNaissance_Employe) {
-        super(adresse, email_utilisateur, tele_utilisateur, date_de_creation);
-        this.id_Employe = id_Employe;
+    public Employe(String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation, String nom_Employe, String prenom_Employe, String profession_Employe, Date dateNaissance_Employe,String motdepass_utilisateur) {
+        super(adresse, email_utilisateur, tele_utilisateur, date_de_creation,motdepass_utilisateur);
         this.nom_Employe = nom_Employe;
         this.prenom_Employe = prenom_Employe;
         this.profession_Employe = profession_Employe;
