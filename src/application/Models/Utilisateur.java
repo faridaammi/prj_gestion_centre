@@ -105,6 +105,7 @@ public class Utilisateur {
 
 
 
+    public Utilisateur(){};
     public Utilisateur(int id_utilisateur, String motdepass_utilisateur, String nom_utilisateur, String adresse, String email_utilisateur, int tele_utilisateur, int etat_utilisateur, Date date_de_creation, Date date_de_validation, int IP_utilisateur, long token) {
         this.id_utilisateur = id_utilisateur;
         this.motdepass_utilisateur = motdepass_utilisateur;
@@ -117,6 +118,14 @@ public class Utilisateur {
         this.date_de_validation = date_de_validation;
         this.IP_utilisateur = IP_utilisateur;
         this.token = token;
+    }
+
+    public Utilisateur( String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation) {
+        this.adresse = adresse;
+        this.email_utilisateur = email_utilisateur;
+        this.tele_utilisateur = tele_utilisateur;
+        this.date_de_creation = date_de_creation;
+
     }
 
     @Override
