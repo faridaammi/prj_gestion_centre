@@ -36,7 +36,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
         </Button>
-        <Button layoutX="656.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" onAction="#Modifier_responsable" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
+        <Button layoutX="656.0" layoutY="200.0" mnemonicParsing="false" onAction="#Modifier_responsable" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -48,7 +48,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
         </Button>
-        <Button layoutX="772.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
+        <Button layoutX="772.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" onAction="#Supprimer_responsable" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -72,8 +72,8 @@
             <Font name="System Bold" size="12.0" />
          </font>
         </Button>
-        <TextField fx:id="txt_recherche_respo" layoutX="303.0" layoutY="200.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
-      <TableView fx:id="tbl_responsable" onMouseClicked="#getSelectedItem" layoutX="57.0" layoutY="268.0" prefHeight="344.0" prefWidth="938.0">
+        <TextField fx:id="txt_recherche_respo" layoutX="436.0" layoutY="232.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
+      <TableView fx:id="tbl_responsable" layoutX="57.0" layoutY="268.0" onMouseClicked="#getSelectedItem" prefHeight="344.0" prefWidth="938.0">
         <columns>
             <TableColumn fx:id="cln_id" prefWidth="84.66665649414062" text="Id responsable " />
             <TableColumn fx:id="cln_nom" prefWidth="62.0" text="Nom " />
@@ -87,32 +87,29 @@
             <TableColumn fx:id="cln_motdepasse" prefWidth="126.0" text="Mot de passe " />
         </columns>
       </TableView>
-      <Button layoutX="489.0" layoutY="203.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE" />
-      <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="499.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/icon_recherche.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="156.0" fitWidth="152.0" layoutX="717.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/icon_import.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="txt_nom_respo" layoutX="58.0" layoutY="34.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le nom " />
+      <Button layoutX="621.0" layoutY="235.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icon_recherche.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TextField fx:id="txt_nom_respo" layoutX="58.0" layoutY="34.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer le nom " />
       <Label layoutX="60.0" layoutY="17.0" text="Nom " />
-      <TextField fx:id="txt_adresse_respo" layoutX="58.0" layoutY="88.0"  prefHeight="26.0" prefWidth="143.0" promptText="Adresse" />
-      <TextField fx:id="txt_email_respo" layoutX="59.0" layoutY="204.0" prefHeight="26.0" prefWidth="143.0" promptText="xxxxxxx@gmail.com" />
+      <TextField fx:id="txt_adresse_respo" layoutX="58.0" layoutY="88.0" prefHeight="26.0" prefWidth="183.0" promptText="Adresse" />
+      <TextField fx:id="txt_email_respo" layoutX="544.0" layoutY="33.0" prefHeight="26.0" prefWidth="183.0" promptText="xxxxxxx@gmail.com" />
       <Label layoutX="60.0" layoutY="71.0" text="Adresse" />
       <Label layoutX="58.0" layoutY="128.0" text="Date de naissance " />
-      <Label layoutX="61.0" layoutY="187.0" text="Email" />
-      <TextField fx:id="txt_prenom_respo" layoutX="307.0" layoutY="33.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer le prénom " />
+      <Label layoutX="546.0" layoutY="16.0" text="Email" />
+      <TextField fx:id="txt_prenom_respo" layoutX="307.0" layoutY="33.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer le prénom " />
       <Label layoutX="307.0" layoutY="16.0" text="Prénom " />
-      <TextField fx:id="txt_profession_respo" layoutX="307.0" layoutY="87.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer la profession" />
-      <TextField fx:id="txt_tele_respo" layoutX="307.0" layoutY="144.0" prefHeight="26.0" prefWidth="143.0" promptText="06-xx-xx-xx-xx" />
+      <TextField fx:id="txt_profession_respo" layoutX="307.0" layoutY="87.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer la profession" />
+      <TextField fx:id="txt_tele_respo" layoutX="307.0" layoutY="144.0" prefHeight="26.0" prefWidth="183.0" promptText="06-xx-xx-xx-xx" />
       <Label layoutX="307.0" layoutY="70.0" text="Profession" />
       <Label layoutX="307.0" layoutY="127.0" text="Téléphone" />
-      <DatePicker fx:id="dp_dateNaiss_respo" layoutX="58.0" layoutY="144.0" prefHeight="25.0" prefWidth="143.0" />
-      <TextField fx:id="txt_password" layoutX="544.0" layoutY="31.0" prefHeight="26.0" prefWidth="143.0" promptText="Entrer votre mot de passe" />
-      <Label layoutX="544.0" layoutY="14.0" text="Mot de passse" />
+      <DatePicker fx:id="dp_dateNaiss_respo" layoutX="58.0" layoutY="144.0" prefHeight="25.0" prefWidth="183.0" />
+      <TextField fx:id="txt_password" layoutX="544.0" layoutY="88.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer votre mot de passe" />
+      <Label layoutX="549.0" layoutY="70.0" text="Mot de passse" />
     </children>
 </AnchorPane>

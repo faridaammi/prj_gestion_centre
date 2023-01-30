@@ -212,4 +212,11 @@ public class ResponsableController extends Component implements Initializable {
             Vider();
         }
     }
+
+    public void Supprimer_responsable(ActionEvent actionEvent) throws SQLException {
+        Responsable responsable=Responsable.findresponsablebyid(id_responsable);
+        responsable.SupprimerResponsable();
+        AfficherResponsables();
+        Vider();
+    }
 }

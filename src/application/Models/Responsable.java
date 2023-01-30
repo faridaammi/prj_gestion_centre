@@ -4,6 +4,8 @@ import application.Controllers.Connexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,6 +39,7 @@ public class Responsable extends Employe {
 
    // private final String SQL_UPDATE_UTILISATEUR="UPDATE `utilisateur` u JOIN `employe` e ON u.id_utlisateur=e.id_utlisateur JOIN `responsable` ON `idEmploye`=`id_employe` SET `mot_de_passe`=?,`adresse`=?,`email_utilisateur`=?,`tele_utilisateur`=? WHERE id_responsable=1";
     private final String SQL_UPDATE="UPDATE `utilisateur` u JOIN `employe` e ON u.id_utlisateur=e.id_utlisateur JOIN `responsable` ON `idEmploye`=`id_employe` SET `mot_de_passe`=?,`adresse`=?,`email_utilisateur`=?,`tele_utilisateur`=?,`nomEmploye`=?,`prenomEmploye`=?,`professionEmploye`=?,`dateNaissanceEmploye`=? WHERE `id_responsable`=?";
+    private final String SQL_DELETE="DELETE `responsable`,`employe`,`utilisateur` FROM `utilisateur` LEFT JOIN `employe` ON utilisateur.id_utlisateur=employe.id_utlisateur LEFT JOIN `responsable`  ON employe.idEmploye=responsable.id_employe WHERE responsable.id_responsable=?";
     public boolean AjouterResponsable() throws SQLException {
         Connection con = Connexion.getConnection();
         try {
@@ -157,6 +160,44 @@ public class Responsable extends Employe {
             alert.show();
         }catch (SQLException ex){
             System.out.println("ERROR :"+ex.getMessage());
+        }
+    }
+    public void SupprimerResponsable() throws SQLException {
+        ButtonType yesButton = new ButtonType("Oui", ButtonBar.ButtonData.YES);
+        ButtonType noButton = new ButtonType("Non", ButtonBar.ButtonData.NO);
+        ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setContentText("Voulez-vous vraiment supprimer cet responsable ?");
+        alert.getButtonTypes().setAll(yesButton,noButton);
+        Connection con = Connexion.getConnection();
+        try {
+            PreparedStatement cmd = con.prepareStatement(SQL_DELETE);
+            cmd.setInt(1,getId_responsable());
+            alert.showAndWait().ifPresent(buttonType -> {
+                if(buttonType.getButtonData()==ButtonBar.ButtonData.YES){
+                    try {
+                        int rowaffected = cmd.executeUpdate();
+                        if(rowaffected>0){
+                            alert.getButtonTypes().setAll(okButton);
+                            alert.setAlertType(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Opération réussie");
+                            alert.setContentText(" La ligne a été Supprimer avec succès dans la base de données.");
+                        }
+                        else {
+                            alert.setTitle(" Échec de la suppression");
+                            alert.setContentText(" Une erreur s'est produite lors de la suppression  de ligne dans la base de données. Veuillez vérifier les informations saisies et réessayer.");
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    alert.show();
+                }
+            });
+        }catch (SQLException ex){
+        System.out.println("ERROR :"+ex.getMessage());
+        }finally {
+            con.close();
         }
     }
 
