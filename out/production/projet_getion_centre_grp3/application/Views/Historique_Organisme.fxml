@@ -9,7 +9,7 @@
     <children>
         <TableView layoutX="50.0" layoutY="223.0" prefHeight="356.0" prefWidth="933.0">
             <columns>
-                <TableColumn prefWidth="121.0" text="Code organisme" />
+                <TableColumn prefWidth="121.0" text="Code Organisme" />
                 <TableColumn prefWidth="147.0" text="Nom" />
                 <TableColumn prefWidth="136.0" text="Type" />
                 <TableColumn prefWidth="128.0" text="Statut" />

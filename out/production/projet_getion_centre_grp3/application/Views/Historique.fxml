@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="622.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.Historique_C_R_O">
+   <children>
+      <BorderPane prefHeight="622.0" prefWidth="1008.0">
+         <top>
+            <Pane prefHeight="56.0" prefWidth="1008.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_historique_centre" layoutX="150.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_respo" text="Centre">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button  fx:id="btn_historique_responsable" layoutX="252.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #F0F0F0;" styleClass="btn_historique_responsable" stylesheets="@../values/styleAm.css" text="Responsable">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_historique_organisme" layoutX="354.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_centre" stylesheets="@../../Ressources/style1.css" text="Organisme" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="521.0" prefWidth="1008.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane fx:id="stackPrincipe" prefHeight="521.0" prefWidth="1008.0" style="-fx-border-radius: 0;" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
