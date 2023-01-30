@@ -54,6 +54,11 @@ public class dashbord_controller implements Initializable {
 
     @FXML
     private Label txt_titre;
+
+    @FXML
+    private  Button btn_close;
+    @FXML
+    private  Button btn_mini;
     @FXML
     private StackPane stackPrincipe;
 
@@ -165,5 +170,19 @@ public class dashbord_controller implements Initializable {
         Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/Contact.fxml"));
         stackPrincipe.getChildren().removeAll();
         stackPrincipe.getChildren().setAll(fxml);
+    }
+    Stage stg;
+    @FXML
+    public void closeButton(ActionEvent eventclose)
+    {
+        stg = (Stage)((Button)eventclose.getSource()).getScene().getWindow();
+        stg.close();
+    }
+
+    @FXML
+    public void miniButton(ActionEvent eventMini)
+    {
+        stg = (Stage)((Button)eventMini.getSource()).getScene().getWindow();
+        stg.setIconified(true);
     }
 }
