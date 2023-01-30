@@ -15,7 +15,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_historique_responsable" layoutX="252.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #F0F0F0;" styleClass="btn_historique_responsable" stylesheets="@../values/styleAm.css" text="Responsable">
+                  <Button fx:id="btn_historique_responsable" layoutX="252.0" layoutY="25.0" mnemonicParsing="false" onAction="#AfficherClicked" prefHeight="27.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #F0F0F0;" styleClass="btn_historique_responsable" stylesheets="@../values/styleAm.css" text="Responsable">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
