@@ -275,6 +275,7 @@ CREATE TABLE `message` (
   `idMessage` int(11) NOT NULL AUTO_INCREMENT,
   `dateTime_Message` datetime NOT NULL,
   `etat_Message` varchar(50) NOT NULL,
+  `Object_msg` varchar(500) NOT NULL,
   `contenu_message` varchar(500) NOT NULL,
   `id_Organisme` int(11) DEFAULT NULL,
   `idEmploye` int(11) DEFAULT NULL,
@@ -376,7 +377,7 @@ CREATE TABLE `reservation` (
   `date_Reservation` datetime DEFAULT NULL,
   `type_Reservation` varchar(255) DEFAULT NULL,
   `etats_Reservation` varchar(255) DEFAULT NULL,
-  `personne_Invitee` varchar(255) DEFAULT NULL,
+  `personne_Invitee` int(255) DEFAULT NULL,
   `description_Reservation` varchar(1000) DEFAULT NULL,
   `id_Organisme` int(11) DEFAULT NULL,
   `idCentre` int(11) DEFAULT NULL,
@@ -494,4 +495,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-26 13:15:25
+-- Dump completed on 2023-01-30 22:43:10
