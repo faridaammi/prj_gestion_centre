@@ -14,7 +14,7 @@
       </Label>
       <TableView layoutX="175.0" layoutY="223.0" prefHeight="327.0" prefWidth="820.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Nom centre" />
+          <TableColumn prefWidth="75.0" text="Nom Centre" />
           <TableColumn prefWidth="75.0" text="Adesse" />
             <TableColumn prefWidth="75.0" text="Responsable" />
             <TableColumn prefWidth="75.0" text="Salles" />

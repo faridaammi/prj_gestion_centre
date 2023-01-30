@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="622.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="txt_nom_centre" layoutX="70.0" layoutY="48.0" prefHeight="26.0" prefWidth="193.0" promptText="Entrer le nom de centre" />
+      <Label layoutX="70.0" layoutY="31.0" text="Nom de Centre" />
+      <TextField fx:id="txt_capacite_centre" layoutX="70.0" layoutY="102.0" prefHeight="26.0" prefWidth="193.0" promptText="0" />
+      <Label layoutX="70.0" layoutY="85.0" text="CapacitÃ© du Centre" />
+      <TextField fx:id="txt_nom_centre1" layoutX="70.0" layoutY="48.0" prefHeight="26.0" prefWidth="193.0" promptText="Entrer le nom de centre" />
+      <Label layoutX="70.0" layoutY="31.0" text="Nom de Centre" />
+      <TextField fx:id="txt_adresse_centre" layoutX="282.0" layoutY="48.0" prefHeight="26.0" prefWidth="193.0" promptText="Entrer ladresse de centre" />
+      <Label layoutX="282.0" layoutY="33.0" text="Adresse" />
+      <TextField fx:id="txt_capacite_centre2" layoutX="70.0" layoutY="102.0" prefHeight="26.0" prefWidth="193.0" promptText="0" />
+      <Label layoutX="70.0" layoutY="85.0" text="CapacitÃ© du Centre" />
+      <TextArea fx:id="txt_description_centre" layoutX="282.0" layoutY="100.0" prefHeight="117.0" prefWidth="193.0" promptText="Entrez votre description du centre ici..." />
+      <Label layoutX="282.0" layoutY="82.0" text="Description de Centre" />
+      <ImageView fitHeight="197.0" fitWidth="159.0" layoutX="502.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/icon_import.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn_afficher_salle" layoutX="644.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_respo" text="Salle">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button id="btn_afficher_equipement" layoutX="746.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_afficher_centre" text="Equipement" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="70.0" layoutY="142.0" text="Responsable de centre" />
+      <ComboBox fx:id="cb_responsable_centre" layoutX="70.0" layoutY="161.0" prefWidth="193.0" />
+      <TableView layoutX="71.0" layoutY="337.0" prefHeight="269.0" prefWidth="927.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

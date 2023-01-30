@@ -6,11 +6,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -82,6 +81,7 @@ public class ResponsableController extends Component implements Initializable {
     private TableColumn<Responsable, Integer> cln_tele;
 
     ZoneId defaultZoneId = ZoneId.systemDefault();
+    int id_responsable;
 
     @FXML
     void AjouterResponsable(ActionEvent event) throws SQLException {
@@ -96,7 +96,7 @@ public class ResponsableController extends Component implements Initializable {
 
 
         //String gettxt_recherche=txt_recherche_respo.getText();
-        if(getTxt_nom.isEmpty() || getTxt_prenom.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_profession.isEmpty() ||getTxtMotdepasse.isEmpty())
+        if(getTxt_nom.isEmpty() || getTxt_prenom.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_profession.isEmpty() ||getTxtMotdepasse.isEmpty() ||dp_dateNaiss_respo.getValue()==null)
         {
             JOptionPane.showMessageDialog(this,
                     "Veuillez remplir tous les champs",
@@ -119,6 +119,7 @@ public class ResponsableController extends Component implements Initializable {
                         "Success",
                         "Information",
                         JOptionPane.INFORMATION_MESSAGE);
+                Vider();
             }else{
                 JOptionPane.showMessageDialog(this,
                         "Erreur lors de l'ajout",
@@ -154,5 +155,68 @@ public class ResponsableController extends Component implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void Vider(){
+        txt_adresse_respo.clear();
+        txt_email_respo.clear();
+        txt_nom_respo.clear();
+        txt_prenom_respo.clear();
+        txt_password.clear();
+        txt_profession_respo.clear();
+        txt_tele_respo.clear();
+        dp_dateNaiss_respo.setValue(null);
+    }
+    @FXML
+    void getSelectedItem(MouseEvent event) {
+        Responsable responsable=tbl_responsable.getSelectionModel().getSelectedItem();
+        id_responsable=responsable.getId_responsable();
+        txt_nom_respo.setText(responsable.getNom_Employe());
+        txt_prenom_respo.setText(responsable.getPrenom_Employe());
+        txt_profession_respo.setText(responsable.getProfession_Employe());
+        txt_adresse_respo.setText(responsable.getAdresse());
+        dp_dateNaiss_respo.setValue(new java.sql.Date(responsable.getDateNaissance_Employe().getTime()).toLocalDate());
+        txt_email_respo.setText(responsable.getEmail_utilisateur());
+        txt_tele_respo.setText(String.valueOf(responsable.getTele_utilisateur()));
+        txt_password.setText(responsable.getMotdepass_utilisateur());
+    }
+
+
+    public void Modifier_responsable(ActionEvent actionEvent) throws SQLException {
+        String getTxt_nom=txt_nom_respo.getText();
+        String getTxt_prenom=txt_prenom_respo.getText();
+        String getTxt_adresse=txt_adresse_respo.getText();
+        String getTxt_profession=txt_profession_respo.getText();
+        String getTxt_tele=txt_tele_respo.getText();
+        String getTxt_email=txt_email_respo.getText();
+        Date getTxtDp_dateNaiss=Date.from(dp_dateNaiss_respo.getValue().atStartOfDay(defaultZoneId).toInstant());
+        String getTxtMotdepasse=txt_password.getText();
+        if(getTxt_nom.isEmpty() || getTxt_prenom.isEmpty() || getTxt_adresse.isEmpty() || getTxt_email.isEmpty() || getTxt_tele.isEmpty() || getTxt_profession.isEmpty() ||getTxtMotdepasse.isEmpty() || dp_dateNaiss_respo.getValue()==null)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Champs requis");
+            alert.setContentText(" Veuillez remplir tous les champs pour soumettre le formulaire.");
+            alert.show();
+        }
+        else {
+            Responsable responsable=Responsable.findresponsablebyid(id_responsable);
+            responsable.setNom_Employe(getTxt_nom);
+            responsable.setPrenom_Employe(getTxt_prenom);
+            responsable.setAdresse(getTxt_adresse);
+            responsable.setProfession_Employe(getTxt_profession);
+            responsable.setTele_utilisateur(Integer.parseInt(getTxt_tele.toString()));
+            responsable.setEmail_utilisateur(getTxt_email);
+            responsable.setDateNaissance_Employe(getTxtDp_dateNaiss);
+            responsable.setMotdepass_utilisateur(getTxtMotdepasse);
+            responsable.ModifierResponsable();
+            AfficherResponsables();
+            Vider();
+        }
+    }
+
+    public void Supprimer_responsable(ActionEvent actionEvent) throws SQLException {
+        Responsable responsable=Responsable.findresponsablebyid(id_responsable);
+        responsable.SupprimerResponsable();
+        AfficherResponsables();
+        Vider();
     }
 }

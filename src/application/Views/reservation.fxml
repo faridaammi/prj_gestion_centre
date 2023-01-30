@@ -12,19 +12,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.reservation_controller">
    <children>
-      <TableView fx:id="table_reservation" layoutX="32.0" layoutY="176.0" prefHeight="426.0" prefWidth="944.0">
-        <columns>
-          <TableColumn fx:id="codereservation" prefWidth="126.39995956420898" text="Code Réservation" />
-          <TableColumn prefWidth="89.5999755859375" text="Date début" />
-            <TableColumn prefWidth="85.59999084472656" text="Date Fin" />
-            <TableColumn prefWidth="72.7999267578125" text="Type" />
-            <TableColumn prefWidth="81.60003662109375" text="Etats" />
-            <TableColumn prefWidth="81.60003662109375" text="Centres" />
-            <TableColumn prefWidth="139.199951171875" text="Code Association" />
-            <TableColumn prefWidth="132.0" text="Association" />
-            <TableColumn prefWidth="134.4000244140625" text="Action" />
-        </columns>
-      </TableView>
       <Button fx:id="btn_accepter" alignment="BASELINE_LEFT" graphicTextGap="25.0" layoutX="183.0" layoutY="112.0" mnemonicParsing="false" onAction="#goToDetaitls" prefHeight="34.0" prefWidth="138.0" style="-fx-background-color: #06D6A0; -fx-background-radius: 20;" text="Accepter" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -97,5 +84,18 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <TableView fx:id="table_reservation" layoutX="14.0" layoutY="180.0" prefHeight="438.0" prefWidth="980.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="69.0" text="ID" />
+          <TableColumn fx:id="col_dtDebut" prefWidth="93.0" text="Date debut" />
+            <TableColumn fx:id="col_dtFin" prefWidth="95.0" text="Date Fin" />
+            <TableColumn fx:id="col_dtReservation" prefWidth="126.0" text="Date Reservation" />
+            <TableColumn fx:id="col_type" prefWidth="88.0" text="Type" />
+            <TableColumn fx:id="col_etats" prefWidth="96.0" text="Etats" />
+            <TableColumn fx:id="col_organisme" prefWidth="118.0" text="Organisme" />
+            <TableColumn fx:id="col_description" prefWidth="170.0" text="Description" />
+            <TableColumn fx:id="col_action" prefWidth="124.0" text="Action" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
