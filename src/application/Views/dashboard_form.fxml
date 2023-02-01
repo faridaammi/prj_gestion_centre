@@ -32,7 +32,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <graphic>
-                              <ImageView fx:id="btn_close" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView  fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../images/icon_close_login.png" />
                                  </image>
@@ -44,7 +44,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <graphic>
-                              <ImageView fx:id="btn_mini" fitHeight="9.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView  fitHeight="9.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../images/icon_mini_login.png" />
                                  </image>
