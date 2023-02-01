@@ -128,6 +128,12 @@ public class Utilisateur {
         this.motdepass_utilisateur=motdepass_utilisateur;
 
     }
+    public Utilisateur(String adresse, String emailUtilisateur, int teleUtilisateur, Date dateDeCreation) {
+        this.adresse = adresse;
+        this.email_utilisateur = emailUtilisateur;
+        this.tele_utilisateur = teleUtilisateur;
+        this.date_de_creation = dateDeCreation;
+    }
 
     @Override
     public String toString() {
