@@ -125,7 +125,7 @@ public class dashbord_controller implements Initializable {
         else if(eventChange.getSource() == btn_historique)
         {
             txt_titre.setText("Historiques");
-            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/Historique_Organisme.fxml"));
+            Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/Historique.fxml"));
             stackPrincipe.getChildren().removeAll();
             stackPrincipe.getChildren().setAll(fxml);
         }

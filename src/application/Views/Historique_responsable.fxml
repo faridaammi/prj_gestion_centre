@@ -5,35 +5,47 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" styleClass="sreach-button" stylesheets="@../values/styleAm.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.Historique_C_R_O">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" styleClass="sreach-button" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.HistoriqueResponsableController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="7.0" prefHeight="31.0" prefWidth="153.0" wrapText="true">
             <font>
                 <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
-        <TableView layoutX="54.0" layoutY="231.0" prefHeight="345.0" prefWidth="941.0">
+        <TableView fx:id="tbl_historique_responsable" onMouseClicked="#getSelectedItem" layoutX="54.0" layoutY="231.0" prefHeight="345.0" prefWidth="941.0">
             <columns>
-                <TableColumn prefWidth="74.0" text="Nom" />
-                <TableColumn prefWidth="85.0" text="Prénom" />
-                <TableColumn prefWidth="85.0" text="Profession" />
-                <TableColumn prefWidth="128.0" text="Date de naissance" />
-                <TableColumn prefWidth="140.0" text="N de teléphone" />
-                <TableColumn prefWidth="120.0" text="Date de création" />
-                <TableColumn prefWidth="140.0" text="Date de validation" />
-                <TableColumn prefWidth="167.0" text="Date de suppession" />
+                <TableColumn fx:id="cln_id_copy" prefWidth="74.0" text="Id responsable" />
+                <TableColumn fx:id="cln_nom_copy" prefWidth="74.0" text="Nom" />
+                <TableColumn fx:id="cln_prenom_copy" prefWidth="85.0" text="Prénom" />
+                <TableColumn fx:id="cln_profession_copy" prefWidth="85.0" text="Profession" />
+                <TableColumn fx:id="cln_dns_copy" prefWidth="120.0" text="Date de naissance" />
+                <TableColumn fx:id="cln_adresse_copy" prefWidth="120.0" text="Adresse" />
+                <TableColumn fx:id="cln_email_copy" prefWidth="120.0" text="Email" />
+                <TableColumn fx:id="cln_tele_copy" prefWidth="140.0" text="N de teléphone" />
+                <TableColumn fx:id="cln_datecreation_copy" prefWidth="120.0" text="Date de création" />
             </columns>
         </TableView>
-
-
-
         <ComboBox layoutX="382.0" layoutY="155.0" prefHeight="25.0" prefWidth="186.0" promptText="recherché par" style="-fx-background-color: FFFFFF;" />
-        <TextField id="id_historique_responsable_rech" fx:id="txt_username41" layoutX="158.0" layoutY="155.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
-        <Button layoutX="344.0" layoutY="158.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE" />
-        <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="351.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../images/icon_recherche.png" />
-            </image>
-        </ImageView>
+        <TextField fx:id="id_historique_responsable_rech" layoutX="158.0" layoutY="155.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
+        <Button layoutX="344.0" layoutY="158.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: Transparent;" >
+            <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="351.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../../images/icon_recherche.png" />
+                </image>
+            </ImageView>
+        </Button>
+        <Button fx:id="btn_restaurer" layoutX="890.0" layoutY="155.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" onAction="#Restaurer" styleClass="btn_imprimer" text="Restaurer" textFill="WHITE">
+            <graphic>
+                <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/icon_restaurer.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>
+

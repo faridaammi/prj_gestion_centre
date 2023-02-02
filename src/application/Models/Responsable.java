@@ -18,6 +18,8 @@ import java.util.Date;
 
 public class Responsable extends Employe {
 
+    private boolean respo_archivee;
+    private int id_responsable;
     public int getId_responsable() {
         return id_responsable;
     }
@@ -26,7 +28,13 @@ public class Responsable extends Employe {
         this.id_responsable = id_responsable;
     }
 
-    private int id_responsable;
+    public boolean isRespo_archivee() {
+        return respo_archivee;
+    }
+
+    public void setRespo_archivee(boolean respo_archivee) {
+        this.respo_archivee = respo_archivee;
+    }
     public Responsable(int id_responsable, String nom_Employe, String prenom_Employe, String profession_Employe, Date dateNaissance_Employe,String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation,String motdepass_utilisateur) {
         super(adresse, email_utilisateur, tele_utilisateur, date_de_creation, nom_Employe, prenom_Employe, profession_Employe, dateNaissance_Employe,motdepass_utilisateur);
         this.id_responsable=id_responsable;
@@ -39,7 +47,8 @@ public class Responsable extends Employe {
 
    // private final String SQL_UPDATE_UTILISATEUR="UPDATE `utilisateur` u JOIN `employe` e ON u.id_utlisateur=e.id_utlisateur JOIN `responsable` ON `idEmploye`=`id_employe` SET `mot_de_passe`=?,`adresse`=?,`email_utilisateur`=?,`tele_utilisateur`=? WHERE id_responsable=1";
     private final String SQL_UPDATE="UPDATE `utilisateur` u JOIN `employe` e ON u.id_utlisateur=e.id_utlisateur JOIN `responsable` ON `idEmploye`=`id_employe` SET `mot_de_passe`=?,`adresse`=?,`email_utilisateur`=?,`tele_utilisateur`=?,`nomEmploye`=?,`prenomEmploye`=?,`professionEmploye`=?,`dateNaissanceEmploye`=? WHERE `id_responsable`=?";
-    private final String SQL_DELETE="DELETE `responsable`,`employe`,`utilisateur` FROM `utilisateur` LEFT JOIN `employe` ON utilisateur.id_utlisateur=employe.id_utlisateur LEFT JOIN `responsable`  ON employe.idEmploye=responsable.id_employe WHERE responsable.id_responsable=?";
+    private final String SQL_DELETE="UPDATE `utilisateur` u JOIN `employe` e ON u.id_utlisateur=e.id_utlisateur JOIN `responsable` ON `idEmploye`=`id_employe` SET `respo_archivee`=1 WHERE `id_responsable`=?";
+    private final String SQL_RESTORE="UPDATE `utilisateur` u JOIN `employe` e ON u.id_utlisateur=e.id_utlisateur JOIN `responsable` ON `idEmploye`=`id_employe` SET `respo_archivee`=0 WHERE `id_responsable`=?";
     public boolean AjouterResponsable() throws SQLException {
         Connection con = Connexion.getConnection();
         try {
@@ -104,8 +113,7 @@ public class Responsable extends Employe {
         Connection con=Connexion.getConnection();
         Responsable responsable;
         try {
-            ResultSet resultSet=con.createStatement().executeQuery("SELECT `id_responsable`, `nomEmploye`, `prenomEmploye`, `professionEmploye`, `dateNaissanceEmploye`,`adresse`,`tele_utilisateur`,`email_utilisateur`,`datecreation_utiisateur`,`mot_de_passe`\n" +
-                    "FROM `employe` e JOIN `utilisateur` u ON e.id_utlisateur=u.id_utlisateur JOIN `responsable` ON `id_employe`=`idEmploye`;");
+            ResultSet resultSet=con.createStatement().executeQuery("SELECT `id_responsable`, `nomEmploye`, `prenomEmploye`, `professionEmploye`, `dateNaissanceEmploye`,`adresse`,`tele_utilisateur`,`email_utilisateur`,`datecreation_utiisateur`,`mot_de_passe` FROM `employe` e JOIN `utilisateur` u ON e.id_utlisateur=u.id_utlisateur JOIN `responsable` ON `id_employe`=`idEmploye` WHERE `respo_archivee`=0");
             while (resultSet.next()){
                 //(int id_Employe, String nom_Employe, String prenom_Employe, String profession_Employe, Date dateNaissance_Employe,String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation)
                 responsable = new Responsable(resultSet.getInt("id_responsable"),resultSet.getString("nomEmploye"),resultSet.getString("prenomEmploye")
@@ -200,5 +208,77 @@ public class Responsable extends Employe {
             con.close();
         }
     }
+    static ArrayList<Responsable> lHResponsable ;
+    public static ObservableList<Responsable> ListeHistoriqueResponsable() throws SQLException {
+        lHResponsable=new ArrayList<Responsable>();
+        Connection con= Connexion.getConnection();
+        Responsable responsable;
+        try {
+            ResultSet resultSet=con.createStatement().executeQuery("SELECT `id_responsable`, `nomEmploye`, `prenomEmploye`, `professionEmploye`, `dateNaissanceEmploye`,`adresse`,`tele_utilisateur`,`email_utilisateur`,`datecreation_utiisateur`,`mot_de_passe` FROM `employe` e JOIN `utilisateur` u ON e.id_utlisateur=u.id_utlisateur JOIN `responsable` ON `id_employe`=`idEmploye` WHERE `respo_archivee`=1");
+            while (resultSet.next()){
+                //(int id_Employe, String nom_Employe, String prenom_Employe, String profession_Employe, Date dateNaissance_Employe,String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation)
+                responsable = new Responsable(resultSet.getInt("id_responsable"),resultSet.getString("nomEmploye"),resultSet.getString("prenomEmploye")
+                        ,resultSet.getString("professionEmploye"),resultSet.getDate("dateNaissanceEmploye")
+                        ,resultSet.getString("adresse"),resultSet.getString("email_utilisateur"),resultSet.getInt("tele_utilisateur")
+                        ,resultSet.getDate("datecreation_utiisateur"),resultSet.getString("mot_de_passe"));
+                lHResponsable.add(responsable);
+
+            }
+        }catch (Exception e)
+        {System.out.println("ERROR :"+e.getMessage());}
+        finally {
+            con.close();
+        }
+        return  FXCollections.observableArrayList(lHResponsable);
+    }
+    public static Responsable findresponsablebyidforhistory(int Id_respo){
+        Responsable respo= null;
+        for (Responsable responsable :lHResponsable){
+            if (responsable.getId_responsable()==Id_respo){
+                respo= responsable;
+                break;
+            }
+        }
+        return respo;
+    }
+    public void Restaurer_Responsable() throws SQLException {
+        ButtonType yesButton = new ButtonType("Oui", ButtonBar.ButtonData.YES);
+        ButtonType noButton = new ButtonType("Non", ButtonBar.ButtonData.NO);
+        ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setContentText("Voulez-vous vraiment restaurer cet responsable ?");
+        alert.getButtonTypes().setAll(yesButton,noButton);
+        Connection con = Connexion.getConnection();
+        try {
+            PreparedStatement cmd = con.prepareStatement(SQL_RESTORE);
+            cmd.setInt(1,getId_responsable());
+            alert.showAndWait().ifPresent(buttonType -> {
+                if(buttonType.getButtonData()==ButtonBar.ButtonData.YES){
+                    try {
+                        int rowaffected = cmd.executeUpdate();
+                        if(rowaffected>0){
+                            alert.getButtonTypes().setAll(okButton);
+                            alert.setAlertType(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Opération réussie");
+                            alert.setContentText(" La ligne a été Restaurer avec succès dans la base de données.");
+                        }
+                        else {
+                            alert.setTitle(" Échec de la restauration");
+                            alert.setContentText(" Une erreur s'est produite lors de la restauration  de ligne dans la base de données. Veuillez vérifier les informations saisies et réessayer.");
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    alert.show();
+                }
+            });
+        }catch (SQLException ex){
+            System.out.println("ERROR :"+ex.getMessage());
+        }finally {
+            con.close();
+        }
+    }
+
 
 }
