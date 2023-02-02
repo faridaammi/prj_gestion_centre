@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="674.0" style="-fx-background-color: D9D9D9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: D9D9D9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.Contactgest">
    <children>
       <Label layoutX="9.0" text="Contact">
          <font>
@@ -32,26 +32,26 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="34.0" layoutY="116.0" prefHeight="25.0" prefWidth="181.0" promptText="Objet" />
-      <TextField layoutX="34.0" layoutY="165.0" prefHeight="25.0" prefWidth="181.0" promptText="Entre Votre Email" />
-      <TextArea layoutX="34.0" layoutY="216.0" prefHeight="177.0" prefWidth="551.0" style="-fx-background-color: FFFFFF;" />
-      <Button layoutX="50.0" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="156.0" style="-fx-background-color: #2213c9; -fx-background-radius: 20;" text="Envoyer" textFill="WHITE">
+      <TextField fx:id="txt_objet" layoutX="34.0" layoutY="116.0" prefHeight="25.0" prefWidth="181.0" promptText="Objet" />
+      <TextField fx:id="txt_email" layoutX="34.0" layoutY="165.0" prefHeight="25.0" prefWidth="181.0" promptText="Entre Votre Email" />
+      <TextArea fx:id="txt_zon_message" layoutX="34.0" layoutY="216.0" prefHeight="177.0" prefWidth="551.0" style="-fx-background-color: FFFFFF;" />
+      <Button fx:id="btn_envoyer" layoutX="50.0" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="156.0" style="-fx-background-color: #2213c9; -fx-background-radius: 20;" text="Envoyer" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <ComboBox layoutX="34.0" layoutY="68.0" prefHeight="25.0" prefWidth="181.0" promptText="Selectionner un email" style="-fx-background-color: FFFFFF;" />
+      <ComboBox fx:id="txt_selectionner_email" layoutX="34.0" layoutY="68.0" prefHeight="25.0" prefWidth="181.0" promptText="Selectionner un email" style="-fx-background-color: FFFFFF;" />
       <ImageView fitHeight="58.0" fitWidth="32.0" layoutX="57.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/icon_envoyer.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="215.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btn_joidre" fitHeight="35.0" fitWidth="32.0" layoutX="215.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/icon_joidre.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="555.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btn_brouillon" fitHeight="35.0" fitWidth="40.0" layoutX="555.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/icon_brouillon.png" />
          </image>
