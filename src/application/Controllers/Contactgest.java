@@ -92,7 +92,7 @@ public class Contactgest extends Component  implements Initializable {
 
            // Connection con = DriverManager.getConnection(url,"root1","root");
 
-           // System.out.println("try");
+
             	Connection con = Connexion.getConnection();
             ResultSet resultSet = con.createStatement().executeQuery("SELECT * FROM utilisateur;");
             while (resultSet.next()){
