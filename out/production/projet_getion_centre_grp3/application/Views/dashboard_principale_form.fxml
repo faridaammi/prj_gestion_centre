@@ -73,9 +73,9 @@
             <Label layoutX="27.0" layoutY="111.0" prefHeight="17.0" prefWidth="160.0" text="2.00% (30 jours)" textFill="WHITE" />
          </children>
       </Pane>
-      <Pane layoutX="38.0" layoutY="198.0" prefHeight="228.0" prefWidth="625.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+      <Pane layoutX="38.0" layoutY="198.0" prefHeight="228.0" prefWidth="658.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
          <children>
-            <LineChart fx:id="linechart" layoutX="14.0" prefHeight="228.0" prefWidth="597.0" style="-fx-border-color: #FFFFFF; -fx-background-radius: 20;" title="Nombre de réservation par mois année 2023">
+            <LineChart fx:id="linechart" layoutX="14.0" layoutY="2.0" prefHeight="221.0" prefWidth="632.0" style="-fx-border-color: #FFFFFF; -fx-background-radius: 20;" title="Nombre de réservation par mois année 2023">
               <xAxis>
                 <CategoryAxis label="Mois" side="BOTTOM" fx:id="xaxis_months" />
               </xAxis>
