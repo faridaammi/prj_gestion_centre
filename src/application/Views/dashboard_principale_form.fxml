@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="25.0" layoutY="27.0" prefHeight="142.0" prefWidth="214.0" style="-fx-background-color: #EF476F; -fx-background-radius: 20;">
@@ -21,7 +20,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="24.0" layoutY="42.0" prefHeight="17.0" prefWidth="160.0" text="2503" textFill="WHITE">
+            <Label fx:id="label_totlalcentres" layoutX="24.0" layoutY="42.0" prefHeight="17.0" prefWidth="160.0" text="2503" textFill="WHITE">
                <font>
                   <Font name="Nirmala UI Bold" size="46.0" />
                </font>
@@ -36,7 +35,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="37.0" prefHeight="17.0" prefWidth="160.0" text="89602" textFill="WHITE">
+            <Label fx:id="label_totlalreseraccepeter" layoutX="27.0" layoutY="37.0" prefHeight="17.0" prefWidth="160.0" text="89602" textFill="WHITE">
                <font>
                   <Font name="Nirmala UI Bold" size="46.0" />
                </font>
@@ -51,7 +50,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="29.0" layoutY="39.0" prefHeight="17.0" prefWidth="160.0" text="8563" textFill="WHITE">
+            <Label fx:id="label_totlalorganismes" layoutX="29.0" layoutY="39.0" prefHeight="17.0" prefWidth="160.0" text="8563" textFill="WHITE">
                <font>
                   <Font name="Nirmala UI Bold" size="46.0" />
                </font>
@@ -66,7 +65,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="42.0" prefHeight="17.0" prefWidth="160.0" text="5036" textFill="WHITE">
+            <Label fx:id="label_totlalreserannuler" layoutX="27.0" layoutY="42.0" prefHeight="17.0" prefWidth="160.0" text="5036" textFill="WHITE">
                <font>
                   <Font name="Nirmala UI Bold" size="46.0" />
                </font>
