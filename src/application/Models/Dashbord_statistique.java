@@ -3,6 +3,7 @@ package application.Models;
 import application.Controllers.Connexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,6 +18,7 @@ public class Dashbord_statistique {
     private static final String SQL_GETTOTALRESERVATIONANNULER ="SELECT COUNT(*) FROM `reservation` WHERE etats_Reservation = 'Cancelled';";
     private static final String SQL_GETRECENTRESERVATION ="SELECT date_Reservation,organisme.nom_Organisme,centre.nomCentre,dateDebut_Reservation,dateFin_Reservation FROM `reservation` JOIN organisme ON organisme.id_Organisme= reservation.id_Organisme JOIN centre ON centre.idCentre = reservation.idCentre ORDER BY date_Reservation DESC  LIMIT 5;";
     private static final String SQL_GETDATAFORLINECHART ="SELECT MONTHNAME(date_Reservation) as Month, COUNT(*) as Total FROM `reservation` WHERE YEAR(date_Reservation) = YEAR(CURRENT_DATE) GROUP BY MONTHNAME(date_Reservation) ORDER BY FIELD(Month, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');" ;
+    private static final String SQL_GETDATAFORPIECART ="SELECT centre.nomCentre,(COUNT(*) / (SELECT COUNT(*) FROM reservation)) * 100 AS percentage FROM `reservation` JOIN centre ON reservation.idCentre = centre.idCentre WHERE centre.centre_archivee = 0 GROUP BY centre.nomCentre;";
     private String organisme_nom;
     private String centre_nom;
     private int num_salle;
@@ -139,10 +141,26 @@ public class Dashbord_statistique {
 
         }
         catch (Exception ex ){
-
+            System.out.println("ERROR :"+ex.getMessage());
         }
 
         return  Data_linechart;
+    }
+    public static ObservableList<PieChart.Data> getdataforpiechart(){
+        ObservableList<PieChart.Data> pieChartdata =FXCollections.observableArrayList();
+        try {
+            Connection con = Connexion.getConnection();
+            ResultSet resultSet = con.createStatement().executeQuery(SQL_GETDATAFORPIECART);
+            while (resultSet.next()){
+                pieChartdata.add(new PieChart.Data(resultSet.getString(1),resultSet.getDouble(2)));
+            }
+        }
+        catch (Exception ex){
+            System.out.println("ERROR :"+ex.getMessage());
+
+        }
+        return pieChartdata;
+
     }
 
 }

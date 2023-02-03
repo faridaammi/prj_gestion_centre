@@ -87,7 +87,7 @@
       </Pane>
       <Pane layoutX="714.0" layoutY="198.0" prefHeight="228.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
          <children>
-            <PieChart layoutX="12.0" layoutY="12.0" prefHeight="204.0" prefWidth="246.0" />
+            <PieChart fx:id="pie_chart" layoutX="12.0" layoutY="12.0" prefHeight="204.0" prefWidth="246.0" />
          </children>
       </Pane>
       <TableView fx:id="tbl_recentlyreservation" layoutX="38.0" layoutY="443.0" prefHeight="166.0" prefWidth="950.0">

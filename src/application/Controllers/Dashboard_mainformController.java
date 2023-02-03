@@ -2,13 +2,11 @@ package application.Controllers;
 
 import application.Models.Dashbord_statistique;
 import application.Models.Data_Charts;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -54,6 +52,8 @@ public class Dashboard_mainformController implements Initializable {
     @FXML
     private LineChart<?, ?> linechart;
     @FXML
+    private PieChart pie_chart;
+    @FXML
     private CategoryAxis xaxis_months;
 
     @FXML
@@ -69,6 +69,7 @@ public class Dashboard_mainformController implements Initializable {
         label_totlalreserannuler.setText(Totals_info.get(3));
         showrecentreservation();
         showcharts();
+        showpiechart();
 
 
 
@@ -96,5 +97,10 @@ public class Dashboard_mainformController implements Initializable {
         linechart.getData().add(series);
 
 
+    }
+    public void showpiechart(){
+        ObservableList<PieChart.Data> pieChartdata= Dashbord_statistique.getdataforpiechart();
+        pie_chart.setTitle("Percentage of Reservation par centre");
+        pie_chart.setData(pieChartdata);
     }
 }
