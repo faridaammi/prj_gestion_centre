@@ -75,12 +75,12 @@
       </Pane>
       <Pane layoutX="38.0" layoutY="198.0" prefHeight="228.0" prefWidth="625.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
          <children>
-            <LineChart layoutX="14.0" prefHeight="228.0" prefWidth="597.0" style="-fx-border-color: #FFFFFF; -fx-background-radius: 20;">
+            <LineChart fx:id="linechart" layoutX="14.0" prefHeight="228.0" prefWidth="597.0" style="-fx-border-color: #FFFFFF; -fx-background-radius: 20;" title="Nombre de réservation par mois année 2023">
               <xAxis>
-                <CategoryAxis side="BOTTOM" />
+                <CategoryAxis label="Mois" side="BOTTOM" fx:id="xaxis_months" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" />
+                <NumberAxis fx:id="yaxis_nbrreservation" label="Nombre Reservations" side="LEFT" />
               </yAxis>
             </LineChart>
          </children>

@@ -1,10 +1,14 @@
 package application.Controllers;
 
 import application.Models.Dashbord_statistique;
-import application.Models.Organisme;
+import application.Models.Data_Charts;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -47,6 +51,14 @@ public class Dashboard_mainformController implements Initializable {
 
     @FXML
     private Label label_totlalreserannuler;
+    @FXML
+    private LineChart<?, ?> linechart;
+    @FXML
+    private CategoryAxis xaxis_months;
+
+    @FXML
+    private NumberAxis yaxis_nbrreservation;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,6 +68,8 @@ public class Dashboard_mainformController implements Initializable {
         label_totlalreseraccepeter.setText(Totals_info.get(2));
         label_totlalreserannuler.setText(Totals_info.get(3));
         showrecentreservation();
+        showcharts();
+
 
 
     }
@@ -68,6 +82,18 @@ public class Dashboard_mainformController implements Initializable {
         cln_datefin.setCellValueFactory(new PropertyValueFactory<Dashbord_statistique,Date>("date_fin"));
         cln_datereservation.setCellValueFactory(new PropertyValueFactory<Dashbord_statistique,Date>("date_reservation"));
         tbl_recentlyreservation.setItems(list);
+
+
+    }
+    public void showcharts(){
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Reservations");
+        ArrayList<Data_Charts> data= Dashbord_statistique.getdataforlinechart();
+        for (Data_Charts dataline: data) {
+            series.getData().add(new XYChart.Data<>(dataline.Mois,dataline.nbreeservationsparmois));
+
+        }
+        linechart.getData().add(series);
 
 
     }

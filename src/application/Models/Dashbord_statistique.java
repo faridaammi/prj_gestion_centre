@@ -10,12 +10,13 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Dashbord_statistique {
+
     private static final String SQL_GETTOTALCENTRES ="SELECT COUNT(*) FROM `centre` WHERE centre_archivee= 0;";
     private static final String SQL_GETTOTALORGANISMES ="SELECT COUNT(*) FROM `organisme` WHERE organisme_archivee = 0;";
     private static final String SQL_GETTOTALRESERVATIONACCEPTER ="SELECT COUNT(*) FROM `reservation` WHERE etats_Reservation = 'Confirmed';";
     private static final String SQL_GETTOTALRESERVATIONANNULER ="SELECT COUNT(*) FROM `reservation` WHERE etats_Reservation = 'Cancelled';";
     private static final String SQL_GETRECENTRESERVATION ="SELECT date_Reservation,organisme.nom_Organisme,centre.nomCentre,dateDebut_Reservation,dateFin_Reservation FROM `reservation` JOIN organisme ON organisme.id_Organisme= reservation.id_Organisme JOIN centre ON centre.idCentre = reservation.idCentre ORDER BY date_Reservation DESC  LIMIT 5;";
-
+    private static final String SQL_GETDATAFORLINECHART ="SELECT MONTHNAME(date_Reservation) as Month, COUNT(*) as Total FROM `reservation` WHERE YEAR(date_Reservation) = YEAR(CURRENT_DATE) GROUP BY MONTHNAME(date_Reservation) ORDER BY FIELD(Month, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');" ;
     private String organisme_nom;
     private String centre_nom;
     private int num_salle;
@@ -127,4 +128,21 @@ public class Dashbord_statistique {
 
         return FXCollections.observableArrayList(list);
     }
+    public  static ArrayList<Data_Charts> getdataforlinechart(){
+        ArrayList<Data_Charts> Data_linechart= new ArrayList<Data_Charts>();
+        try {
+            Connection con = Connexion.getConnection();
+            ResultSet resultSet = con.createStatement().executeQuery(SQL_GETDATAFORLINECHART);
+            while (resultSet.next()){
+                Data_linechart.add(new Data_Charts(resultSet.getString(1),resultSet.getInt(2)));
+            }
+
+        }
+        catch (Exception ex ){
+
+        }
+
+        return  Data_linechart;
+    }
+
 }
