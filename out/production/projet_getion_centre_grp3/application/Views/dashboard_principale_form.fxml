@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1008.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.Dashboard_mainformController">
    <children>
       <Pane layoutX="25.0" layoutY="27.0" prefHeight="142.0" prefWidth="214.0" style="-fx-background-color: #EF476F; -fx-background-radius: 20;">
          <children>
@@ -21,7 +20,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="24.0" layoutY="42.0" prefHeight="17.0" prefWidth="160.0" text="2503" textFill="WHITE">
+            <Label fx:id="label_totlalcentres" layoutX="24.0" layoutY="42.0" prefHeight="17.0" prefWidth="160.0" text="2503" textFill="WHITE">
                <font>
                   <Font name="Nirmala UI Bold" size="46.0" />
                </font>
@@ -36,7 +35,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="37.0" prefHeight="17.0" prefWidth="160.0" text="89602" textFill="WHITE">
+            <Label fx:id="label_totlalreseraccepeter" layoutX="27.0" layoutY="37.0" prefHeight="17.0" prefWidth="160.0" text="89602" textFill="WHITE">
                <font>
                   <Font name="Nirmala UI Bold" size="46.0" />
                </font>
@@ -51,7 +50,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="29.0" layoutY="39.0" prefHeight="17.0" prefWidth="160.0" text="8563" textFill="WHITE">
+            <Label fx:id="label_totlalorganismes" layoutX="29.0" layoutY="39.0" prefHeight="17.0" prefWidth="160.0" text="8563" textFill="WHITE">
                <font>
                   <Font name="Nirmala UI Bold" size="46.0" />
                </font>
@@ -66,7 +65,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="42.0" prefHeight="17.0" prefWidth="160.0" text="5036" textFill="WHITE">
+            <Label fx:id="label_totlalreserannuler" layoutX="27.0" layoutY="42.0" prefHeight="17.0" prefWidth="160.0" text="5036" textFill="WHITE">
                <font>
                   <Font name="Nirmala UI Bold" size="46.0" />
                </font>
@@ -91,13 +90,14 @@
             <PieChart layoutX="12.0" layoutY="12.0" prefHeight="204.0" prefWidth="246.0" />
          </children>
       </Pane>
-      <TableView layoutX="38.0" layoutY="443.0" prefHeight="166.0" prefWidth="950.0">
+      <TableView fx:id="tbl_recentlyreservation" layoutX="38.0" layoutY="443.0" prefHeight="166.0" prefWidth="950.0">
         <columns>
-          <TableColumn prefWidth="190.3999900817871" text="ASSOCIATION" />
-          <TableColumn prefWidth="232.8000030517578" text="Centre reservé" />
-            <TableColumn prefWidth="136.79998779296875" text="N° de salle" />
-            <TableColumn prefWidth="192.0" text="date debutvé" />
-            <TableColumn prefWidth="198.4000244140625" text="Date fin " />
+            <TableColumn fx:id="cln_datereservation" prefWidth="138.0" text="Date Reservation" />
+          <TableColumn fx:id="cln_organismename" prefWidth="128.0" text="ASSOCIATION" />
+          <TableColumn fx:id="cln_centrename" prefWidth="232.8000030517578" text="Centre reservé" />
+            <TableColumn fx:id="cln_numsalle" prefWidth="136.79998779296875" text="N° de salle" />
+            <TableColumn fx:id="cln_datedebut" prefWidth="192.0" text="Date début" />
+            <TableColumn fx:id="cln_datefin" prefWidth="198.4000244140625" text="Date fin " />
         </columns>
       </TableView>
    </children>
