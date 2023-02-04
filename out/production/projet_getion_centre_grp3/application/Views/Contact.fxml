@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -17,7 +16,7 @@
     <Label layoutX="60.0" layoutY="103.0" prefHeight="17.0" prefWidth="110.0" text="Objet" />
     <TextField fx:id="txt_objet" layoutX="47.0" layoutY="189.0" prefHeight="26.0" prefWidth="235.0" promptText="Entrer votre email " />
     <Label layoutX="52.0" layoutY="161.0" prefHeight="17.0" prefWidth="110.0" text="Votre email" />
-    <TextArea fx:id="txt_zon_message" layoutX="49.0" layoutY="232.0" prefHeight="372.0" prefWidth="444.0" />
+    <TextArea fx:id="txt_zon_message" layoutX="49.0" layoutY="232.0" prefHeight="372.0" prefWidth="330.0" />
     <Button fx:id="btn_envoyer" layoutX="64.0" layoutY="568.0" mnemonicParsing="false" onAction="#envoyerMsg" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #1E2B9D; -fx-background-radius: 20;" text="Envoyer" textFill="WHITE">
         <graphic>
             <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
@@ -40,10 +39,12 @@
     <Button layoutX="174.0" layoutY="569.0" mnemonicParsing="false" onAction="#addfile" prefHeight="25.0" prefWidth="40.0" style="-fx-background-color: ff ff ff;" />
     <Button layoutX="730.0" layoutY="566.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="40.0" style="-fx-background-color: ff ff ff;" />
 
-    <TableView layoutX="504.0" layoutY="42.0" prefHeight="563.0" prefWidth="497.0">
+    <TableView layoutX="386.0" layoutY="42.0" prefHeight="563.0" prefWidth="615.0">
         <columns>
-            <TableColumn prefWidth="182.0" style="-fx-background-color: ;" text="N° de salle " />
-            <TableColumn prefWidth="314.0" style="-fx-background-color: ;" text=" Nombre d’equipement" />
+            <TableColumn prefWidth="170.0" style="-fx-background-color: ;" text="emetteur" />
+            <TableColumn prefWidth="210.0" style="-fx-background-color: ;" text="message" />
+            <TableColumn prefWidth="233.0" style="-fx-background-color: ;" text="fichier" />
+
 
         </columns>
     </TableView>

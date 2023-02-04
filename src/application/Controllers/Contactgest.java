@@ -158,11 +158,10 @@ public class Contactgest extends Component  implements Initializable {
         msg.setIdEmploye_emetteur(msg.getIdByEmail(txt_selectionner_email.getSelectionModel().getSelectedItem()));
         if (txt_zon_message.getText().isEmpty() || txt_email.getText().isEmpty() || txt_selectionner_email.getSelectionModel().getSelectedItem().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Champs requis");
+            alert.setTitle("Champs Requis");
             alert.setContentText(" Veuillez remplir tous les champs pour soumettre le formulaire.");
             alert.show();
         }
-
 
         else {
             msg.envoyer_message();

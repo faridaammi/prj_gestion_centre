@@ -31,9 +31,6 @@ public class Message {
     private int idEmploye_emetteur;
     private int  idEmploye_recepteur;
 
-
-
-
     public  int getId_Message() {
         return Id_Message;
     }
