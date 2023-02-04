@@ -6,10 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -31,7 +29,6 @@ public class login_formController implements Initializable {
     private TextField txt_username;
 
     @FXML
-    private Button btn_close,btn_mini;
     Stage stg ;
 
     @Override
@@ -83,4 +80,5 @@ public class login_formController implements Initializable {
 
         }
     }
+
 }

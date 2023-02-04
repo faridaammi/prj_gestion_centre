@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -87,6 +88,7 @@ public class Dashboard_mainformController implements Initializable {
 
     }
     public void showcharts(){
+        linechart.setTitle("Nombre de réservation par mois année "+ LocalDate.now().getYear());
         XYChart.Series series = new XYChart.Series();
         series.setName("Reservations");
         ArrayList<Data_Charts> data= Dashbord_statistique.getdataforlinechart();

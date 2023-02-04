@@ -1,6 +1,7 @@
 package application.Controllers;
 
 import application.Models.Organisme;
+import application.Models.User_input_verification;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +15,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import java.awt.*;
-
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
@@ -107,27 +107,41 @@ public class organisme_formController extends Component implements Initializable
 
         }
         else{
-            Date getTxtdp_date_creation=Date.from(dp_date_creation.getValue().atStartOfDay(defaultZoneId).toInstant());
-            String getTxt_statut=txt_statut.getSelectionModel().getSelectedItem();
-
-            Organisme organisme = new Organisme();
-            organisme.setCode_organisme(getTxt_code_inscr);
-            organisme.setNom_organisme(getTxt_nom_orga);
-            organisme.setAdresse(getTxt_adresse);
-            organisme.setEmail(getTxt_email);
-            organisme.setDate_decreation(getTxtdp_date_creation);
-            organisme.setTelephone(getTxt_tele);
-            organisme.setType_organisme(getTxt_type_activite);
-            organisme.setPresident_organisme(getTxt_nom_president);
-            organisme.setStatus_organisme(getTxt_statut);
-            if (img_updated){
-                organisme.setLogo_organisme(selectedfile);
+            if (!User_input_verification.isValidEmail(getTxt_email)){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Email Validation");
+                alert.setContentText("Veuillez entrer une adresse email valide.");
+                alert.show();
             }
-            organisme.add();
-            showorganismes();
-            cleartxtbox();
+            else if (User_input_verification.isNumeric(getTxt_tele)) {
 
+                Date getTxtdp_date_creation = Date.from(dp_date_creation.getValue().atStartOfDay(defaultZoneId).toInstant());
+                String getTxt_statut = txt_statut.getSelectionModel().getSelectedItem();
 
+                Organisme organisme = new Organisme();
+                organisme.setCode_organisme(getTxt_code_inscr);
+                organisme.setNom_organisme(getTxt_nom_orga);
+                organisme.setAdresse(getTxt_adresse);
+                organisme.setEmail(getTxt_email);
+                organisme.setDate_decreation(getTxtdp_date_creation);
+                organisme.setTelephone(getTxt_tele);
+                organisme.setType_organisme(getTxt_type_activite);
+                organisme.setPresident_organisme(getTxt_nom_president);
+                organisme.setStatus_organisme(getTxt_statut);
+                if (img_updated) {
+                    organisme.setLogo_organisme(selectedfile);
+                }
+                organisme.add();
+                showorganismes();
+                cleartxtbox();
+
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("téléphone Validation");
+                alert.setContentText("Veuillez entrer un numéro de téléphone valide s'il vous plaît.");
+                alert.show();
+            }
 
         }
 
@@ -218,27 +232,40 @@ public class organisme_formController extends Component implements Initializable
 
         }
         else{
-            Date getTxtdp_date_creation=Date.from(dp_date_creation.getValue().atStartOfDay(defaultZoneId).toInstant());
-            String getTxt_statut=txt_statut.getSelectionModel().getSelectedItem();
-
-            Organisme organisme= Organisme.findoragnismebyid(id_organisme);
-            organisme.setCode_organisme(getTxt_code_inscr);
-            organisme.setNom_organisme(getTxt_nom_orga);
-            organisme.setAdresse(getTxt_adresse);
-            organisme.setEmail(getTxt_email);
-            organisme.setDate_decreation(getTxtdp_date_creation);
-            organisme.setTelephone(getTxt_tele);
-            organisme.setType_organisme(getTxt_type_activite);
-            organisme.setPresident_organisme(getTxt_nom_president);
-            organisme.setStatus_organisme(getTxt_statut);
-            if (img_updated){
-                organisme.setLogo_organisme(selectedfile);
+            if (!User_input_verification.isValidEmail(getTxt_email)){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Email Validation");
+                alert.setContentText("Veuillez entrer une adresse email valide.");
+                alert.show();
             }
-            organisme.update();
-            showorganismes();
-            cleartxtbox();
+            else  if (User_input_verification.isNumeric(getTxt_tele)) {
+                Date getTxtdp_date_creation = Date.from(dp_date_creation.getValue().atStartOfDay(defaultZoneId).toInstant());
+                String getTxt_statut = txt_statut.getSelectionModel().getSelectedItem();
 
+                Organisme organisme = Organisme.findoragnismebyid(id_organisme);
+                organisme.setCode_organisme(getTxt_code_inscr);
+                organisme.setNom_organisme(getTxt_nom_orga);
+                organisme.setAdresse(getTxt_adresse);
+                organisme.setEmail(getTxt_email);
+                organisme.setDate_decreation(getTxtdp_date_creation);
+                organisme.setTelephone(getTxt_tele);
+                organisme.setType_organisme(getTxt_type_activite);
+                organisme.setPresident_organisme(getTxt_nom_president);
+                organisme.setStatus_organisme(getTxt_statut);
+                if (img_updated) {
+                    organisme.setLogo_organisme(selectedfile);
+                }
+                organisme.update();
+                showorganismes();
+                cleartxtbox();
 
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("téléphone Validation");
+                alert.setContentText("Veuillez entrer un numéro de téléphone valide s'il vous plaît.");
+                alert.show();
+            }
 
         }
 
