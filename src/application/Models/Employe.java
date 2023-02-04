@@ -17,6 +17,13 @@ public class Employe extends Utilisateur{
         this.profession_Employe = profession_Employe;
         this.dateNaissance_Employe = dateNaissance_Employe;
     }
+    public Employe(String adresse, String emailUtilisateur, int teleUtilisateur, Date dateDeCreation, String nomEmploye, String prenomEmploye, String professionEmploye, Date dateNaissanceEmploye) {
+        super(adresse, emailUtilisateur, teleUtilisateur, dateDeCreation);
+        this.nom_Employe = nomEmploye;
+        this.prenom_Employe = prenomEmploye;
+        this.profession_Employe = professionEmploye;
+        this.dateNaissance_Employe = dateNaissanceEmploye;
+    }
 
     public int getId_Employe() {
         return id_Employe;

@@ -119,7 +119,7 @@ CREATE TABLE `employe` (
   PRIMARY KEY (`idEmploye`),
   KEY `id_utlisateur` (`id_utlisateur`),
   CONSTRAINT `employe_ibfk_1` FOREIGN KEY (`id_utlisateur`) REFERENCES `utilisateur` (`id_utlisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `employe` (
 
 LOCK TABLES `employe` WRITE;
 /*!40000 ALTER TABLE `employe` DISABLE KEYS */;
-INSERT INTO `employe` VALUES (4,'tgfgf','gfgf','gfgf','2023-01-12',5),(5,'tgfgf','gfgf','gfgf','2023-01-12',5),(6,'FORTESTE','FFFFFFFFFFF','XXXXXXXXXXXXX','2023-01-10',6),(7,'FORTESTE','FFFFFFFFFFF','XXXXXXXXXXXXX','2023-01-10',6),(8,'fdfdf','dfdfd','fdfdf','2023-01-12',7),(9,'fdfdf','dfdfd','fdfdf','2023-01-12',7),(10,'fdfdf','fdfd','fddfd','2023-01-11',8),(11,'fdfdf','fdfd','fddfd','2023-01-11',8),(15,'fffff','ffffff','ffffff','2023-01-13',12),(16,'fffff','ffffff','ffffff','2023-01-13',12),(17,'fffff','ffff','fffff','2023-01-05',13),(18,'fffff','ffff','fffff','2023-01-05',13),(19,'ddd','ddddd','dddd','2023-01-12',14),(20,'ddd','ddddd','dddd','2023-01-12',14),(21,'ddd','ddddd','dddd','2023-01-12',15),(22,'ddd','ddddd','dddd','2023-01-12',15),(23,'bbb','bbbb','bbbb','2023-01-12',16),(24,'bbb','bbbb','bbbb','2023-01-12',16),(25,'xxxxx','xxxx','xxxxx','2023-01-14',17),(26,'xxxxx','xxxx','xxxxx','2023-01-14',17),(27,'xxxv','vvvvvvvvv','vvvvvv','2023-01-11',18),(28,'xxxv','vvvvvvvvv','vvvvvv','2023-01-11',18),(29,'dddddd','ddd','ddd','2023-01-18',19),(30,'dddddd','ddd','ddd','2023-01-18',19),(31,'hakim','hakim_prenom','hakim_profession','2023-01-14',20);
+INSERT INTO `employe` VALUES (4,'tgfgf','gfgf','gfgf','2023-01-12',5),(5,'tgfgf','gfgf','gfgf','2023-01-12',5),(6,'FORTESTE','FFFFFFFFFFF','XXXXXXXXXXXXX','2023-01-10',6),(7,'FORTESTE','FFFFFFFFFFF','XXXXXXXXXXXXX','2023-01-10',6),(8,'fdfdf','dfdfd','fdfdf','2023-01-12',7),(9,'fdfdf','dfdfd','fdfdf','2023-01-12',7),(10,'fdfdf','fdfd','fddfd','2023-01-11',8),(11,'fdfdf','fdfd','fddfd','2023-01-11',8),(15,'fffff','ffffff','ffffff','2023-01-13',12),(16,'fffff','ffffff','ffffff','2023-01-13',12),(17,'fffff','ffff','fffff','2023-01-05',13),(18,'fffff','ffff','fffff','2023-01-05',13),(19,'ddd','ddddd','dddd','2023-01-12',14),(20,'ddd','ddddd','dddd','2023-01-12',14),(21,'ddd','ddddd','dddd','2023-01-12',15),(22,'ddd','ddddd','dddd','2023-01-12',15),(23,'bbb','bbbb','bbbb','2023-01-12',16),(24,'bbb','bbbb','bbbb','2023-01-12',16),(25,'xxxxx','xxxx','xxxxx','2023-01-14',17),(26,'xxxxx','xxxx','xxxxx','2023-01-14',17),(27,'xxxv','vvvvvvvvv','vvvvvv','2023-01-11',18),(28,'xxxv','vvvvvvvvv','vvvvvv','2023-01-11',18),(29,'dddddd','ddd','ddd','2023-01-18',19),(30,'dddddd','ddd','ddd','2023-01-18',19),(31,'hakim','hakim_prenom','hakim_profession','2023-01-14',20),(32,'teste1','ggg','ggg','2023-02-09',21);
 /*!40000 ALTER TABLE `employe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,6 +170,7 @@ CREATE TABLE `fichier` (
   `idFichier` int(11) NOT NULL,
   `nomFichier` varchar(100) NOT NULL,
   `tailleFichier` int(11) NOT NULL,
+  `fichierblob` longblob DEFAULT NULL,
   `idMessage` int(11) DEFAULT NULL,
   PRIMARY KEY (`idFichier`),
   KEY `idMessage` (`idMessage`),
@@ -184,6 +185,31 @@ CREATE TABLE `fichier` (
 LOCK TABLES `fichier` WRITE;
 /*!40000 ALTER TABLE `fichier` DISABLE KEYS */;
 /*!40000 ALTER TABLE `fichier` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gestionnaire`
+--
+
+DROP TABLE IF EXISTS `gestionnaire`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gestionnaire` (
+  `id_gestionnaire` int(11) NOT NULL AUTO_INCREMENT,
+  `id_employe` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_gestionnaire`),
+  KEY `fk_respo` (`id_employe`),
+  CONSTRAINT `fk_gestionnaire` FOREIGN KEY (`id_employe`) REFERENCES `employe` (`idEmploye`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gestionnaire`
+--
+
+LOCK TABLES `gestionnaire` WRITE;
+/*!40000 ALTER TABLE `gestionnaire` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gestionnaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -275,13 +301,17 @@ CREATE TABLE `message` (
   `idMessage` int(11) NOT NULL AUTO_INCREMENT,
   `dateTime_Message` datetime NOT NULL,
   `etat_Message` varchar(50) NOT NULL,
+  `Object_msg` varchar(500) NOT NULL,
   `contenu_message` varchar(500) NOT NULL,
   `id_Organisme` int(11) DEFAULT NULL,
-  `idEmploye` int(11) DEFAULT NULL,
+  `idEmploye_emetteur` int(11) DEFAULT NULL,
+  `idEmploye_recepteur` int(11) NOT NULL,
   PRIMARY KEY (`idMessage`),
-  KEY `idEmploye` (`idEmploye`),
+  KEY `idEmploye` (`idEmploye_emetteur`),
   KEY `id_Organisme` (`id_Organisme`),
-  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`idEmploye`) REFERENCES `employe` (`idEmploye`),
+  KEY `fk_idemploye` (`idEmploye_recepteur`),
+  CONSTRAINT `fk_idemploye` FOREIGN KEY (`idEmploye_recepteur`) REFERENCES `employe` (`idEmploye`),
+  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`idEmploye_emetteur`) REFERENCES `employe` (`idEmploye`),
   CONSTRAINT `message_ibfk_2` FOREIGN KEY (`id_Organisme`) REFERENCES `organisme` (`id_Organisme`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -376,7 +406,7 @@ CREATE TABLE `reservation` (
   `date_Reservation` datetime DEFAULT NULL,
   `type_Reservation` varchar(255) DEFAULT NULL,
   `etats_Reservation` varchar(255) DEFAULT NULL,
-  `personne_Invitee` varchar(255) DEFAULT NULL,
+  `personne_Invitee` int(255) DEFAULT NULL,
   `description_Reservation` varchar(1000) DEFAULT NULL,
   `id_Organisme` int(11) DEFAULT NULL,
   `idCentre` int(11) DEFAULT NULL,
@@ -410,7 +440,7 @@ CREATE TABLE `responsable` (
   PRIMARY KEY (`id_responsable`),
   KEY `fk_respo` (`id_employe`),
   CONSTRAINT `fk_respo` FOREIGN KEY (`id_employe`) REFERENCES `employe` (`idEmploye`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -419,7 +449,7 @@ CREATE TABLE `responsable` (
 
 LOCK TABLES `responsable` WRITE;
 /*!40000 ALTER TABLE `responsable` DISABLE KEYS */;
-INSERT INTO `responsable` VALUES (1,31);
+INSERT INTO `responsable` VALUES (1,31),(2,32);
 /*!40000 ALTER TABLE `responsable` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -472,7 +502,7 @@ CREATE TABLE `utilisateur` (
   `ip_utilisateur` varchar(50) DEFAULT NULL,
   `token` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_utlisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -481,7 +511,7 @@ CREATE TABLE `utilisateur` (
 
 LOCK TABLES `utilisateur` WRITE;
 /*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
-INSERT INTO `utilisateur` VALUES (1,'hakim',' 62, rue Taha Houcine -ex Galilee, Grand Casablanca','elhaiba120@gmail.com','0613468734',1,'2023-01-09 15:42:45','2023-01-09 15:42:55','192.63.4.15','SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'),(2,'FDFD','fdfd','fdfdfdf','4444444',NULL,'2023-01-25 17:17:03','2023-01-25 17:17:03',NULL,NULL),(3,'FDFD','fdfd','fdfdfdf','4444444',NULL,'2023-01-25 17:17:59','2023-01-25 17:17:59',NULL,NULL),(5,'GHHGH','gfgf','gfgfgf','54545',NULL,'2023-01-25 17:27:01','2023-01-25 17:27:01',NULL,NULL),(6,'JJJJJJJJJJJJJJJH','FDFFFF','FDFDF','54545',NULL,'2023-01-25 17:29:28','2023-01-25 17:29:28',NULL,NULL),(7,'GHGHG','fdfdf','fdfdf','66666',NULL,'2023-01-25 17:33:19','2023-01-25 17:33:19',NULL,NULL),(8,'DFDD','fdfd','fdfd','44444444',NULL,'2023-01-25 17:35:00','2023-01-25 17:35:00',NULL,NULL),(12,'FFF','fffffff','ffffff','1111111',NULL,'2023-01-25 17:50:28','2023-01-25 17:50:28',NULL,NULL),(13,'FFF','fffff','ffffff','2222',NULL,'2023-01-25 17:52:42','2023-01-25 17:52:42',NULL,NULL),(14,'ddd','dd','dd','2222',NULL,'2023-01-25 17:57:06','2023-01-25 17:57:06',NULL,NULL),(15,'ddd','dd','dd','2222',NULL,'2023-01-25 18:00:13','2023-01-25 18:00:13',NULL,NULL),(16,'dddbbb','dd','bbbb','2222',NULL,'2023-01-25 18:01:01','2023-01-25 18:01:01',NULL,NULL),(17,'xxxxxxxx','xxxxx','dddd','111111111',NULL,'2023-01-25 18:13:54','2023-01-25 18:13:54',NULL,NULL),(18,'CCCCCCC','xxxv','ccccccccccv','11111',NULL,'2023-01-25 18:17:42','2023-01-25 18:17:42',NULL,NULL),(19,'DDD','ddddd','dddd','2222',NULL,'2023-01-25 18:23:00','2023-01-25 18:23:00',NULL,NULL),(20,'DDDDDD','hakim_adresse','hakim@gmail.com','0',NULL,'2023-01-26 13:10:09','2023-01-26 13:10:09',NULL,NULL);
+INSERT INTO `utilisateur` VALUES (1,'hakim',' 62, rue Taha Houcine -ex Galilee, Grand Casablanca','elhaiba120@gmail.com','0613468734',1,'2023-01-09 15:42:45','2023-01-09 15:42:55','192.63.4.15','SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'),(2,'FDFD','fdfd','fdfdfdf','4444444',NULL,'2023-01-25 17:17:03','2023-01-25 17:17:03',NULL,NULL),(3,'FDFD','fdfd','fdfdfdf','4444444',NULL,'2023-01-25 17:17:59','2023-01-25 17:17:59',NULL,NULL),(5,'GHHGH','gfgf','gfgfgf','54545',NULL,'2023-01-25 17:27:01','2023-01-25 17:27:01',NULL,NULL),(6,'JJJJJJJJJJJJJJJH','FDFFFF','FDFDF','54545',NULL,'2023-01-25 17:29:28','2023-01-25 17:29:28',NULL,NULL),(7,'GHGHG','fdfdf','fdfdf','66666',NULL,'2023-01-25 17:33:19','2023-01-25 17:33:19',NULL,NULL),(8,'DFDD','fdfd','fdfd','44444444',NULL,'2023-01-25 17:35:00','2023-01-25 17:35:00',NULL,NULL),(12,'FFF','fffffff','ffffff','1111111',NULL,'2023-01-25 17:50:28','2023-01-25 17:50:28',NULL,NULL),(13,'FFF','fffff','ffffff','2222',NULL,'2023-01-25 17:52:42','2023-01-25 17:52:42',NULL,NULL),(14,'ddd','dd','dd','2222',NULL,'2023-01-25 17:57:06','2023-01-25 17:57:06',NULL,NULL),(15,'ddd','dd','dd','2222',NULL,'2023-01-25 18:00:13','2023-01-25 18:00:13',NULL,NULL),(16,'dddbbb','dd','bbbb','2222',NULL,'2023-01-25 18:01:01','2023-01-25 18:01:01',NULL,NULL),(17,'xxxxxxxx','xxxxx','dddd','111111111',NULL,'2023-01-25 18:13:54','2023-01-25 18:13:54',NULL,NULL),(18,'CCCCCCC','xxxv','ccccccccccv','11111',NULL,'2023-01-25 18:17:42','2023-01-25 18:17:42',NULL,NULL),(19,'DDD','ddddd','dddd','2222',NULL,'2023-01-25 18:23:00','2023-01-25 18:23:00',NULL,NULL),(20,'DDDDDD','hakim_adresse','hakim@gmail.com','0',NULL,'2023-01-26 13:10:09','2023-01-26 13:10:09',NULL,NULL),(21,'DDDD','gggg','DDDDD','11111111',NULL,'2023-02-01 15:18:15','2023-02-01 15:18:15',NULL,NULL);
 /*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -494,4 +524,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-26 13:15:25
+-- Dump completed on 2023-02-02  0:26:35
