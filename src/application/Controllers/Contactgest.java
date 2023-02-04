@@ -113,20 +113,12 @@ public class Contactgest extends Component  implements Initializable {
         }
         catch (Exception ex){
             System.out.println("ERROR :"+ex.getMessage());
-
         }
-
 
         return  FXCollections.observableArrayList(list);
     }
 
-//	if (organisme_formController.img_updated){
-//
-//        cmd.setBlob(9,new FileInputStream(getLogo_organisme()));
-//    }
-//    else {
-//        cmd.setBlob(9, (Blob) null);
-//    }
+
 
     public void addfile(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();

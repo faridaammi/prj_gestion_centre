@@ -120,7 +120,6 @@ public class Message {
                 ", Contenu_Message='" + contenu_message + '\'' +
                 '}';
     }
-
     public int getIdByEmail(String email)   {
         String Sql_select = "SELECT idEmploye  FROM `employe` join utilisateur on employe.id_utlisateur=utilisateur.id_utlisateur where email_utilisateur ="+email +";";
         Connection con = Connexion.getConnection();
