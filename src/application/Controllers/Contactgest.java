@@ -15,13 +15,16 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
+import application.Models.Message;
 import application.Models.Organisme;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -73,6 +76,8 @@ public class Contactgest extends Component  implements Initializable {
     private TextArea txt_zon_message;
 
     private File selectedfile;
+
+    public static boolean file_added;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> l = getEmailList();
@@ -81,20 +86,26 @@ public class Contactgest extends Component  implements Initializable {
     }
 
 
+
+    public File getSelectedfile() {
+        return selectedfile;
+    }
+
+
+
+    public void setSelectedfile(File selectedfile) {
+        this.selectedfile = selectedfile;
+    }
+
+
+
     public static ObservableList<String> getEmailList(){
         ArrayList<String> list = new ArrayList<>();
 
 
         try{
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-
-           // String url = "jdbc:mysql://localhost:3306/db_project_lp";
-
-           // Connection con = DriverManager.getConnection(url,"root1","root");
-
-
-            	Connection con = Connexion.getConnection();
-            ResultSet resultSet = con.createStatement().executeQuery("SELECT * FROM utilisateur;");
+            Connection con = Connexion.getConnection();
+            ResultSet resultSet = con.createStatement().executeQuery("SELECT email_utilisateur  FROM `responsable` join employe on employe.idEmploye  =responsable.id_employe JOIN utilisateur on employe.id_utlisateur=utilisateur.id_utlisateur;");
             while (resultSet.next()){
                 list.add(resultSet.getString("email_utilisateur"));
             }
@@ -102,20 +113,12 @@ public class Contactgest extends Component  implements Initializable {
         }
         catch (Exception ex){
             System.out.println("ERROR :"+ex.getMessage());
-
         }
-
 
         return  FXCollections.observableArrayList(list);
     }
 
-//	if (organisme_formController.img_updated){
-//
-//        cmd.setBlob(9,new FileInputStream(getLogo_organisme()));
-//    }
-//    else {
-//        cmd.setBlob(9, (Blob) null);
-//    }
+
 
     public void addfile(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
@@ -128,7 +131,7 @@ public class Contactgest extends Component  implements Initializable {
 
         try {
             if (file!=null){
-
+                file_added=true;
                 selectedfile = new File(file.getAbsolutePath());
 //            File iconLoaded = new File("/application/images/icon_import.png");
 //            Image icon = new Image(iconLoaded.toURI().toString());
@@ -144,14 +147,24 @@ public class Contactgest extends Component  implements Initializable {
     }
 
     public void envoyerMsg(ActionEvent actionEvent) {
-        try {
-            System.out.println("Envoyer");
-            Connection con = Connexion.getConnection();
-            PreparedStatement st = con.prepareStatement("/SQL_INSERT/");
-
+        Message msg = new Message();
+        Date currentDate = new Date();
+        msg.setDateTime_Message(currentDate);
+        msg.setContenu_message(txt_zon_message.getText());
+        msg.setEtat_Message("etat");
+        msg.setFichier_Message(selectedfile);
+        msg.setObjet_Message(txt_objet.getText());
+        msg.setIdEmploye_emetteur(msg.getIdByEmail(txt_email.getText()));
+        msg.setIdEmploye_emetteur(msg.getIdByEmail(txt_selectionner_email.getSelectionModel().getSelectedItem()));
+        if (txt_zon_message.getText().isEmpty() || txt_email.getText().isEmpty() || txt_selectionner_email.getSelectionModel().getSelectedItem().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Champs Requis");
+            alert.setContentText(" Veuillez remplir tous les champs pour soumettre le formulaire.");
+            alert.show();
         }
-        catch (SQLException ex){
-            System.out.println("ERROR: "+ex.getMessage());
+
+        else {
+            msg.envoyer_message();
         }
 
     }
