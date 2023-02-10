@@ -14,3 +14,8 @@
     -fx-background-radius:20 ;
     -fx-text-fill: #ffff;
 }
+.button:selected{
+    -fx-background-color: #1E2B9D ;
+    -fx-background-radius:20 ;
+    -fx-text-fill: #ffff;
+}

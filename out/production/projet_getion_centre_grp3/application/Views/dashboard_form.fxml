@@ -93,7 +93,7 @@
                         <Insets left="15.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="btn_associations" alignment="BASELINE_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#btnChangeTitle" prefHeight="34.0" prefWidth="176.0" stylesheets="@../values/styleFrd.css" text="Associations" textAlignment="CENTER" textFill="#656565">
+                  <Button fx:id="btn_associations" alignment="BASELINE_LEFT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#btnChangeTitle" prefHeight="34.0" prefWidth="176.0" stylesheets="@../values/styleFrd.css" text="Organismes" textAlignment="CENTER" textFill="#656565">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
