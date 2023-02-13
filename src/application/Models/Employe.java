@@ -10,6 +10,7 @@ public class Employe extends Utilisateur{
     private Date dateNaissance_Employe;
 
     public Employe(){}
+    public Employe(String nom_Employe){ this.nom_Employe = nom_Employe;}
     public Employe(String adresse, String email_utilisateur, int tele_utilisateur, Date date_de_creation, String nom_Employe, String prenom_Employe, String profession_Employe, Date dateNaissance_Employe,String motdepass_utilisateur) {
         super(adresse, email_utilisateur, tele_utilisateur, date_de_creation,motdepass_utilisateur);
         this.nom_Employe = nom_Employe;
