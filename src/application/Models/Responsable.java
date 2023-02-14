@@ -40,6 +40,10 @@ public class Responsable extends Employe {
         this.id_responsable=id_responsable;
     }
     public Responsable() {}
+    public Responsable(int id_responsable,String nom_respo) {
+        super(nom_respo);
+        this.id_responsable=id_responsable;
+    }
     private final String SQL_INSERT_UTILISATEUR="INSERT INTO `utilisateur`(`mot_de_passe`, `adresse`, `email_utilisateur`, `tele_utilisateur`) VALUES (?,?,?,?)";
     private final String SQL_INSERT_EMPLOYEE = "INSERT INTO `employe`(`nomEmploye`, `prenomEmploye`, `professionEmploye`, `dateNaissanceEmploye`, `id_utlisateur`) VALUES (?,?,?,?,?)";
     private final String SQL_INSERT_RESPONSABLE = "INSERT INTO `responsable`(`id_employe`) VALUES (?)";
