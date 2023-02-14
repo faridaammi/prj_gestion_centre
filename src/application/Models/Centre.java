@@ -15,26 +15,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Centre {
-    private final String SQL_INSERT =" INSERT INTO  `centre`( `nomCentre`, `adresseCentre`, `descriptionCentre`, `idEmploye`) VALUES (?,?,?,?) ";
+    private final String SQL_INSERT =" INSERT INTO  `centre`( `nomCentre`, `adresseCentre`, `descriptionCentre`, `idresponsable`) VALUES (?,?,?,?) ";
     private String nom_centre;
     private String adresse_centre;
     private String description_centre;
-    private int  id_employe;
+    private int  idresponsable;
 
-
+    public  Centre(){}
     public Centre(String nom_centre, String adresse_centre, String description_centre,int id_employe) {
         this.nom_centre = nom_centre;
         this.adresse_centre = adresse_centre;
         this.description_centre = description_centre;
-        this.id_employe = id_employe;
+        this.idresponsable = id_employe;
     }
 
-    public int getId_employe() {
-        return id_employe;
+    public int getId_responsable() {
+        return idresponsable;
     }
 
-    public void setId_employe(int id_employe) {
-        this.id_employe = id_employe;
+    public void setId_responsable(int id_employe) {
+        this.idresponsable = id_employe;
     }
 
     public static ArrayList<Responsable> getListeResponsable() {
@@ -102,23 +102,58 @@ public class Centre {
         return -1;
     }
 
-    public  void ajouter (String nom_respo)
-    { Connection con = Connexion.getConnection();
+    public boolean ajouter ()
+    {
+        Connection con = Connexion.getConnection();
         try {
-            int id_respo= getidrespobyname(nom_respo);
+            //int id_respo= getidrespobyname(nom_respo);
             PreparedStatement cmd = con.prepareStatement(SQL_INSERT);
             cmd.setString(1,getNom_centre());
             cmd.setString(2,getAdresse_centre());
             cmd.setString(3,getDescription_centre());
-            //cmd.setString(4,getId_employe());
-
-
-        } catch (SQLException e) {
+            cmd.setInt(4,getId_responsable());
+            int i = cmd.executeUpdate();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            if(i > 0)
+            {
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+                alert.setTitle("Opération réussie");
+                alert.setContentText(" La ligne a été insérée avec succès dans la base de données.");
+                System.out.println(i);
+                return true;
+            }
+            else {
+                alert.setTitle(" Échec de l'insertion");
+                alert.setContentText(" Une erreur s'est produite lors de l'insertion de ligne dans la base de données. Veuillez vérifier les informations saisies et réessayer.");
+            }
+            alert.show();
+        }
+        catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        return false;
     }
-
+    static ArrayList<Centre> lst_centre;
+    public static ObservableList<Centre> list_Centre()
+    {
+        lst_centre = new ArrayList<>();
+        Connection con = Connexion.getConnection();
+        try{
+            ResultSet resultSet = con.createStatement().executeQuery("SELECT c.nomCentre,c.adresseCentre,c.descriptionCentre,c.idresponsable FROM `centre` c");
+            while (resultSet.next()){
+                Centre centre = new Centre(
+                        resultSet.getString("nomCentre"),
+                        resultSet.getString("adresseCentre"),
+                        resultSet.getString("descriptionCentre"),
+                        resultSet.getInt("idresponsable"));
+                lst_centre.add(centre);
+            }
+            con.close();
+        }catch (Exception ex){
+            System.out.println("ERROR :"+ex.getMessage());
+        }
+        return  FXCollections.observableArrayList(lst_centre);
+    }
 }
 
 

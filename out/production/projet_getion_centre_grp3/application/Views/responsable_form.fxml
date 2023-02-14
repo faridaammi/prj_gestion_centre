@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="521.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.ResponsableController">
+<AnchorPane prefHeight="622.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.ResponsableController">
     <children>
-        <Button layoutX="892.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_enregistrer" text="Enregistrer" textFill="WHITE">
+        <Button layoutX="883.0" layoutY="196.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" styleClass="btn_enregistrer" text="Enregistrer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -24,7 +24,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-        <Button layoutX="544.0" layoutY="200.0" mnemonicParsing="false" onAction="#AjouterResponsable" prefHeight="25.0" prefWidth="103.0" styleClass="btn_ajouter" text="Ajouter" textFill="WHITE">
+        <Button graphicTextGap="15.0" layoutX="329.0" layoutY="200.0" mnemonicParsing="false" onAction="#AjouterResponsable" prefHeight="34.0" prefWidth="110.0" styleClass="btn_ajouter" text="Ajouter" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -36,7 +36,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
         </Button>
-        <Button layoutX="656.0" layoutY="200.0" mnemonicParsing="false" onAction="#Modifier_responsable" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
+        <Button graphicTextGap="15.0" layoutX="464.0" layoutY="200.0" mnemonicParsing="false" onAction="#Modifier_responsable" prefHeight="34.0" prefWidth="110.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -48,7 +48,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
         </Button>
-        <Button layoutX="772.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" onAction="#Supprimer_responsable" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
+        <Button graphicTextGap="15.0" layoutX="608.0" layoutY="200.0" mnemonicParsing="false" onAction="#Supprimer_responsable" prefHeight="34.0" prefWidth="118.0" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -60,7 +60,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
         </Button>
-        <Button layoutX="892.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_imprimer" text="Imprimer" textFill="WHITE">
+        <Button graphicTextGap="15.0" layoutX="752.0" layoutY="200.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" styleClass="btn_imprimer" text="Imprimer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -72,22 +72,22 @@
             <Font name="System Bold" size="12.0" />
          </font>
         </Button>
-        <TextField fx:id="txt_recherche_respo" layoutX="436.0" layoutY="232.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
-      <TableView fx:id="tbl_responsable" layoutX="57.0" layoutY="268.0" onMouseClicked="#getSelectedItem" prefHeight="344.0" prefWidth="938.0">
+        <TextField fx:id="txt_recherche_respo" layoutX="60.0" layoutY="200.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
+      <TableView fx:id="tbl_responsable" layoutX="23.0" layoutY="268.0" onMouseClicked="#getSelectedItem" prefHeight="337.0" prefWidth="982.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="268.0">
         <columns>
-            <TableColumn fx:id="cln_id" prefWidth="84.66665649414062" text="Id responsable " />
-            <TableColumn fx:id="cln_nom" prefWidth="62.0" text="Nom " />
-            <TableColumn fx:id="cln_prenom" prefWidth="91.33335876464844" text="Prénom " />
+            <TableColumn fx:id="cln_id" prefWidth="95.99997329711914" text="Id responsable " />
+            <TableColumn fx:id="cln_nom" prefWidth="62.4000244140625" text="Nom " />
+            <TableColumn fx:id="cln_prenom" prefWidth="81.59996032714844" text="Prénom " />
             <TableColumn fx:id="cln_adresse" prefWidth="90.66668701171875" text="Adresse" />
-            <TableColumn fx:id="cln_profession" prefWidth="79.3333740234375" text="Profession" />
-            <TableColumn fx:id="cln_dns" prefWidth="130.00003051757812" text="Date de naissance " />
+            <TableColumn fx:id="cln_profession" prefWidth="99.20001220703125" text="Profession" />
+            <TableColumn fx:id="cln_dns" prefWidth="111.20001220703125" text="Date de naissance " />
             <TableColumn fx:id="cln_tele" prefWidth="111.33331298828125" text="Téléphone" />
             <TableColumn fx:id="cln_email" prefWidth="86.0" text="Email" />
-            <TableColumn fx:id="cln_datecreation" prefWidth="92.66668701171875" text="date de creation " />
-            <TableColumn fx:id="cln_motdepasse" prefWidth="126.0" text="Mot de passe " />
+            <TableColumn fx:id="cln_datecreation" prefWidth="113.60003662109375" text="date de creation " />
+            <TableColumn fx:id="cln_motdepasse" prefWidth="124.4000244140625" text="Mot de passe " />
         </columns>
       </TableView>
-      <Button layoutX="621.0" layoutY="235.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE">
+      <Button layoutX="245.0" layoutY="203.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>

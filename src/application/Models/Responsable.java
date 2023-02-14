@@ -63,7 +63,7 @@ public class Responsable extends Employe {
             cmd_utilisateur.setString(2,super.getAdresse());
             cmd_utilisateur.setString(3,super.getEmail_utilisateur());
             cmd_utilisateur.setString(4,String.valueOf(super.getTele_utilisateur()));
-            int rowaffected_user= cmd_utilisateur.executeUpdate();
+            int rowaffected_user = cmd_utilisateur.executeUpdate();
 
             ResultSet resultset = cmd_utilisateur.getGeneratedKeys();
             resultset.next();

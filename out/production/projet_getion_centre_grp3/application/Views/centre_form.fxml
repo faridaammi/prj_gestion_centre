@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="521.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.centreController">
+<AnchorPane prefHeight="622.0" prefWidth="1008.0" stylesheets="@../../Ressources/style1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers.centreController">
     <children>
-        <Button id="btn_enregistrer_centre" layoutX="875.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_enregistrer" text="Enregistrer" textFill="WHITE">
+        <Button id="btn_enregistrer_centre" graphicTextGap="15.0" layoutX="834.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="120.0" styleClass="btn_enregistrer" text="Enregistrer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -26,7 +26,7 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <Button id="btn_ajouter_centre" layoutX="533.0" layoutY="230.0" mnemonicParsing="false" onAction="#AjouterCentre" prefHeight="25.0" prefWidth="103.0" styleClass="btn_ajouter" text="Ajouter" textFill="WHITE">
+        <Button id="btn_ajouter_centre" alignment="CENTER" graphicTextGap="15.0" layoutX="329.0" layoutY="230.0" mnemonicParsing="false" onAction="#AjouterCentre" prefHeight="34.0" prefWidth="115.0" styleClass="btn_ajouter" text="Ajouter" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -38,7 +38,7 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <Button id="btn_modifier_centre" layoutX="645.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
+        <Button id="btn_modifier_centre" graphicTextGap="15.0" layoutX="490.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="115.0" styleClass="btn_modifier" text="Modifier" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -50,9 +50,9 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <TextField fx:id="txt_recherche" layoutX="426.0" layoutY="268.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
+        <TextField fx:id="txt_recherche" layoutX="52.0" layoutY="235.0" prefHeight="26.0" prefWidth="216.0" promptText="Rechercher" />
         <Button layoutX="725.0" layoutY="17.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: Transparent;" textFill="WHITE" />
-        <Button id="btn_supprimer_centre" layoutX="761.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
+        <Button id="btn_supprimer_centre" graphicTextGap="15.0" layoutX="649.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="128.0" styleClass="btn_supprimer" text="Supprimer" textFill="WHITE">
             <graphic>
                 <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -64,34 +64,34 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <TableView id="tbl_r" layoutX="66.0" layoutY="303.0" prefHeight="320.0" prefWidth="920.0">
+        <TableView id="tbl_r" fx:id="table_centre" layoutX="54.0" layoutY="281.0" prefHeight="313.0" prefWidth="900.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="281.0">
             <columns>
-                <TableColumn fx:id="cb_nomCentre" prefWidth="106.0" text="Nom Centre" />
-                <TableColumn fx:id="cb_Adress" prefWidth="167.33334350585938" text="Adresse" />
-                <TableColumn fx:id="cb_Respo" prefWidth="104.66665649414062" text="Respo" />
-                <TableColumn fx:id="cb_Description" prefWidth="150.66665649414062" text="Description" />
-                <TableColumn fx:id="cb_Capacite" prefWidth="84.66665649414062" text="Capacite" />
+                <TableColumn fx:id="cb_nomCentre" prefWidth="164.80002212524414" text="Nom Centre" />
+                <TableColumn fx:id="cb_Adress" prefWidth="177.59999084472656" text="Adresse" />
+                <TableColumn fx:id="cb_Respo" prefWidth="187.20001220703125" text="Respo" />
+                <TableColumn fx:id="cb_Description" prefWidth="249.60003662109375" text="Description" />
+                <TableColumn fx:id="cb_Capacite" prefWidth="124.79998779296875" text="Capacite" />
             </columns>
         </TableView>
-        <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="621.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="14.0" fitWidth="36.0" layoutX="244.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../images/icon_recherche.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="156.0" fitWidth="152.0" layoutX="514.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="156.0" fitWidth="152.0" layoutX="551.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../images/icon_import.png" />
             </image>
         </ImageView>
-        <TextField fx:id="txt_nom_centre" layoutX="68.0" layoutY="44.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer le nom de centre" />
-        <Label layoutX="70.0" layoutY="27.0" text="Nom de Centre" />
-        <TextField fx:id="txt_capacite_centre" layoutX="68.0" layoutY="98.0" prefHeight="26.0" prefWidth="183.0" promptText="0" />
-        <Label layoutX="70.0" layoutY="81.0" text="Capacité du Centre" />
+        <TextField fx:id="txt_nom_centre" layoutX="52.0" layoutY="44.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer le nom de centre" />
+        <Label layoutX="54.0" layoutY="27.0" text="Nom de Centre" />
+        <TextField fx:id="txt_capacite_centre" layoutX="52.0" layoutY="98.0" prefHeight="26.0" prefWidth="183.0" promptText="0" />
+        <Label layoutX="54.0" layoutY="81.0" text="Capacité du Centre" />
         <TextField fx:id="txt_adresse_centre" layoutX="317.0" layoutY="43.0" prefHeight="26.0" prefWidth="183.0" promptText="Entrer l’adresse de centre" />
         <Label layoutX="317.0" layoutY="26.0" text="Adresse" />
-        <Label layoutX="70.0" layoutY="137.0" text="Responsable de centre" />
+        <Label layoutX="54.0" layoutY="137.0" text="Responsable de centre" />
         <Label layoutX="319.0" layoutY="80.0" text="Description de Centre" />
         <TextArea fx:id="txt_description_centre" layoutX="317.0" layoutY="98.0" prefHeight="100.0" prefWidth="189.0" promptText="Entrez votre description du centre ici..." />
-        <ComboBox fx:id="cb_respo_centre" layoutX="69.0" layoutY="155.0" prefWidth="183.0" />
+        <ComboBox fx:id="cb_respo_centre" layoutX="53.0" layoutY="155.0" prefWidth="183.0" />
     </children>
 </AnchorPane>
