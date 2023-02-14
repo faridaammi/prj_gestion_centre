@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.swing.text.html.parser.Entity;
 import java.awt.event.MouseEvent;
@@ -68,18 +69,20 @@ public class reservation_controller implements Initializable {
 
     @FXML
     private TableView<Reservationn> table_reservation;
-    public int index,id_item;
+    public int index;
+    public static int id_item;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         afficheData();
     }
     @FXML
-    private void goToDetaitls(ActionEvent event) throws IOException {
-//        Parent rootDtl = FXMLLoader.load(getClass().getResource("/application/Views/reservation_details.fxml"));
-//        Stage stage =(Stage) btn_accepter.getScene().getWindow();
-//        stage.setScene(new Scene(rootDtl));
-//        stage.show();
+    private void affiche_details() throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/reservation_details.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(fxml));
+        stage.show();
     }
     private void afficheData()
     {
@@ -103,6 +106,7 @@ public class reservation_controller implements Initializable {
         Statement cmd;
         if(event.getSource() == btn_accepter)
         {
+            System.out.println("ididdddddddddddddddd"+id_item);
             String query = "UPDATE reservation set etats_Reservation = 'Accepter' where id_Reservation = "+id_item+"";
             cmd = con.createStatement();
             cmd.executeUpdate(query);

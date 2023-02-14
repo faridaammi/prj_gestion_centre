@@ -17,7 +17,7 @@ public class Reservationn {
 
 
 
-        private static int Id_Reservation ;
+        private  int Id_Reservation ;
         private Date dateDebut_Reservation;
         private Date dateFin_Reservation;
         private Date date_Reservation;
@@ -28,11 +28,11 @@ public class Reservationn {
         private String centre_reserver;
         private String organisme_reserver;
 
-        public static int getId_Reservation() {
+        public  int getId_Reservation() {
             return Id_Reservation;
         }
 
-        public static void setId_Reservation(int id_Reservation) {
+        public  void setId_Reservation(int id_Reservation) {
             Id_Reservation = id_Reservation;
         }
 
@@ -124,20 +124,21 @@ public class Reservationn {
     {
         lst_reservation = new ArrayList<>();
         Connection con = Connexion.getConnection();
-        Reservationn reservationn;
         try{
-            ResultSet resultSet = con.createStatement().executeQuery("SELECT reservation.id_Reservation,reservation.dateDebut_Reservation,reservation.dateFin_Reservation,reservation.type_Reservation,reservation.etats_Reservation,centre.nomCentre as 'centre_reserver',organisme.nom_Organisme as 'organisme_reserver' FROM `reservation` join centre on reservation.idCentre = centre.idCentre join organisme on organisme.id_Organisme = reservation.id_Organisme;");
+            ResultSet resultSet = con.createStatement().executeQuery("SELECT reservation.id_Reservation,reservation.dateDebut_Reservation,reservation.dateFin_Reservation,reservation.type_Reservation,reservation.etats_Reservation,centre.nomCentre,organisme.nom_Organisme  FROM `reservation` join centre on reservation.idCentre = centre.idCentre join organisme on organisme.id_Organisme = reservation.id_Organisme ORDER BY reservation.id_Reservation ASC;");
             while (resultSet.next()){
+                Reservationn reservationn;
                 reservationn = new Reservationn(
-                        resultSet.getInt("Id_Reservation"),
+                        resultSet.getInt("id_Reservation"),
                         resultSet.getDate("dateDebut_Reservation"),
                         resultSet.getDate("dateFin_Reservation"),
                         resultSet.getString("etats_Reservation"),
-                        resultSet.getString("type_reservation"),
-                        resultSet.getString("centre_reserver"),
-                        resultSet.getString("organisme_reserver")
+                        resultSet.getString("type_Reservation"),
+                        resultSet.getString("nomCentre"),
+                        resultSet.getString("nomCentre")
                         );
                 lst_reservation.add(reservationn);
+
             }
             con.close();
         }catch (Exception ex){

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -19,16 +20,46 @@
          <center>
             <BorderPane prefHeight="650.0" prefWidth="914.0" style="-fx-background-color: #F0F0F0;" BorderPane.alignment="CENTER">
                <top>
-                  <Pane prefHeight="26.0" prefWidth="771.0" BorderPane.alignment="CENTER">
+                  <Pane prefHeight="58.0" prefWidth="950.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="txt_titre" text="Dashboard">
+                        <Label fx:id="txt_titre" layoutY="30.0" text="Dashboard">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
+                        <Button fx:id="btn_exit" contentDisplay="GRAPHIC_ONLY" defaultButton="true" layoutX="927.0" layoutY="10.0" mnemonicParsing="false" onAction="#exite" style="-fx-background-color: transparent;" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icon_close_login.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btn_reduire" contentDisplay="GRAPHIC_ONLY" defaultButton="true" layoutX="880.0" layoutY="12.0" mnemonicParsing="false" onAction="#reduire" style="-fx-background-color: transparent;" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icon_mini_login.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                      <BorderPane.margin>
-                        <Insets left="30.0" right="30.0" top="30.0" />
+                        <Insets left="30.0" right="5.0" top="5.0" />
                      </BorderPane.margin></Pane>
                </top>
                <center>

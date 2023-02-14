@@ -24,11 +24,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -76,13 +73,26 @@ public class Contactgest extends Component  implements Initializable {
     private TextArea txt_zon_message;
 
     private File selectedfile;
+    @FXML
+    private RadioButton radio_orga,radio_respo;
+    @FXML
+    private TableColumn<Message, String> col_msg;
+
+    @FXML
+    private TableColumn<Message, String> col_object;
+
+    @FXML
+    private TableColumn<Message, String> col_recepteur;
+    @FXML
+    private TableView<Message> table_msg;
 
     public static boolean file_added;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> l = getEmailList();
-        txt_selectionner_email.setItems(l);
-        btn_file_loaded.setOpacity(0);
+        ObservableList<String> list = getEmailList();
+        Affiche_msg();
+        txt_selectionner_email.setItems(list);
+//        btn_file_loaded.setOpacity(0);
     }
 
 
@@ -99,17 +109,27 @@ public class Contactgest extends Component  implements Initializable {
 
 
 
-    public static ObservableList<String> getEmailList(){
+    public ObservableList<String> getEmailList(){
         ArrayList<String> list = new ArrayList<>();
-
-
         try{
-            Connection con = Connexion.getConnection();
-            ResultSet resultSet = con.createStatement().executeQuery("SELECT email_utilisateur  FROM `responsable` join employe on employe.idEmploye  =responsable.id_employe JOIN utilisateur on employe.id_utlisateur=utilisateur.id_utlisateur;");
-            while (resultSet.next()){
-                list.add(resultSet.getString("email_utilisateur"));
+            if(radio_respo.isSelected())
+            {
+                Connection con = Connexion.getConnection();
+                ResultSet resultSet = con.createStatement().executeQuery("SELECT email_utilisateur  FROM `responsable` join employe on employe.idEmploye  =responsable.id_employe JOIN utilisateur on employe.id_utlisateur=utilisateur.id_utlisateur;");
+                while (resultSet.next()){
+                    list.add(resultSet.getString("email_utilisateur"));
+                }
+                con.close();
             }
-            con.close();
+            else if(radio_orga.isSelected())
+            {
+                Connection con = Connexion.getConnection();
+                ResultSet resultSet = con.createStatement().executeQuery("SELECT Email FROM `organisme`join utilisateur on utilisateur.id_utlisateur = organisme.id_utlisateur;");
+                while (resultSet.next()){
+                    list.add(resultSet.getString("Email"));
+                }
+                con.close();
+            }
         }
         catch (Exception ex){
             System.out.println("ERROR :"+ex.getMessage());
@@ -154,18 +174,63 @@ public class Contactgest extends Component  implements Initializable {
         msg.setEtat_Message("etat");
         msg.setFichier_Message(selectedfile);
         msg.setObjet_Message(txt_objet.getText());
-        msg.setIdEmploye_emetteur(msg.getIdByEmail(txt_email.getText()));
-        msg.setIdEmploye_emetteur(msg.getIdByEmail(txt_selectionner_email.getSelectionModel().getSelectedItem()));
-        if (txt_zon_message.getText().isEmpty() || txt_email.getText().isEmpty() || txt_selectionner_email.getSelectionModel().getSelectedItem().isEmpty()) {
+        msg.setIdEmploye_emetteur(49);
+        //int id = msg.getIdByEmail_(String.valueOf(txt_selectionner_email.getItems()));
+        if (txt_zon_message.getText().isEmpty() || txt_objet.getText().isEmpty() || txt_selectionner_email.getSelectionModel().getSelectedItem().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Champs Requis");
             alert.setContentText(" Veuillez remplir tous les champs pour soumettre le formulaire.");
             alert.show();
         }
 
-        else {
-            msg.envoyer_message();
+        else if(radio_respo.isSelected()){
+            msg.setIdEmploye_recepteur(msg.getIdByEmail_respo(txt_selectionner_email.getSelectionModel().getSelectedItem()));
+            //System.out.println(msg.getIdByEmail_respo(txt_selectionner_email.getSelectionModel().getSelectedItem()));
+            msg.envoyer_msg_respo();
+            Affiche_msg();
+            vider();
         }
+        else if(radio_orga.isSelected()){
+            msg.setIdOrganisme(msg.getIdByEmail_orga(txt_selectionner_email.getSelectionModel().getSelectedItem()));
+            msg.envoyer_msg_orga();
+            Affiche_msg();
+            vider();
+        }
+
+    }
+    @FXML
+    void comboChange()
+    {
+        ObservableList<String> list = getEmailList();
+        txt_selectionner_email.setItems(list);
+        Affiche_msg();
+    }
+    void vider()
+    {
+        txt_zon_message.setText("");
+        txt_objet.setText("");
+    }
+
+    @FXML
+    public void Affiche_msg(){
+            if(radio_respo.isSelected())
+            {
+                ObservableList<Message> list = Message.getMessage_respo();
+                col_object.setCellValueFactory(new PropertyValueFactory<Message,String>("objet_Message"));
+                col_msg.setCellValueFactory(new PropertyValueFactory<Message,String>("contenu_message"));
+                col_recepteur.setCellValueFactory(new PropertyValueFactory<Message,String>("Emetteur"));
+
+                table_msg.setItems(list);
+            }
+            else if(radio_orga.isSelected())
+            {
+                ObservableList<Message> list = Message.getMessage_org();
+                col_object.setCellValueFactory(new PropertyValueFactory<Message,String>("objet_Message"));
+                col_msg.setCellValueFactory(new PropertyValueFactory<Message,String>("contenu_message"));
+                col_recepteur.setCellValueFactory(new PropertyValueFactory<Message,String>("Emetteur"));
+
+                table_msg.setItems(list);
+            }
 
     }
 

@@ -56,6 +56,8 @@ public class dashbord_controller implements Initializable {
     private Label txt_titre;
     @FXML
     private StackPane stackPrincipe;
+    @FXML
+    private Button btn_exit,btn_reduire;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,18 +75,6 @@ public class dashbord_controller implements Initializable {
     @FXML
     public void switchToLogin(ActionEvent eventLogin) throws IOException {
         btn_deconnexion.getScene().getWindow().hide();
-
-//        Stage stgeLogn = new Stage();
-//        Parent root = FXMLLoader.load(getClass().getResource("Views/login_form.fxml"));
-//        Scene sceneLogn = new Scene(root);
-//        stgeLogn.setScene(sceneLogn);
-//        stgeLogn.show();
-//
-//        Parent root = FXMLLoader.load(getClass().getResource("/Views/login_form.fxml"));
-//        Stage window =(Stage) btn_deconnexion.getScene().getWindow();
-//        window.setScene(new Scene(root));
-//        window.centerOnScreen();
-
         Parent rootLogin = FXMLLoader.load(getClass().getResource("/application/Views/login_form.fxml"));
         stageLogin = (Stage) ((Node)eventLogin.getSource()).getScene().getWindow();
         sceneLogin = new Scene(rootLogin);
@@ -165,5 +155,13 @@ public class dashbord_controller implements Initializable {
         Parent fxml = FXMLLoader.load(getClass().getResource("/application/Views/Contact.fxml"));
         stackPrincipe.getChildren().removeAll();
         stackPrincipe.getChildren().setAll(fxml);
+    }
+    public void exite()
+    {
+        btn_exit.getScene().getWindow().hide();
+    }
+    public void reduire()
+    {
+        Stage stage = (Stage) btn_reduire.getScene().getWindow(); stage.setIconified(true);
     }
 }
