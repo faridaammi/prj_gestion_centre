@@ -90,7 +90,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TableView fx:id="tbl_organisme" layoutX="58.0" layoutY="283.0" onMouseClicked="#getselectedorganisme" prefHeight="319.0" prefWidth="939.0">
+      <TableView fx:id="tbl_organisme" layoutX="58.0" layoutY="283.0" onMouseClicked="#getselectedorganisme" prefHeight="277.0" prefWidth="939.0">
          <columns>
             <TableColumn fx:id="cln_name" prefWidth="111.33334589004517" text="Nom d’organisme" />
             <TableColumn fx:id="cln_code" prefWidth="132.6666717529297" text="Code" />
